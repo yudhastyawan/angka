@@ -10,7 +10,7 @@ typedef struct Vector {
 
 Vector *Vector_New(int size);
 void *Vector_SetItem(Vector *vec, int index, double val);
-void *Vector_GetItem(Vector *vec, int index, double *target);
+double Vector_GetItem(Vector *vec, int index);
 Vector_String Vector_ToString(Vector *vec, int islong);
 void Vector_Delete(Vector *vec);
 Vector *Vector_New_Random(int size, double min, double max);

@@ -20,11 +20,9 @@ void *Vector_SetItem(Vector *vec, int index, double val) {
     }
 }
 
-void *Vector_GetItem(Vector *vec, int index, double *target) {
+double Vector_GetItem(Vector *vec, int index) {
     if (index < vec->size) {
-        *target = vec->array[index];
-    } else {
-        return NULL;
+        return vec->array[index];
     }
 }
 

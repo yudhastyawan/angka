@@ -1,5 +1,7 @@
-#include "matrix.h"
+#include "init.h"
 #include "standard.h"
+#include "vector.h"
+#include "matrix.h"
 #include <malloc.h>
 #include <string.h>
 
@@ -39,7 +41,7 @@ Matrix *Matrix_New_Random(int row, int column, double min, double max) {
 }
 
 int Matrix_RowCol2Index(Matrix *mat, int row, int col) {
-    return col + row*mat->shape[0];
+    return col + row*mat->shape[1];
 }
 
 void *Matrix_SetItem(Matrix *mat, int row, int col, double val) {
@@ -56,43 +58,166 @@ double Matrix_GetItem(Matrix *mat, int row, int col) {
 }
 
 Matrix_String Matrix_ToString(Matrix *mat, int islong) {
-    char *mat_string, *temp_string;
-    int mat_length, temp_length;
+    char *mat_string;
+    int mat_length;
     int i, j;
 
     // counting the string length
-    mat_length += snprintf(0,0,"shape (,)\n");
-    mat_length += snprintf(0,0,"%d", mat->shape[0])+1;
-    mat_length += snprintf(0,0,"%d", mat->shape[1])+1;
-    if (islong == 1 || (mat->shape[0] <= 5 && mat->shape[1] <= 5)) {
+    mat_length += StringLength_String("shape (,)\n");
+    mat_length += StringLength_Integer(mat->shape[0]);
+    mat_length += StringLength_Integer(mat->shape[1]);
+    if (islong == TRUE || (mat->shape[0] <= 5 && mat->shape[1] <= 5)) {
         // [],[],[]
         for (i = 0; i < mat->shape[0]; i++) {
-            mat_length += snprintf(0,0,"[]\n");
+            mat_length += StringLength_String("[]\n");
             for (j = 0; j < mat->shape[1]; j++) {
-                mat_length += snprintf(0,0,"%f",mat->array[Matrix_RowCol2Index(mat, i, j)]);
+                mat_length += StringLength_Double(mat->array[Matrix_RowCol2Index(mat, i, j)]);
+                if (j < mat->shape[1] - 1) {
+                    mat_length += StringLength_String(", ");
+                }
+            }
+        }
+    } 
+    else if (islong == FALSE && mat->shape[0] <= 5) {
+        for (i = 0; i < mat->shape[0]; i++) {
+            mat_length += StringLength_String("[]\n");
+            for (j = 0; j < mat->shape[1]; j++) {
+                if (j < 4) {
+                    mat_length += StringLength_Double(mat->array[Matrix_RowCol2Index(mat, i, j)]);
+                    if (j < 3) {
+                        mat_length += StringLength_String(", ");
+                    } else {
+                        mat_length += StringLength_String(",..., ");
+                    }
+                }
+                if (j == (mat->shape[1] - 1)) {
+                    mat_length += StringLength_Double(mat->array[Matrix_RowCol2Index(mat, i, j)]);
+                }
             }
         }
     }
+    else if (islong == FALSE && mat->shape[1] <= 5) {
+        for (i = 0; i < mat->shape[0]; i++) {
+            if (i < 4 || i == (mat->shape[0]-1)) {
+                mat_length += StringLength_String("[]\n");
+                for (j = 0; j < mat->shape[1]; j++) {
+                    mat_length += StringLength_Double(mat->array[Matrix_RowCol2Index(mat, i, j)]);
+                    if (j < mat->shape[1] - 1) {
+                        mat_length += StringLength_String(", ");
+                    }
+                }
+                if (i == 3) {
+                    mat_length += StringLength_String("\t⋮\n");
+                }
+            }
+        }
+    }
+    else {
+        for (i = 0; i < mat->shape[0]; i++) {
+            if (i < 4 || i == (mat->shape[0]-1)) {
+                mat_length += StringLength_String("[]\n");
+                for (j = 0; j < mat->shape[1]; j++) {
+                    if (j < 4) {
+                        mat_length += StringLength_Double(mat->array[Matrix_RowCol2Index(mat, i, j)]);
+                        if (j < 3) {
+                            mat_length += StringLength_String(", ");
+                        } else {
+                            mat_length += StringLength_String(",..., ");
+                        }
+                    }
+                    if (j == (mat->shape[1] - 1)) {
+                        mat_length += StringLength_Double(mat->array[Matrix_RowCol2Index(mat, i, j)]);
+                    }
+                }
+                if (i == 3) {
+                    mat_length += StringLength_String("\t⋮\n");
+                }
+            }
+        }
+    }
+    
     mat_length += 1;
 
     // designing the string
     mat_string = malloc(mat_length);
     strcpy(mat_string, "shape (");
-
-    temp_length = snprintf(0,0,"%d", mat->shape[0]) + 1;
-    temp_string = malloc(temp_length);
-    snprintf(temp_string, temp_length, "%d", mat->shape[0]);
-    strcat(mat_string, temp_string);
-
+    String_Append_Integer(mat_string, mat->shape[0], FALSE);
     strcat(mat_string, ",");
-
-    temp_length = snprintf(0,0,"%d", mat->shape[1]) + 1;
-    temp_string = realloc(temp_string, temp_length);
-    snprintf(temp_string, temp_length, "%d", mat->shape[0]);
-    strcat(mat_string, temp_string);
+    String_Append_Integer(mat_string, mat->shape[1], FALSE);
     strcat(mat_string, ")\n");
+    if (islong == TRUE || (mat->shape[0] <= 5 && mat->shape[1] <= 5)) {
+        for (i = 0; i < mat->shape[0]; i++) {
+            strcat(mat_string, "[");
+            for (j = 0; j < mat->shape[1]; j++) {
+                String_Append_Double(mat_string, mat->array[Matrix_RowCol2Index(mat, i, j)], FALSE);
+                if (j < mat->shape[1] - 1) {
+                    strcat(mat_string, ", ");
+                }
+            }
+            strcat(mat_string, "]\n");
+        }
+    }
+    else if (islong == FALSE && mat->shape[0] <= 5) {
+        for (i = 0; i < mat->shape[0]; i++) {
+            strcat(mat_string, "[");
+            for (j = 0; j < mat->shape[1]; j++) {
+                if (j < 4) {
+                    String_Append_Double(mat_string, mat->array[Matrix_RowCol2Index(mat, i, j)], FALSE);
+                    if (j < 3) {
+                        strcat(mat_string, ", ");
+                    } else {
+                        strcat(mat_string, ",..., ");
+                    }
+                }
+                if (j == (mat->shape[1] - 1)) {
+                    String_Append_Double(mat_string, mat->array[Matrix_RowCol2Index(mat, i, j)], FALSE);
+                }
+            }
+            strcat(mat_string, "]\n");
+        }
+    }
+    else if (islong == FALSE && mat->shape[1] <= 5) {
+        for (i = 0; i < mat->shape[0]; i++) {
+            if (i < 4 || i == (mat->shape[0]-1)) {
+                strcat(mat_string, "[");
+                for (j = 0; j < mat->shape[1]; j++) {
+                    String_Append_Double(mat_string, mat->array[Matrix_RowCol2Index(mat, i, j)], FALSE);
+                    if (j < mat->shape[1] - 1) {
+                        strcat(mat_string, ", ");
+                    }
+                }
+                strcat(mat_string, "]\n");
+                if (i == 3) {
+                    strcat(mat_string, "\t⋮\n");
+                }
+            }
+        }
+    }
+    else {
+        for (i = 0; i < mat->shape[0]; i++) {
+            if (i < 4 || i == (mat->shape[0]-1)) {
+                strcat(mat_string, "[");
+                for (j = 0; j < mat->shape[1]; j++) {
+                    if (j < 4) {
+                        String_Append_Double(mat_string, mat->array[Matrix_RowCol2Index(mat, i, j)], FALSE);
+                        if (j < 3) {
+                            strcat(mat_string, ", ");
+                        } else {
+                            strcat(mat_string, ",..., ");
+                        }
+                    }
+                    if (j == (mat->shape[1] - 1)) {
+                        String_Append_Double(mat_string, mat->array[Matrix_RowCol2Index(mat, i, j)], FALSE);
+                    }
+                }
+                strcat(mat_string, "]\n");
+                if (i == 3) {
+                    strcat(mat_string, "\t⋮\n");
+                }
+            }
+        }
+    }
 
-    free(temp_string);
     return mat_string;
 }
 
@@ -100,4 +225,94 @@ void *Matrix_Print(Matrix *mat, int islong) {
     Matrix_String mat_str = Matrix_ToString(mat, islong);
     printf("%s", mat_str);
     Data_Delete(mat_str);
+}
+
+void *Matrix_QuickPrint(Matrix *mat) {
+    Matrix_Print(mat, FALSE);
+}
+
+void *Matrix_LongPrint(Matrix *mat) {
+    Matrix_Print(mat, TRUE);
+}
+
+void *Matrix_Add_ByValue(Matrix *mat, double val) {
+    for (int i = 0; i < mat->size; i++) {
+        mat->array[i] += val;
+    }
+}
+
+void *Matrix_Substract_ByValue(Matrix *mat, double val) {
+    for (int i = 0; i < mat->size; i++) {
+        mat->array[i] -= val;
+    }
+}
+
+void *Matrix_Multiply_ByValue(Matrix *mat, double val) {
+    for (int i = 0; i < mat->size; i++) {
+        mat->array[i] *= val;
+    }
+}
+
+void *Matrix_Devide_ByValue(Matrix *mat, double val) {
+    for (int i = 0; i < mat->size; i++) {
+        mat->array[i] /= val;
+    }
+}
+
+Matrix *Matrix_New_DuplicateSize(Matrix *mat) {
+    Matrix *mat_new = Matrix_New(mat->shape[0], mat->shape[1]);
+    return mat_new;
+}
+
+void *Matrix_CopyElements(Matrix *src, Matrix *target) {
+    if (src->size == target->size) {
+        for (int i = 0; i < target->size; i++) {
+            target->array[i] = src->array[i];
+        }
+    }
+}
+
+void *Matrix_CopyShape(Matrix *src, Matrix *target) {
+    target->shape[0] = src->shape[0];
+    target->shape[1] = src->shape[1];
+}
+
+void *Matrix_Transpose(Matrix *mat) {
+    Matrix *mat_new = Matrix_New(mat->shape[1], mat->shape[0]);
+    for (int i = 0; i < mat->shape[0]; i++) {
+        for (int j = 0; j < mat->shape[1]; j++) {
+            mat_new->array[Matrix_RowCol2Index(mat_new, j, i)] = mat->array[Matrix_RowCol2Index(mat, i, j)];
+        }
+    }
+    Matrix_CopyElements(mat_new, mat);
+    Matrix_CopyShape(mat_new, mat);
+    Matrix_Delete(mat_new);
+}
+
+Matrix *Matrix_New_Copy(Matrix *mat) {
+    Matrix *mat_new = Matrix_New_DuplicateSize(mat);
+    Matrix_CopyElements(mat, mat_new);
+    return mat_new;
+}
+
+Matrix *Matrix_New_FromVector(Vector *vec) {
+    Matrix *mat = Matrix_New(1, vec->size);
+    for (int i = 0; i < vec->size; i++) {
+        mat->array[i] = vec->array[i];
+    }
+    return mat;
+}
+
+Matrix *Matrix_New_Identity(int size) {
+    Matrix *mat = Matrix_New(size, size);
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (i == j) {
+                mat->array[Matrix_RowCol2Index(mat, i, j)] = 1.;
+            } else {
+                mat->array[Matrix_RowCol2Index(mat, i, j)] = 0.;
+            }
+        }
+    }
+    return mat;
 }

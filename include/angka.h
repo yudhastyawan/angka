@@ -1,10 +1,9 @@
 #ifndef __ANGKA_H
 #define __ANGKA_H
 
-enum BOOL {FALSE, TRUE};
-
-#include "matrix.h"
-#include "vector.h"
+#include "init.h"
 #include "standard.h"
+#include "vector.h"
+#include "matrix.h"
 
 #endif

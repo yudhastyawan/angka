@@ -1,5 +1,6 @@
-#include "vector.h"
+#include "init.h"
 #include "standard.h"
+#include "vector.h"
 #include <malloc.h>
 #include <string.h>
 
@@ -108,8 +109,10 @@ void Vector_Delete(Vector *vec) {
 
 Vector *Vector_New_Random(int size, double min, double max) {
     Vector *vec = Vector_New(size);
+    double val;
     for(int i = 0; i < vec->size; i++) {
-        Vector_SetItem(vec, i, Random(min, max));
+        val = Random(min, max);
+        Vector_SetItem(vec, i, val);
     }
     return vec;
 }
@@ -180,3 +183,21 @@ Vector *Vector_New_Constant(int size, double val) {
     return vec;
 }
 
+Vector *Vector_New_DuplicateSize(Vector *vec) {
+    Vector *vec_new = Vector_New(vec->size);
+    return vec_new;
+}
+
+void *Vector_CopyElements(Vector *src, Vector *target) {
+    if (src->size == target->size) {
+        for (int i = 0; i < target->size; i++) {
+            target->array[i] = src->array[i];
+        }
+    }
+}
+
+Vector *Vector_New_Copy(Vector *vec) {
+    Vector *vec_new = Vector_New_DuplicateSize(vec);
+    Vector_CopyElements(vec, vec_new);
+    return vec_new;
+}

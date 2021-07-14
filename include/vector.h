@@ -25,4 +25,7 @@ void *Vector_Multiply_ByValue(Vector *vec, double val);
 void *Vector_Devide_ByValue(Vector *vec, double val);
 void *Vector_ChangeElements_ByValue(Vector *vec, double val);
 Vector *Vector_New_Constant(int size, double val);
+Vector *Vector_New_DuplicateSize(Vector *vec);
+void *Vector_CopyElements(Vector *src, Vector *target);
+Vector *Vector_New_Copy(Vector *vec);
 #endif

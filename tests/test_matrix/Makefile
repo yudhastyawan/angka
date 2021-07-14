@@ -10,6 +10,7 @@ test:
 	rm -rf *.o *.out
 
 compile:
+	mkdir -p ../../lib/
 	gcc -c ../../src/matrix.c -I../../include -o matrix.o
 	gcc -c ../../src/vector.c -I../../include -o vector.o
 	gcc -c ../../src/standard.c -I../../include -o standard.o

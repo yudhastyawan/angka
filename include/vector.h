@@ -17,4 +17,12 @@ Vector *Vector_New_Random(int size, double min, double max);
 void *Vector_Print(Vector *vec, int islong);
 void *Vector_Append_Value(Vector *vec, double val);
 void *Vector_Append_Vector(Vector *vec_target, Vector *vec_another);
+void *Vector_QuickPrint(Vector *vec);
+void *Vector_LongPrint(Vector *vec);
+void *Vector_Add_ByValue(Vector *vec, double val);
+void *Vector_Substract_ByValue(Vector *vec, double val);
+void *Vector_Multiply_ByValue(Vector *vec, double val);
+void *Vector_Devide_ByValue(Vector *vec, double val);
+void *Vector_ChangeElements_ByValue(Vector *vec, double val);
+Vector *Vector_New_Constant(int size, double val);
 #endif

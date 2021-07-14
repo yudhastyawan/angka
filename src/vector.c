@@ -135,3 +135,48 @@ void *Vector_Append_Vector(Vector *vec_target, Vector *vec_another) {
     }
     vec_target->size += vec_another->size;
 }
+
+void *Vector_QuickPrint(Vector *vec){
+    Vector_Print(vec, 0);
+}
+
+void *Vector_LongPrint(Vector *vec){
+    Vector_Print(vec, 1);
+}
+
+void *Vector_Add_ByValue(Vector *vec, double val) {
+    for (int i = 0; i < vec->size; i++) {
+        vec->array[i] += val;
+    }
+}
+
+void *Vector_Substract_ByValue(Vector *vec, double val) {
+    for (int i = 0; i < vec->size; i++) {
+        vec->array[i] -= val;
+    }
+}
+
+void *Vector_Multiply_ByValue(Vector *vec, double val) {
+    for (int i = 0; i < vec->size; i++) {
+        vec->array[i] *= val;
+    }
+}
+
+void *Vector_Devide_ByValue(Vector *vec, double val) {
+    for (int i = 0; i < vec->size; i++) {
+        vec->array[i] /= val;
+    }
+}
+
+void *Vector_ChangeElements_ByValue(Vector *vec, double val) {
+    for (int i = 0; i < vec->size; i++) {
+        vec->array[i] = val;
+    }
+}
+
+Vector *Vector_New_Constant(int size, double val) {
+    Vector *vec = Vector_New(size);
+    Vector_ChangeElements_ByValue(vec, val);
+    return vec;
+}
+

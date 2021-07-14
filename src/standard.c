@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "standard.h"
 
 double Random(double min, double max)
@@ -17,3 +18,4 @@ double Random(double min, double max)
 void Data_Delete(void *__ptr) {
     free(__ptr);
 }
+

@@ -4,15 +4,15 @@
 #include <malloc.h>
 #include <string.h>
 
-Vector *Vector_New(int size) {
-    Vector *vec;
-    vec = (Vector *)malloc(sizeof(Vector));
+vector *getVectorNew(int size) {
+    vector *vec;
+    vec = (vector *)malloc(sizeof(vector));
     vec->array = (double *)malloc((size)*sizeof(double));
     vec->size = size;
     return vec;
 }
 
-void *Vector_SetItem(Vector *vec, int index, double val) {
+void *getVectorSetItem(vector *vec, int index, double val) {
     if(index < vec->size) {
         vec->array[index] = val;
     } else {
@@ -20,13 +20,13 @@ void *Vector_SetItem(Vector *vec, int index, double val) {
     }
 }
 
-double Vector_GetItem(Vector *vec, int index) {
+double getVectorItem(vector *vec, int index) {
     if (index < vec->size) {
         return vec->array[index];
     }
 }
 
-Vector_String Vector_ToString(Vector *vec, int islong) {
+vectorstring getVectorToString(vector *vec, int islong) {
     char *vec_string;
     int vec_length, temp_length;
     int i;
@@ -100,34 +100,34 @@ Vector_String Vector_ToString(Vector *vec, int islong) {
     return vec_string;
 }
 
-void Vector_Delete(Vector *vec) {
+void getVectorDelete(vector *vec) {
     free(vec->array);
     free(vec);
 }
 
-Vector *Vector_New_Random(int size, double min, double max) {
-    Vector *vec = Vector_New(size);
+vector *getVectorNewRandom(int size, double min, double max) {
+    vector *vec = getVectorNew(size);
     double val;
     for(int i = 0; i < vec->size; i++) {
-        val = Random(min, max);
-        Vector_SetItem(vec, i, val);
+        val = getRandom(min, max);
+        getVectorSetItem(vec, i, val);
     }
     return vec;
 }
 
-void *Vector_Print(Vector *vec, int islong) {
-    Vector_String vec_str = Vector_ToString(vec, islong);
+void *getVectorPrint(vector *vec, int islong) {
+    vectorstring vec_str = getVectorToString(vec, islong);
     printf("%s", vec_str);
-    Data_Delete(vec_str);
+    getDataDelete(vec_str);
 }
 
-void *Vector_Append_Value(Vector *vec, double val) {
+void *getVectorAppendValue(vector *vec, double val) {
     vec->array = (double *)realloc(vec->array, (vec->size+1)*sizeof(double));
     vec->array[vec->size] = val;
     vec->size += 1;
 }
 
-void *Vector_Append_Vector(Vector *vec_target, Vector *vec_another) {
+void *getVectorAppendVector(vector *vec_target, vector *vec_another) {
     vec_target->array = (double *)
         realloc(vec_target->array, (vec_target->size+vec_another->size)
             *sizeof(double));
@@ -137,56 +137,56 @@ void *Vector_Append_Vector(Vector *vec_target, Vector *vec_another) {
     vec_target->size += vec_another->size;
 }
 
-void *Vector_QuickPrint(Vector *vec){
-    Vector_Print(vec, 0);
+void *getVectorPrintQuick(vector *vec){
+    getVectorPrint(vec, 0);
 }
 
-void *Vector_LongPrint(Vector *vec){
-    Vector_Print(vec, 1);
+void *getVectorPrintFull(vector *vec){
+    getVectorPrint(vec, 1);
 }
 
-void *Vector_Add_ByValue(Vector *vec, double val) {
+void *getVectorAddByValue(vector *vec, double val) {
     for (int i = 0; i < vec->size; i++) {
         vec->array[i] += val;
     }
 }
 
-void *Vector_Substract_ByValue(Vector *vec, double val) {
+void *getVectorSubstractByValue(vector *vec, double val) {
     for (int i = 0; i < vec->size; i++) {
         vec->array[i] -= val;
     }
 }
 
-void *Vector_Multiply_ByValue(Vector *vec, double val) {
+void *getVectorMultiplyByValue(vector *vec, double val) {
     for (int i = 0; i < vec->size; i++) {
         vec->array[i] *= val;
     }
 }
 
-void *Vector_Devide_ByValue(Vector *vec, double val) {
+void *getVectorDevideByValue(vector *vec, double val) {
     for (int i = 0; i < vec->size; i++) {
         vec->array[i] /= val;
     }
 }
 
-void *Vector_ChangeElements_ByValue(Vector *vec, double val) {
+void *getVectorChangeAllElementsByValue(vector *vec, double val) {
     for (int i = 0; i < vec->size; i++) {
         vec->array[i] = val;
     }
 }
 
-Vector *Vector_New_Constant(int size, double val) {
-    Vector *vec = Vector_New(size);
-    Vector_ChangeElements_ByValue(vec, val);
+vector *getVectorNewConstant(int size, double val) {
+    vector *vec = getVectorNew(size);
+    getVectorChangeAllElementsByValue(vec, val);
     return vec;
 }
 
-Vector *Vector_New_DuplicateSize(Vector *vec) {
-    Vector *vec_new = Vector_New(vec->size);
+vector *getVectorNewDuplicateSize(vector *vec) {
+    vector *vec_new = getVectorNew(vec->size);
     return vec_new;
 }
 
-void *Vector_CopyElements(Vector *src, Vector *target) {
+void *getVectorCopyElements(vector *src, vector *target) {
     if (src->size == target->size) {
         for (int i = 0; i < target->size; i++) {
             target->array[i] = src->array[i];
@@ -194,8 +194,12 @@ void *Vector_CopyElements(Vector *src, Vector *target) {
     }
 }
 
-Vector *Vector_New_Copy(Vector *vec) {
-    Vector *vec_new = Vector_New_DuplicateSize(vec);
-    Vector_CopyElements(vec, vec_new);
+vector *getVectorNewCopy(vector *vec) {
+    vector *vec_new = getVectorNewDuplicateSize(vec);
+    getVectorCopyElements(vec, vec_new);
     return vec_new;
+}
+
+vector *getVectorNewZero(int size) {
+    return getVectorNewConstant(size, 0.);
 }

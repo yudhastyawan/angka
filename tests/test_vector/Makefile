@@ -3,8 +3,8 @@ all:
 	make test
 
 test:
-	gcc -c test_vector_3.c -I../../include -o test_vector.o
-	gcc test_vector.o -L../../lib/ -langka -o ./main.out
+	gcc -c main_1.c -I../../include -o main.o
+	gcc main.o -L../../lib/ -langka -o ./main.out
 	./main.out
 	rm -rf *.o *.out
 

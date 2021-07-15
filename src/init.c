@@ -2,36 +2,40 @@
 #include <malloc.h>
 #include <string.h>
 
-void *Integer_Print(int val) {
+void *getPrintInteger(int val) {
     printf("%d\n", val);
 }
 
-void *Double_Print(double val) {
+void *getPrintDouble(double val) {
     printf("%f\n", val);
 }
 
-int StringLength_Integer(int val) {
+void *getPrintString(char *val) {
+    printf("%s\n", val);
+}
+
+int getStringLengthInteger(int val) {
     return snprintf(0,0,"%d", val)+1;
 }
 
-int StringLength_String(char *str) {
+int getStringLengthString(char *str) {
     return snprintf(0,0,"%s", str);
 }
 
-int StringLength_Double(double val) {
+int getStringLengthDouble(double val) {
     return snprintf(0,0,"%f", val);
 }
 
-char *String_FromInteger(int val) {
+char *getStringFromInteger(int val) {
     char *str;
-    int len = StringLength_Integer(val);
+    int len = getStringLengthInteger(val);
     str = malloc(len);
     snprintf(str, len, "%d", val);
     return str;
 }
 
-void *String_Append_Integer(char *target, int val, int isInitial) {
-    char *str = String_FromInteger(val);
+void *getStringAppendInteger(char *target, int val, int isInitial) {
+    char *str = getStringFromInteger(val);
     if (isInitial == 1) {
         strcpy(target, str);
     } else {
@@ -40,16 +44,16 @@ void *String_Append_Integer(char *target, int val, int isInitial) {
     free(str);
 }
 
-char *String_FromDouble(double val) {
+char *getStringFromDouble(double val) {
     char *str;
-    int len = StringLength_Double(val);
+    int len = getStringLengthDouble(val);
     str = malloc(len);
     snprintf(str, len, "%f", val);
     return str;
 }
 
-void *String_Append_Double(char *target, double val, int isInitial) {
-    char *str = String_FromDouble(val);
+void *getStringAppendDouble(char *target, double val, int isInitial) {
+    char *str = getStringFromDouble(val);
     if (isInitial == 1) {
         strcpy(target, str);
     } else {

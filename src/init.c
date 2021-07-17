@@ -2,40 +2,40 @@
 #include <malloc.h>
 #include <string.h>
 
-void *getPrintInteger(int val) {
+void *agx_print_integer(int val) {
     printf("%d\n", val);
 }
 
-void *getPrintDouble(double val) {
+void *agx_print_double(double val) {
     printf("%f\n", val);
 }
 
-void *getPrintString(char *val) {
+void *agx_print_string(char *val) {
     printf("%s\n", val);
 }
 
-int getStringLengthInteger(int val) {
+int agx_string_length_integer(int val) {
     return snprintf(0,0,"%d", val)+1;
 }
 
-int getStringLengthString(char *str) {
+int agx_string_length_string(char *str) {
     return snprintf(0,0,"%s", str);
 }
 
-int getStringLengthDouble(double val) {
+int agx_string_length_double(double val) {
     return snprintf(0,0,"%f", val);
 }
 
-char *getStringFromInteger(int val) {
+char *agx_string_from_integer(int val) {
     char *str;
-    int len = getStringLengthInteger(val);
+    int len = agx_string_length_integer(val);
     str = malloc(len);
     snprintf(str, len, "%d", val);
     return str;
 }
 
-void *getStringAppendInteger(char *target, int val, int isInitial) {
-    char *str = getStringFromInteger(val);
+void *agx_string_append_integer(char *target, int val, int isInitial) {
+    char *str = agx_string_from_integer(val);
     if (isInitial == 1) {
         strcpy(target, str);
     } else {
@@ -44,16 +44,16 @@ void *getStringAppendInteger(char *target, int val, int isInitial) {
     free(str);
 }
 
-char *getStringFromDouble(double val) {
+char *agx_string_from_double(double val) {
     char *str;
-    int len = getStringLengthDouble(val);
+    int len = agx_string_length_double(val);
     str = malloc(len);
     snprintf(str, len, "%f", val);
     return str;
 }
 
-void *getStringAppendDouble(char *target, double val, int isInitial) {
-    char *str = getStringFromDouble(val);
+void *agx_string_append_double(char *target, double val, int isInitial) {
+    char *str = agx_string_from_double(val);
     if (isInitial == 1) {
         strcpy(target, str);
     } else {

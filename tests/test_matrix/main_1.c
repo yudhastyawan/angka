@@ -1,12 +1,12 @@
 #include "angka.h"
 
 int main() {
-    matrix *mat = getMatrixNewConstant(4, 5, 2.);
-    getMatrixPrintQuick(mat);
+    AgxMatrix *mat = agx_matrix_new_constant(4, 5, 2.);
+    agx_matrix_print_partial(mat);
 
-    getMatrixTranspose(mat);
-    getMatrixPrintQuick(mat); 
+    agx_matrix_transpose(mat);
+    agx_matrix_print_partial(mat); 
 
-    getMatrixDelete(mat);
+    agx_matrix_delete(mat);
     return 0;
 }

@@ -5,132 +5,132 @@
 #include <malloc.h>
 #include <string.h>
 
-matrix *getMatrixNew(int row, int column) {
-    matrix *mat;
-    mat = (matrix *)malloc(sizeof(matrix));
+AgxMatrix *agx_matrix_new(int row, int column) {
+    AgxMatrix *mat;
+    mat = (AgxMatrix *)malloc(sizeof(AgxMatrix));
     mat->size = row * column;
-    mat->shape[0] = row;
-    mat->shape[1] = column;
-    mat->array = (double *)malloc((mat->size)*sizeof(double));
+    mat->r_shape[0] = row;
+    mat->r_shape[1] = column;
+    mat->p_r_nums = (double *)malloc((mat->size)*sizeof(double));
     return mat;
 }
 
-void getMatrixDelete(matrix *mat) {
-    free(mat->array);
+void agx_matrix_delete(AgxMatrix *mat) {
+    free(mat->p_r_nums);
     free(mat);
 }
 
-void *getMatrixChangeAllElementsByValue(matrix *mat, double val) {
+void *agx_matrix_change_elements_by_value(AgxMatrix *mat, double val) {
     for (int i = 0; i < mat->size; i++) {
-        mat->array[i] = val;
+        mat->p_r_nums[i] = val;
     }
 }
 
-matrix *getMatrixNewConstant(int row, int column, double val) {
-    matrix *mat = getMatrixNew(row, column);
-    getMatrixChangeAllElementsByValue(mat, val);
+AgxMatrix *agx_matrix_new_constant(int row, int column, double val) {
+    AgxMatrix *mat = agx_matrix_new(row, column);
+    agx_matrix_change_elements_by_value(mat, val);
     return mat;
 }
 
-matrix *getMatrixNewRandom(int row, int column, double min, double max) {
-    matrix *mat = getMatrixNew(row, column);
+AgxMatrix *agx_matrix_new_random(int row, int column, double min, double max) {
+    AgxMatrix *mat = agx_matrix_new(row, column);
     for (int i = 0; i < mat->size; i++) {
-        mat->array[i] = getRandom(min, max);
+        mat->p_r_nums[i] = agx_random(min, max);
     }
     return mat;
 }
 
-int getMatrixRowColToIndex(matrix *mat, int row, int col) {
-    return col + row*mat->shape[1];
+int agx_matrix_row_col_to_index(AgxMatrix *mat, int row, int col) {
+    return col + row*mat->r_shape[1];
 }
 
-void *getMatrixSetItem(matrix *mat, int row, int col, double val) {
-    int index = getMatrixRowColToIndex(mat, row, col);
+void *agx_matrix_set_item(AgxMatrix *mat, int row, int col, double val) {
+    int index = agx_matrix_row_col_to_index(mat, row, col);
     if (index < mat->size) {
-        mat->array[index] = val;
+        mat->p_r_nums[index] = val;
     } else {
         return NULL;
     }
 }
 
-double getMatrixItem(matrix *mat, int row, int col) {
-    return mat->array[getMatrixRowColToIndex(mat, row, col)];
+double agx_matrix_get_item(AgxMatrix *mat, int row, int col) {
+    return mat->p_r_nums[agx_matrix_row_col_to_index(mat, row, col)];
 }
 
-matrixstring getMatrixToString(matrix *mat, int islong) {
+p_matrixString_t agx_matrix_to_string(AgxMatrix *mat, int islong) {
     char *mat_string;
     int mat_length;
     int i, j;
 
     // counting the string length
-    mat_length += getStringLengthString("shape (,)\n");
-    mat_length += getStringLengthInteger(mat->shape[0]);
-    mat_length += getStringLengthInteger(mat->shape[1]);
-    if (islong == TRUE || (mat->shape[0] <= 5 && mat->shape[1] <= 5)) {
+    mat_length += agx_string_length_string("shape (,)\n");
+    mat_length += agx_string_length_integer(mat->r_shape[0]);
+    mat_length += agx_string_length_integer(mat->r_shape[1]);
+    if (islong == TRUE || (mat->r_shape[0] <= 5 && mat->r_shape[1] <= 5)) {
         // [],[],[]
-        for (i = 0; i < mat->shape[0]; i++) {
-            mat_length += getStringLengthString("[]\n");
-            for (j = 0; j < mat->shape[1]; j++) {
-                mat_length += getStringLengthDouble(mat->array[getMatrixRowColToIndex(mat, i, j)]);
-                if (j < mat->shape[1] - 1) {
-                    mat_length += getStringLengthString(", ");
+        for (i = 0; i < mat->r_shape[0]; i++) {
+            mat_length += agx_string_length_string("[]\n");
+            for (j = 0; j < mat->r_shape[1]; j++) {
+                mat_length += agx_string_length_double(mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)]);
+                if (j < mat->r_shape[1] - 1) {
+                    mat_length += agx_string_length_string(", ");
                 }
             }
         }
     } 
-    else if (islong == FALSE && mat->shape[0] <= 5) {
-        for (i = 0; i < mat->shape[0]; i++) {
-            mat_length += getStringLengthString("[]\n");
-            for (j = 0; j < mat->shape[1]; j++) {
+    else if (islong == FALSE && mat->r_shape[0] <= 5) {
+        for (i = 0; i < mat->r_shape[0]; i++) {
+            mat_length += agx_string_length_string("[]\n");
+            for (j = 0; j < mat->r_shape[1]; j++) {
                 if (j < 4) {
-                    mat_length += getStringLengthDouble(mat->array[getMatrixRowColToIndex(mat, i, j)]);
+                    mat_length += agx_string_length_double(mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)]);
                     if (j < 3) {
-                        mat_length += getStringLengthString(", ");
+                        mat_length += agx_string_length_string(", ");
                     } else {
-                        mat_length += getStringLengthString(",..., ");
+                        mat_length += agx_string_length_string(",..., ");
                     }
                 }
-                if (j == (mat->shape[1] - 1)) {
-                    mat_length += getStringLengthDouble(mat->array[getMatrixRowColToIndex(mat, i, j)]);
+                if (j == (mat->r_shape[1] - 1)) {
+                    mat_length += agx_string_length_double(mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)]);
                 }
             }
         }
     }
-    else if (islong == FALSE && mat->shape[1] <= 5) {
-        for (i = 0; i < mat->shape[0]; i++) {
-            if (i < 4 || i == (mat->shape[0]-1)) {
-                mat_length += getStringLengthString("[]\n");
-                for (j = 0; j < mat->shape[1]; j++) {
-                    mat_length += getStringLengthDouble(mat->array[getMatrixRowColToIndex(mat, i, j)]);
-                    if (j < mat->shape[1] - 1) {
-                        mat_length += getStringLengthString(", ");
+    else if (islong == FALSE && mat->r_shape[1] <= 5) {
+        for (i = 0; i < mat->r_shape[0]; i++) {
+            if (i < 4 || i == (mat->r_shape[0]-1)) {
+                mat_length += agx_string_length_string("[]\n");
+                for (j = 0; j < mat->r_shape[1]; j++) {
+                    mat_length += agx_string_length_double(mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)]);
+                    if (j < mat->r_shape[1] - 1) {
+                        mat_length += agx_string_length_string(", ");
                     }
                 }
                 if (i == 3) {
-                    mat_length += getStringLengthString("\t⋮\n");
+                    mat_length += agx_string_length_string("\t⋮\n");
                 }
             }
         }
     }
     else {
-        for (i = 0; i < mat->shape[0]; i++) {
-            if (i < 4 || i == (mat->shape[0]-1)) {
-                mat_length += getStringLengthString("[]\n");
-                for (j = 0; j < mat->shape[1]; j++) {
+        for (i = 0; i < mat->r_shape[0]; i++) {
+            if (i < 4 || i == (mat->r_shape[0]-1)) {
+                mat_length += agx_string_length_string("[]\n");
+                for (j = 0; j < mat->r_shape[1]; j++) {
                     if (j < 4) {
-                        mat_length += getStringLengthDouble(mat->array[getMatrixRowColToIndex(mat, i, j)]);
+                        mat_length += agx_string_length_double(mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)]);
                         if (j < 3) {
-                            mat_length += getStringLengthString(", ");
+                            mat_length += agx_string_length_string(", ");
                         } else {
-                            mat_length += getStringLengthString(",..., ");
+                            mat_length += agx_string_length_string(",..., ");
                         }
                     }
-                    if (j == (mat->shape[1] - 1)) {
-                        mat_length += getStringLengthDouble(mat->array[getMatrixRowColToIndex(mat, i, j)]);
+                    if (j == (mat->r_shape[1] - 1)) {
+                        mat_length += agx_string_length_double(mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)]);
                     }
                 }
                 if (i == 3) {
-                    mat_length += getStringLengthString("\t⋮\n");
+                    mat_length += agx_string_length_string("\t⋮\n");
                 }
             }
         }
@@ -141,48 +141,48 @@ matrixstring getMatrixToString(matrix *mat, int islong) {
     // designing the string
     mat_string = malloc(mat_length);
     strcpy(mat_string, "shape (");
-    getStringAppendInteger(mat_string, mat->shape[0], FALSE);
+    agx_string_append_integer(mat_string, mat->r_shape[0], FALSE);
     strcat(mat_string, ",");
-    getStringAppendInteger(mat_string, mat->shape[1], FALSE);
+    agx_string_append_integer(mat_string, mat->r_shape[1], FALSE);
     strcat(mat_string, ")\n");
-    if (islong == TRUE || (mat->shape[0] <= 5 && mat->shape[1] <= 5)) {
-        for (i = 0; i < mat->shape[0]; i++) {
+    if (islong == TRUE || (mat->r_shape[0] <= 5 && mat->r_shape[1] <= 5)) {
+        for (i = 0; i < mat->r_shape[0]; i++) {
             strcat(mat_string, "[");
-            for (j = 0; j < mat->shape[1]; j++) {
-                getStringAppendDouble(mat_string, mat->array[getMatrixRowColToIndex(mat, i, j)], FALSE);
-                if (j < mat->shape[1] - 1) {
+            for (j = 0; j < mat->r_shape[1]; j++) {
+                agx_string_append_double(mat_string, mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)], FALSE);
+                if (j < mat->r_shape[1] - 1) {
                     strcat(mat_string, ", ");
                 }
             }
             strcat(mat_string, "]\n");
         }
     }
-    else if (islong == FALSE && mat->shape[0] <= 5) {
-        for (i = 0; i < mat->shape[0]; i++) {
+    else if (islong == FALSE && mat->r_shape[0] <= 5) {
+        for (i = 0; i < mat->r_shape[0]; i++) {
             strcat(mat_string, "[");
-            for (j = 0; j < mat->shape[1]; j++) {
+            for (j = 0; j < mat->r_shape[1]; j++) {
                 if (j < 4) {
-                    getStringAppendDouble(mat_string, mat->array[getMatrixRowColToIndex(mat, i, j)], FALSE);
+                    agx_string_append_double(mat_string, mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)], FALSE);
                     if (j < 3) {
                         strcat(mat_string, ", ");
                     } else {
                         strcat(mat_string, ",..., ");
                     }
                 }
-                if (j == (mat->shape[1] - 1)) {
-                    getStringAppendDouble(mat_string, mat->array[getMatrixRowColToIndex(mat, i, j)], FALSE);
+                if (j == (mat->r_shape[1] - 1)) {
+                    agx_string_append_double(mat_string, mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)], FALSE);
                 }
             }
             strcat(mat_string, "]\n");
         }
     }
-    else if (islong == FALSE && mat->shape[1] <= 5) {
-        for (i = 0; i < mat->shape[0]; i++) {
-            if (i < 4 || i == (mat->shape[0]-1)) {
+    else if (islong == FALSE && mat->r_shape[1] <= 5) {
+        for (i = 0; i < mat->r_shape[0]; i++) {
+            if (i < 4 || i == (mat->r_shape[0]-1)) {
                 strcat(mat_string, "[");
-                for (j = 0; j < mat->shape[1]; j++) {
-                    getStringAppendDouble(mat_string, mat->array[getMatrixRowColToIndex(mat, i, j)], FALSE);
-                    if (j < mat->shape[1] - 1) {
+                for (j = 0; j < mat->r_shape[1]; j++) {
+                    agx_string_append_double(mat_string, mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)], FALSE);
+                    if (j < mat->r_shape[1] - 1) {
                         strcat(mat_string, ", ");
                     }
                 }
@@ -194,20 +194,20 @@ matrixstring getMatrixToString(matrix *mat, int islong) {
         }
     }
     else {
-        for (i = 0; i < mat->shape[0]; i++) {
-            if (i < 4 || i == (mat->shape[0]-1)) {
+        for (i = 0; i < mat->r_shape[0]; i++) {
+            if (i < 4 || i == (mat->r_shape[0]-1)) {
                 strcat(mat_string, "[");
-                for (j = 0; j < mat->shape[1]; j++) {
+                for (j = 0; j < mat->r_shape[1]; j++) {
                     if (j < 4) {
-                        getStringAppendDouble(mat_string, mat->array[getMatrixRowColToIndex(mat, i, j)], FALSE);
+                        agx_string_append_double(mat_string, mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)], FALSE);
                         if (j < 3) {
                             strcat(mat_string, ", ");
                         } else {
                             strcat(mat_string, ",..., ");
                         }
                     }
-                    if (j == (mat->shape[1] - 1)) {
-                        getStringAppendDouble(mat_string, mat->array[getMatrixRowColToIndex(mat, i, j)], FALSE);
+                    if (j == (mat->r_shape[1] - 1)) {
+                        agx_string_append_double(mat_string, mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)], FALSE);
                     }
                 }
                 strcat(mat_string, "]\n");
@@ -221,103 +221,103 @@ matrixstring getMatrixToString(matrix *mat, int islong) {
     return mat_string;
 }
 
-void *getMatrixPrint(matrix *mat, int islong) {
-    matrixstring mat_str = getMatrixToString(mat, islong);
+void *agx_matrix_print(AgxMatrix *mat, int islong) {
+    p_matrixString_t mat_str = agx_matrix_to_string(mat, islong);
     printf("%s", mat_str);
-    getDataDelete(mat_str);
+    agx_data_delete(mat_str);
 }
 
-void *getMatrixPrintQuick(matrix *mat) {
-    getMatrixPrint(mat, FALSE);
+void *agx_matrix_print_partial(AgxMatrix *mat) {
+    agx_matrix_print(mat, FALSE);
 }
 
-void *getMatrixPrintFull(matrix *mat) {
-    getMatrixPrint(mat, TRUE);
+void *agx_matrix_print_full(AgxMatrix *mat) {
+    agx_matrix_print(mat, TRUE);
 }
 
-void *getMatrixAddByValue(matrix *mat, double val) {
+void *agx_matrix_add_by_value(AgxMatrix *mat, double val) {
     for (int i = 0; i < mat->size; i++) {
-        mat->array[i] += val;
+        mat->p_r_nums[i] += val;
     }
 }
 
-void *getMatrixSubstractByValue(matrix *mat, double val) {
+void *agx_matrix_substract_by_value(AgxMatrix *mat, double val) {
     for (int i = 0; i < mat->size; i++) {
-        mat->array[i] -= val;
+        mat->p_r_nums[i] -= val;
     }
 }
 
-void *getMatrixMultiplyByValue(matrix *mat, double val) {
+void *agx_matrix_multiply_by_value(AgxMatrix *mat, double val) {
     for (int i = 0; i < mat->size; i++) {
-        mat->array[i] *= val;
+        mat->p_r_nums[i] *= val;
     }
 }
 
-void *getMatrixDevideByValue(matrix *mat, double val) {
+void *agx_matrix_devide_by_value(AgxMatrix *mat, double val) {
     for (int i = 0; i < mat->size; i++) {
-        mat->array[i] /= val;
+        mat->p_r_nums[i] /= val;
     }
 }
 
-matrix *getMatrixNewDuplicateSize(matrix *mat) {
-    matrix *mat_new = getMatrixNew(mat->shape[0], mat->shape[1]);
+AgxMatrix *agx_matrix_new_duplicate_size(AgxMatrix *mat) {
+    AgxMatrix *mat_new = agx_matrix_new(mat->r_shape[0], mat->r_shape[1]);
     return mat_new;
 }
 
-void *getMatrixCopyElements(matrix *src, matrix *target) {
+void *agx_matrix_copy_elements(AgxMatrix *src, AgxMatrix *target) {
     if (src->size == target->size) {
         for (int i = 0; i < target->size; i++) {
-            target->array[i] = src->array[i];
+            target->p_r_nums[i] = src->p_r_nums[i];
         }
     }
 }
 
-void *getMatrixCopyShape(matrix *src, matrix *target) {
-    target->shape[0] = src->shape[0];
-    target->shape[1] = src->shape[1];
+void *agx_matrix_copy_shape(AgxMatrix *src, AgxMatrix *target) {
+    target->r_shape[0] = src->r_shape[0];
+    target->r_shape[1] = src->r_shape[1];
 }
 
-void *getMatrixTranspose(matrix *mat) {
-    matrix *mat_new = getMatrixNew(mat->shape[1], mat->shape[0]);
-    for (int i = 0; i < mat->shape[0]; i++) {
-        for (int j = 0; j < mat->shape[1]; j++) {
-            mat_new->array[getMatrixRowColToIndex(mat_new, j, i)] = mat->array[getMatrixRowColToIndex(mat, i, j)];
+void *agx_matrix_transpose(AgxMatrix *mat) {
+    AgxMatrix *mat_new = agx_matrix_new(mat->r_shape[1], mat->r_shape[0]);
+    for (int i = 0; i < mat->r_shape[0]; i++) {
+        for (int j = 0; j < mat->r_shape[1]; j++) {
+            mat_new->p_r_nums[agx_matrix_row_col_to_index(mat_new, j, i)] = mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)];
         }
     }
-    getMatrixCopyElements(mat_new, mat);
-    getMatrixCopyShape(mat_new, mat);
-    getMatrixDelete(mat_new);
+    agx_matrix_copy_elements(mat_new, mat);
+    agx_matrix_copy_shape(mat_new, mat);
+    agx_matrix_delete(mat_new);
 }
 
-matrix *getMatrixNewCopy(matrix *mat) {
-    matrix *mat_new = getMatrixNewDuplicateSize(mat);
-    getMatrixCopyElements(mat, mat_new);
+AgxMatrix *agx_matrix_new_copy(AgxMatrix *mat) {
+    AgxMatrix *mat_new = agx_matrix_new_duplicate_size(mat);
+    agx_matrix_copy_elements(mat, mat_new);
     return mat_new;
 }
 
-matrix *getMatrixNewFromVector(vector *vec) {
-    matrix *mat = getMatrixNew(1, vec->size);
+AgxMatrix *agx_matrix_new_from_vector(AgxVector *vec) {
+    AgxMatrix *mat = agx_matrix_new(1, vec->size);
     for (int i = 0; i < vec->size; i++) {
-        mat->array[i] = vec->array[i];
+        mat->p_r_nums[i] = vec->p_r_nums[i];
     }
     return mat;
 }
 
-matrix *getMatrixNewIdentity(int size) {
-    matrix *mat = getMatrixNew(size, size);
+AgxMatrix *agx_matrix_new_identity(int size) {
+    AgxMatrix *mat = agx_matrix_new(size, size);
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             if (i == j) {
-                mat->array[getMatrixRowColToIndex(mat, i, j)] = 1.;
+                mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)] = 1.;
             } else {
-                mat->array[getMatrixRowColToIndex(mat, i, j)] = 0.;
+                mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)] = 0.;
             }
         }
     }
     return mat;
 }
 
-matrix *getMatrixNewZero(int row, int col) {
-    matrix *mat = getMatrixNewConstant(row, col, 0.);
+AgxMatrix *agx_matrix_new_zero(int row, int col) {
+    AgxMatrix *mat = agx_matrix_new_constant(row, col, 0.);
     return mat;
 }

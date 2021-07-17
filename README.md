@@ -7,8 +7,8 @@ a repository focusing on data processing package namely angka
 #include "angka.h"
 
 int main() {
-    Vector *vec = Vector_New_Random(3, -10., 10.);
-    Vector *vec_another = Vector_New_Random(2, -100., 100.);
+    AgxVector *vec = Vector_New_Random(3, -10., 10.);
+    AgxVector *vec_another = Vector_New_Random(2, -100., 100.);
 
     Vector_Print(vec, 0);
     

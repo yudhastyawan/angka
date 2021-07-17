@@ -4,7 +4,7 @@
 #include <time.h>
 #include <math.h>
 
-double getRandom(double min, double max)
+double agx_random(double min, double max)
 {
     static int check_random = 0;
     if (check_random == 0){
@@ -17,7 +17,7 @@ double getRandom(double min, double max)
     return res;
 }
 
-void getDataDelete(void *__ptr) {
+void agx_data_delete(void *__ptr) {
     free(__ptr);
 }
 

@@ -1,33 +1,41 @@
 #ifndef __VECTOR_H
 #define __VECTOR_H
 
-typedef char * vectorstring;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-typedef struct vector {
-    double *array;
+typedef char * p_vectorString_t;
+
+typedef struct s_vector {
+    double *p_r_nums;
     int size;
-} vector;
+} AgxVector;
 
-vector *getVectorNew(int size);
-void *getVectorSetItem(vector *vec, int index, double val);
-double getVectorItem(vector *vec, int index);
-vectorstring getVectorToString(vector *vec, int islong);
-void getVectorDelete(vector *vec);
-vector *getVectorNewRandom(int size, double min, double max);
-void *getVectorPrint(vector *vec, int islong);
-void *getVectorAppendValue(vector *vec, double val);
-void *getVectorAppendVector(vector *vec_target, vector *vec_another);
-void *getVectorPrintQuick(vector *vec);
-void *getVectorPrintFull(vector *vec);
-void *getVectorAddByValue(vector *vec, double val);
-void *getVectorSubstractByValue(vector *vec, double val);
-void *getVectorMultiplyByValue(vector *vec, double val);
-void *getVectorDevideByValue(vector *vec, double val);
-void *getVectorChangeAllElementsByValue(vector *vec, double val);
-vector *getVectorNewConstant(int size, double val);
-vector *getVectorNewDuplicateSize(vector *vec);
-void *getVectorCopyElements(vector *src, vector *target);
-vector *getVectorNewCopy(vector *vec);
-vector *getVectorNewZero(int size);
+AgxVector *agx_vector_new(int size);
+void *agx_vector_set_item(AgxVector *vec, int index, double val);
+double agx_vector_get_item(AgxVector *vec, int index);
+p_vectorString_t agx_vector_to_string(AgxVector *vec, int islong);
+void agx_vector_delete(AgxVector *vec);
+AgxVector *agx_vector_new_random(int size, double min, double max);
+void *agx_vector_print(AgxVector *vec, int islong);
+void *agx_vector_append_value(AgxVector *vec, double val);
+void *agx_vector_append_vector(AgxVector *vec_target, AgxVector *vec_another);
+void *agx_vector_print_partial(AgxVector *vec);
+void *agx_vector_print_full(AgxVector *vec);
+void *agx_vector_add_by_value(AgxVector *vec, double val);
+void *agx_vector_substract_by_value(AgxVector *vec, double val);
+void *agx_vector_multiply_by_value(AgxVector *vec, double val);
+void *agx_vector_devide_by_value(AgxVector *vec, double val);
+void *agx_vector_change_elements_by_value(AgxVector *vec, double val);
+AgxVector *agx_vector_new_constant(int size, double val);
+AgxVector *agx_vector_new_duplicate_size(AgxVector *vec);
+void *agx_vector_copy_elements(AgxVector *src, AgxVector *target);
+AgxVector *agx_vector_new_copy(AgxVector *vec);
+AgxVector *agx_vector_new_zero(int size);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

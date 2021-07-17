@@ -1,17 +1,25 @@
 #ifndef __INIT_H
 #define __INIT_H
 
-enum BOOL {FALSE, TRUE};
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void *getPrintInteger(int val);
-void *getPrintDouble(double val);
-void *getPrintString(char *val);
-int getStringLengthInteger(int val);
-int getStringLengthString(char *str);
-int getStringLengthDouble(double val);
-char *getStringFromInteger(int val);
-void *getStringAppendInteger(char *target, int val, int isInitial);
-char *getStringFromDouble(double val);
-void *getStringAppendDouble(char *target, double val, int isInitial);
+enum e_bool {FALSE, TRUE};
+
+void *agx_print_integer(int val);
+void *agx_print_double(double val);
+void *agx_print_string(char *val);
+int agx_string_length_integer(int val);
+int agx_string_length_string(char *str);
+int agx_string_length_double(double val);
+char *agx_string_from_integer(int val);
+void *agx_string_append_integer(char *target, int val, int isInitial);
+char *agx_string_from_double(double val);
+void *agx_string_append_double(char *target, double val, int isInitial);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -1,29 +1,29 @@
 #include "angka.h"
 
 int main() {
-    vector *vec = getVectorNewConstant(10, 4.);
-    getVectorPrintQuick(vec);
+    AgxVector *vec = agx_vector_new_constant(10, 4.);
+    agx_vector_print_partial(vec);
 
-    getVectorAddByValue(vec, 2.);
-    getVectorPrintFull(vec);
+    agx_vector_add_by_value(vec, 2.);
+    agx_vector_print_full(vec);
 
-    getVectorMultiplyByValue(vec, 2.);
-    getVectorPrintQuick(vec);
+    agx_vector_multiply_by_value(vec, 2.);
+    agx_vector_print_partial(vec);
 
-    getVectorAppendValue(vec, 10.);
-    getVectorPrintQuick(vec);
+    agx_vector_append_value(vec, 10.);
+    agx_vector_print_partial(vec);
 
-    vector *vec_another = getVectorNewCopy(vec);
-    getVectorChangeAllElementsByValue(vec_another, 1.5);
-    getVectorAppendVector(vec, vec_another);
-    getVectorPrintQuick(vec);
+    AgxVector *vec_another = agx_vector_new_copy(vec);
+    agx_vector_change_elements_by_value(vec_another, 1.5);
+    agx_vector_append_vector(vec, vec_another);
+    agx_vector_print_partial(vec);
 
-    vector *vec_zero = getVectorNewZero(4);
-    getVectorSetItem(vec_zero, 1, 4.);
-    getVectorPrintQuick(vec_zero);
+    AgxVector *vec_zero = agx_vector_new_zero(4);
+    agx_vector_set_item(vec_zero, 1, 4.);
+    agx_vector_print_partial(vec_zero);
 
-    getVectorDelete(vec);
-    getVectorDelete(vec_another);
-    getVectorDelete(vec_zero);
+    agx_vector_delete(vec);
+    agx_vector_delete(vec_another);
+    agx_vector_delete(vec_zero);
     return 0;
 }

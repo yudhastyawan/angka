@@ -203,3 +203,11 @@ AgxVector *agx_vector_new_copy(AgxVector *vec) {
 AgxVector *agx_vector_new_zero(int size) {
     return agx_vector_new_constant(size, 0.);
 }
+
+AgxVector *agx_vector_new_linspace(double min, double max, int size) {
+    AgxVector *vec = agx_vector_new(size);
+    for(int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = (min + (max-min)*((double)i/size));
+    }
+    return vec;
+}

@@ -33,6 +33,7 @@ AgxVector *agx_vector_new_duplicate_size(AgxVector *vec);
 void *agx_vector_copy_elements(AgxVector *src, AgxVector *target);
 AgxVector *agx_vector_new_copy(AgxVector *vec);
 AgxVector *agx_vector_new_zero(int size);
+AgxVector *agx_vector_new_linspace(double min, double max, int size);
 
 #ifdef __cplusplus
 }

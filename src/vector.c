@@ -211,3 +211,25 @@ AgxVector *agx_vector_new_linspace(double min, double max, int size) {
     }
     return vec;
 }
+
+double agx_vector_min(AgxVector *vec) {
+    double val;
+    val = vec->p_r_nums[0];
+    for(int i = 1; i < vec->size; i++) {
+        if (val > vec->p_r_nums[i]) {
+            val = vec->p_r_nums[i];
+        }
+    }
+    return val;
+}
+
+double agx_vector_max(AgxVector *vec) {
+    double val;
+    val = vec->p_r_nums[0];
+    for(int i = 1; i < vec->size; i++) {
+        if (val < vec->p_r_nums[i]) {
+            val = vec->p_r_nums[i];
+        }
+    }
+    return val;
+}

@@ -13,6 +13,7 @@ void *agx_print_string(char *val);
 int agx_string_length_integer(int val);
 int agx_string_length_string(char *str);
 int agx_string_length_double(double val);
+char *agx_string_from_double_set(char *set, double val);
 char *agx_string_from_integer(int val);
 void *agx_string_append_integer(char *target, int val, int isInitial);
 char *agx_string_from_double(double val);

@@ -52,6 +52,14 @@ char *agx_string_from_double(double val) {
     return str;
 }
 
+char *agx_string_from_double_set(char *set, double val) {
+    char *str;
+    int len = agx_string_length_double(val);
+    str = malloc(len);
+    snprintf(str, len, set, val);
+    return str;
+}
+
 void *agx_string_append_double(char *target, double val, int isInitial) {
     char *str = agx_string_from_double(val);
     if (isInitial == 1) {

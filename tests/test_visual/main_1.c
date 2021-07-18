@@ -6,8 +6,8 @@ int main() {
     AgxVector *vecx = agx_vector_new_linspace(0., 10., size);
     AgxVector *vecy = agx_vector_new_random(size, -10., 10.);
     
-    agx_vector_print_partial(vecx);
-    agx_vector_print_partial(vecy);
+    // agx_vector_print_partial(vecx);
+    // agx_vector_print_partial(vecy);
 
     AgvFigure *fig = agv_subplots(2,2);
     agv_plot(agv_set_canvas(fig, 0), vecx, vecy);

@@ -3,7 +3,7 @@ all:
 	make test
 
 test:
-	gcc -c main_2.c -I../../include -o main.o
+	gcc -c main_3.c -I../../include -o main.o
 	gcc main.o -L../../lib/ -lagx -o ./main.out
 	./main.out
 	rm -rf *.o *.out

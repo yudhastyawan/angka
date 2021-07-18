@@ -3,6 +3,7 @@
 #include "vector.h"
 #include <malloc.h>
 #include <string.h>
+#include <stdarg.h>
 
 AgxVector *agx_vector_new(int size) {
     AgxVector *vec;
@@ -212,6 +213,30 @@ AgxVector *agx_vector_new_linspace(double min, double max, int size) {
     return vec;
 }
 
+AgxVector *agx_vector_new_arange(int min, int step, int max) {
+    int size = 0;
+    for (int i = min; i <= max; i += step) {
+        size++;
+    }
+    AgxVector *vec = agx_vector_new(size);
+    for (int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = (double)(min + (step*i));
+    }
+    return vec;
+}
+
+AgxVector *agx_vector_new_arange_double(double min, double step, double max) {
+    int size = 0;
+    for (double i = min; i <= max; i += step) {
+        size++;
+    }
+    AgxVector *vec = agx_vector_new(size);
+    for (int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = (double)(min + (step*i));
+    }
+    return vec;
+}
+
 double agx_vector_min(AgxVector *vec) {
     double val;
     val = vec->p_r_nums[0];
@@ -232,4 +257,15 @@ double agx_vector_max(AgxVector *vec) {
         }
     }
     return val;
+}
+
+AgxVector *agx_vector_new_values(int size, ... ) {
+    AgxVector *vec = agx_vector_new(size);
+    va_list args;
+    va_start(args, size);
+    for (int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = va_arg(args, double);
+    }
+    va_end(args);
+    return vec;
 }

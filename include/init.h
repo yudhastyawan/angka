@@ -18,7 +18,9 @@ char *agx_string_from_integer(int val);
 void *agx_string_append_integer(char *target, int val, int isInitial);
 char *agx_string_from_double(double val);
 void *agx_string_append_double(char *target, double val, int isInitial);
-
+void *agx_print_values(char *inbetween, char *end, char *fmt, ...);
+void *agx_print_values_space(char *fmt, ...);
+void *agx_print_values_new_line(char *fmt, ...);
 #ifdef __cplusplus
 }
 #endif

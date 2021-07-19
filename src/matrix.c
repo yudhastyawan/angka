@@ -34,8 +34,12 @@ AgxMatrix *agx_matrix_new_constant(int row, int column, double val) {
 
 AgxMatrix *agx_matrix_new_random(int row, int column, double min, double max) {
     AgxMatrix *mat = agx_matrix_new(row, column);
+    double val;
+    double *ptr;
     for (int i = 0; i < mat->size; i++) {
-        mat->p_r_nums[i] = agx_random(min, max);
+        val = agx_random(min, max);
+        ptr = &val;
+        mat->p_r_nums[i] = *ptr;
     }
     return mat;
 }
@@ -320,4 +324,61 @@ AgxMatrix *agx_matrix_new_identity(int size) {
 AgxMatrix *agx_matrix_new_zero(int row, int col) {
     AgxMatrix *mat = agx_matrix_new_constant(row, col, 0.);
     return mat;
+}
+
+double agx_matrix_row_multiply_col(AgxMatrix *mat1, AgxMatrix *mat2, int row1, int col2) {
+    double res = 0;
+    if (mat1->r_shape[1] == mat2->r_shape[0]) {
+        for (int i = 0; i < mat1->r_shape[1]; i++) {
+            res += (mat1->p_r_nums[agx_matrix_row_col_to_index(mat1,row1,i)] * mat2->p_r_nums[agx_matrix_row_col_to_index(mat2, i, col2)]);
+        }
+        return res;
+    }
+}
+
+AgxMatrix *agx_matrix_new_multiplication(AgxMatrix *mat1, AgxMatrix *mat2) {
+    AgxMatrix *res;
+    if (mat1->r_shape[1] == mat2->r_shape[0]) {
+        res = agx_matrix_new(mat1->r_shape[0], mat2->r_shape[1]);
+        for (int i = 0; i < res->r_shape[0]; i++) {
+            for (int j = 0; j < res->r_shape[1]; j++) {
+                res->p_r_nums[agx_matrix_row_col_to_index(res, i, j)] = agx_matrix_row_multiply_col(mat1, mat2, i, j);
+            }
+        }
+        return res;
+    }
+}
+
+AgxVector *agx_vector_new_from_matrix(AgxMatrix *mat) {
+    AgxVector *vec = agx_vector_new(mat->size);
+    for (int i = 0; i < mat->size; i++) {
+        vec->p_r_nums[i] = mat->p_r_nums[i];
+    }
+    return vec;
+}
+
+AgxMatrix *agx_matrix_new_extract_column(AgxMatrix *mat, int col) {
+    AgxMatrix *mat_new = agx_matrix_new(mat->r_shape[0],1);
+    for (int i = 0; i < mat->r_shape[0]; i++) {
+        mat_new->p_r_nums[i] = mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, col)];
+    }
+    return mat_new;
+}
+
+AgxMatrix *agx_matrix_new_extract_row(AgxMatrix *mat, int row) {
+    AgxMatrix *mat_new = agx_matrix_new(1,mat->r_shape[1]);
+    for (int i = 0; i < mat->r_shape[1]; i++) {
+        mat_new->p_r_nums[i] = mat->p_r_nums[agx_matrix_row_col_to_index(mat, row, i)];
+    }
+    return mat_new;
+}
+
+AgxMatrix *agx_matrix_new_extract_row_col(AgxMatrix *mat, int row1, int row2, int col1, int col2) {
+    AgxMatrix *mat_new = agx_matrix_new((row2-row1)+1,(col2-col1)+1);
+    for (int i = row1, ii = 0; i <= row2, ii < mat_new->r_shape[0]; i++, ii++) {
+        for (int j = col1, jj = 0; j <= col2, jj < mat_new->r_shape[1]; j++, jj++) {
+            mat_new->p_r_nums[agx_matrix_row_col_to_index(mat_new,ii, jj)] = mat->p_r_nums[agx_matrix_row_col_to_index(mat, i, j)];
+        }
+    }
+    return mat_new;
 }

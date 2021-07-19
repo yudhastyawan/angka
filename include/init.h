@@ -7,6 +7,12 @@ extern "C" {
 
 enum e_bool {FALSE, TRUE};
 
+typedef struct s_slice {
+    int start;
+    int step;
+    int stop;
+} AgxSlice;
+
 void *agx_print_integer(int val);
 void *agx_print_double(double val);
 void *agx_print_string(char *val);

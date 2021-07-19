@@ -5,6 +5,7 @@
 #include <malloc.h>
 #include <cairo.h>
 #include <gtk/gtk.h>
+#include <math.h>
 #include "plot.h"
 
 // start of static declarations
@@ -50,12 +51,14 @@ AgvCanvas *agv_set_canvas(AgvFigure *fig, int index) {
     return &(fig->p_r_canvas[index]);
 }
 
-void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
+void *agv_allocation(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
     if (can->numOfVec == 0) {
         can->numOfVec++;
         can->p_r_type = (int *)malloc(can->numOfVec*sizeof(int));
         can->p_r_linewidth = (int *)malloc(can->numOfVec*sizeof(int));
+        can->p_r_radius = (int *)malloc(can->numOfVec*sizeof(int));
         can->p_r_color = (AgxColor *)malloc(can->numOfVec*sizeof(AgxColor));
+        can->p_r_color_outside = (AgxColor *)malloc(can->numOfVec*sizeof(AgxColor));
         can->p_r_vecx = (AgxVector **)malloc(can->numOfVec*sizeof(AgxVector *));
         can->p_r_vecy = (AgxVector **)malloc(can->numOfVec*sizeof(AgxVector *));
         can->min = (AgxCoordDouble) {.x = agx_vector_min(vecx), .y = agx_vector_min(vecy)};
@@ -64,13 +67,31 @@ void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
         can->numOfVec++;
         can->p_r_type = (int *)realloc(can->p_r_type, can->numOfVec*sizeof(int));
         can->p_r_linewidth = (int *)realloc(can->p_r_linewidth, can->numOfVec*sizeof(int));
+        can->p_r_radius = (int *)realloc(can->p_r_radius, can->numOfVec*sizeof(int));
         can->p_r_color = (AgxColor *)realloc(can->p_r_color, can->numOfVec*sizeof(AgxColor));
+        can->p_r_color_outside = (AgxColor *)realloc(can->p_r_color_outside, can->numOfVec*sizeof(AgxColor));
         can->p_r_vecx = (AgxVector **)realloc(can->p_r_vecx, can->numOfVec*sizeof(AgxVector *));
         can->p_r_vecy = (AgxVector **)realloc(can->p_r_vecy, can->numOfVec*sizeof(AgxVector *));
     }
+}
+
+void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
+    agv_allocation(can, vecx, vecy);
     can->p_r_type[can->numOfVec - 1] = AGV_PLOT;
     can->p_r_linewidth[can->numOfVec - 1] = 5;
     can->p_r_color[can->numOfVec - 1] = (AgxColor) {.r = 0, .g = 0, .b = 0, .a = 1.};
+    can->p_r_vecx[can->numOfVec - 1] = vecx;
+    can->p_r_vecy[can->numOfVec - 1] = vecy;
+    can->grid = 0;
+}
+
+void *agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
+    agv_allocation(can, vecx, vecy);
+    can->p_r_type[can->numOfVec - 1] = AGV_SCATTER;
+    can->p_r_linewidth[can->numOfVec - 1] = 1;
+    can->p_r_radius[can->numOfVec - 1] = 5;
+    can->p_r_color[can->numOfVec - 1] = (AgxColor) {.r = 0, .g = 0, .b = 0, .a = 1.};
+    can->p_r_color_outside[can->numOfVec - 1] = (AgxColor) {.r = 0, .g = 0, .b = 0, .a = 1.};
     can->p_r_vecx[can->numOfVec - 1] = vecx;
     can->p_r_vecy[can->numOfVec - 1] = vecy;
     can->grid = 0;
@@ -95,6 +116,17 @@ void *agv_set_color_alpha(AgvCanvas *can, int line, int red, int green, int blue
     can->p_r_color[line].g = green;
     can->p_r_color[line].b = blue;
     can->p_r_color[line].a = alpha;
+}
+
+void *agv_set_color_alpha_line_scatter(AgvCanvas *can, int line, int red, int green, int blue, double alpha) {
+    can->p_r_color_outside[line].r = red;
+    can->p_r_color_outside[line].g = green;
+    can->p_r_color_outside[line].b = blue;
+    can->p_r_color_outside[line].a = alpha;
+}
+
+void *agv_set_radius(AgvCanvas *can, int line, int radius) {
+    can->p_r_radius[line] = radius;
 }
 
 void *agv_set_linewidth(AgvCanvas *can, int line, int linewidth) {
@@ -179,6 +211,27 @@ void agv_create_text(cairo_t *cr, AgxCoordDouble *point, AgxCoordInt **window, A
     cairo_stroke(cr);
 }
 
+void agv_create_circle(cairo_t *cr, AgxCoordDouble *point, AgxCoordInt **window, AgxCoordDouble **datlim, double radius, AgxColor *color_fill, AgxColor *color_outside){
+    AgxCoordInt output;
+    agv_data_to_canvas(window[0], window[1], point, &output, datlim[0], datlim[1]);
+    cairo_arc(cr, output.x, output.y, radius, 0, 2*M_PI);
+    cairo_set_source_rgba(cr, (double)color_outside->r/VRGB, (double)color_outside->g/VRGB, (double)color_outside->b/VRGB, color_outside->a);
+    cairo_stroke_preserve(cr);
+    cairo_set_source_rgba(cr, (double)color_fill->r/VRGB, (double)color_fill->g/VRGB, (double)color_fill->b/VRGB, color_fill->a);
+    cairo_fill(cr);
+}
+
+void agv_create_multicircle(cairo_t *cr, AgxVector *vecx, AgxVector *vecy, AgxCoordInt **window, AgxCoordDouble **datlim, double radius, int lineWidth, AgxColor *color_fill, AgxColor *color_outside){
+    AgxCoordInt output;
+    AgxCoordDouble input;
+    cairo_set_line_width(cr, lineWidth);
+    for (int i = 0; i < vecx->size; i++) {
+        input.x = vecx->p_r_nums[i];
+        input.y = vecy->p_r_nums[i];
+        agv_create_circle(cr, &input, window, datlim, radius, color_fill, color_outside);        
+    }
+}
+
 void agv_create_text_addxy(cairo_t *cr, AgxCoordDouble *point, AgxCoordInt **window, AgxCoordDouble **datlim, double fontSize, char *text, int x, int y){
     AgxCoordInt output;
     cairo_set_font_size(cr, fontSize);
@@ -257,11 +310,15 @@ static void do_drawing(cairo_t *cr, GtkWidget *widget, gpointer data) {
     }
     agx_vector_delete(xlbl);
 
-    cairo_set_line_cap(cr, CAIRO_LINE_CAP_ROUND);
-    cairo_set_line_join(cr, CAIRO_LINE_JOIN_BEVEL);
     for (int i = 0; i < can->numOfVec; i++) {
-        cairo_set_source_rgba(cr, (double)can->p_r_color[i].r/VRGB, (double)can->p_r_color[i].g/VRGB, (double)can->p_r_color[i].b/VRGB, can->p_r_color[i].a);
-        agv_create_multiline(cr, can->p_r_vecx[i], can->p_r_vecy[i], window, datLim, can->p_r_linewidth[i]);
+        if (can->p_r_type[i] == AGV_PLOT) {
+            cairo_set_line_cap(cr, CAIRO_LINE_CAP_ROUND);
+            cairo_set_line_join(cr, CAIRO_LINE_JOIN_BEVEL);
+            cairo_set_source_rgba(cr, (double)can->p_r_color[i].r/VRGB, (double)can->p_r_color[i].g/VRGB, (double)can->p_r_color[i].b/VRGB, can->p_r_color[i].a);
+            agv_create_multiline(cr, can->p_r_vecx[i], can->p_r_vecy[i], window, datLim, can->p_r_linewidth[i]);
+        } else if (can->p_r_type[i] == AGV_SCATTER) {
+            agv_create_multicircle(cr, can->p_r_vecx[i], can->p_r_vecy[i], window, datLim, (double)can->p_r_radius[i], can->p_r_linewidth[i], &(can->p_r_color[i]), &(can->p_r_color_outside[i]));
+        }
     }
 }
 

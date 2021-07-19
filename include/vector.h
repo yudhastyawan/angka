@@ -39,6 +39,9 @@ AgxVector *agx_vector_new_arange_double(double min, double step, double max);
 double agx_vector_min(AgxVector *vec);
 double agx_vector_max(AgxVector *vec);
 AgxVector *agx_vector_new_values(int size, ... );
+void *agx_vector_input_function(AgxVector *vec, void (*function)(double *));
+void *agx_vector_sin(AgxVector *vec);
+void agx_sin(double *val);
 
 #ifdef __cplusplus
 }

@@ -34,6 +34,7 @@ typedef struct s_coord_int {
 typedef struct s_canvas {
     int *p_r_type;
     int *p_r_linewidth;
+    int *p_r_radius;
     int row;
     int col;
     int index;
@@ -43,6 +44,7 @@ typedef struct s_canvas {
     AgxVector **p_r_vecx;
     AgxVector **p_r_vecy;
     AgxColor *p_r_color;
+    AgxColor *p_r_color_outside;
     int numOfVec;
 } AgvCanvas;
 
@@ -58,10 +60,13 @@ void agv_figure_delete(AgvFigure *fig);
 AgvFigure *agv_subplots(int row, int col);
 AgvCanvas *agv_set_canvas(AgvFigure *fig, int index);
 void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
+void *agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
 void *agv_xlim(AgvCanvas *can, double min, double max);
 void *agv_ylim(AgvCanvas *can, double min, double max);
 void agv_show(AgvFigure *fig);
 void *agv_set_color_alpha(AgvCanvas *can, int line, int red, int green, int blue, double alpha);
+void *agv_set_color_alpha_line_scatter(AgvCanvas *can, int line, int red, int green, int blue, double alpha);
+void *agv_set_radius(AgvCanvas *can, int line, int radius);
 void *agv_set_linewidth(AgvCanvas *can, int line, int linewidth);
 void *agv_set_grid(AgvCanvas *can, int boolean);
 

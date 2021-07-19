@@ -4,6 +4,7 @@
 #include <malloc.h>
 #include <string.h>
 #include <stdarg.h>
+#include <math.h>
 
 AgxVector *agx_vector_new(int size) {
     AgxVector *vec;
@@ -268,4 +269,18 @@ AgxVector *agx_vector_new_values(int size, ... ) {
     }
     va_end(args);
     return vec;
+}
+
+void *agx_vector_input_function(AgxVector *vec, void (*function)(double *)) {
+    for (int i = 0; i < vec->size; i++) {
+        function(&(vec->p_r_nums[i]));
+    }
+}
+
+void agx_sin(double *val) {
+    *val = sin(*val);
+}
+
+void *agx_vector_sin(AgxVector *vec) {
+    agx_vector_input_function(vec, agx_sin);
 }

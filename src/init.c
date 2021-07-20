@@ -2,6 +2,7 @@
 #include <malloc.h>
 #include <string.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 void *agx_print_integer(int val) {
     printf("%d\n", val);

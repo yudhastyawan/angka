@@ -4,6 +4,7 @@
 #include "matrix.h"
 #include <malloc.h>
 #include <string.h>
+#include <stdio.h>
 
 AgxMatrix *agx_matrix_new(int row, int column) {
     AgxMatrix *mat;
@@ -111,7 +112,7 @@ p_matrixString_t agx_matrix_to_string(AgxMatrix *mat, int islong) {
                     }
                 }
                 if (i == 3) {
-                    mat_length += agx_string_length_string("\t⋮\n");
+                    mat_length += agx_string_length_string("\t...\n");
                 }
             }
         }
@@ -134,7 +135,7 @@ p_matrixString_t agx_matrix_to_string(AgxMatrix *mat, int islong) {
                     }
                 }
                 if (i == 3) {
-                    mat_length += agx_string_length_string("\t⋮\n");
+                    mat_length += agx_string_length_string("\t...\n");
                 }
             }
         }
@@ -192,7 +193,7 @@ p_matrixString_t agx_matrix_to_string(AgxMatrix *mat, int islong) {
                 }
                 strcat(mat_string, "]\n");
                 if (i == 3) {
-                    strcat(mat_string, "\t⋮\n");
+                    strcat(mat_string, "\t...\n");
                 }
             }
         }
@@ -216,7 +217,7 @@ p_matrixString_t agx_matrix_to_string(AgxMatrix *mat, int islong) {
                 }
                 strcat(mat_string, "]\n");
                 if (i == 3) {
-                    strcat(mat_string, "\t⋮\n");
+                    strcat(mat_string, "\t...\n");
                 }
             }
         }

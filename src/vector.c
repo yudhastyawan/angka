@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <math.h>
+#include <stdio.h>
 
 AgxVector *agx_vector_new(int size) {
     AgxVector *vec;

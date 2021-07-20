@@ -42,6 +42,8 @@ AgxVector *agx_vector_new_values(int size, ... );
 void *agx_vector_input_function(AgxVector *vec, void (*function)(double *));
 void *agx_vector_sin(AgxVector *vec);
 void agx_sin(double *val);
+int agx_vector_isexist(AgxVector *vec, int idx1, int idx2, double val);
+void *agx_vector_sort(AgxVector *vec);
 
 #ifdef __cplusplus
 }

@@ -14,6 +14,8 @@ typedef struct s_color {
     int g;
     int b;
     double a;
+    double val;
+    int size;
 } AgxColor;
 
 typedef struct s_plot_data {
@@ -43,8 +45,10 @@ typedef struct s_canvas {
     AgxCoordDouble max;
     AgxVector **p_r_vecx;
     AgxVector **p_r_vecy;
+    AgxMatrix **p_r_mat;
     AgxColor *p_r_color;
     AgxColor *p_r_color_outside;
+    AgxColor **p_r_color_pallete;
     int numOfVec;
 } AgvCanvas;
 
@@ -55,12 +59,15 @@ typedef struct s_figure {
     AgvCanvas *p_r_canvas;
 } AgvFigure;
 
+void *agv_color_pallete_set(AgxColor *clr, int index, int r, int g, int b, double a, double val);
 AgvFigure *agv_figure_new(int row, int col);
 void agv_figure_delete(AgvFigure *fig);
 AgvFigure *agv_subplots(int row, int col);
 AgvCanvas *agv_set_canvas(AgvFigure *fig, int index);
 void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
 void *agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
+void *agv_imshow(AgvCanvas *can, AgxMatrix *mat);
+AgxColor *agv_color_pallete_canvas_set(AgvCanvas *can, int line, int size);
 void *agv_xlim(AgvCanvas *can, double min, double max);
 void *agv_ylim(AgvCanvas *can, double min, double max);
 void agv_show(AgvFigure *fig);

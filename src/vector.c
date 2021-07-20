@@ -284,3 +284,37 @@ void agx_sin(double *val) {
 void *agx_vector_sin(AgxVector *vec) {
     agx_vector_input_function(vec, agx_sin);
 }
+
+int agx_vector_isexist(AgxVector *vec, int idx1, int idx2, double val) {
+    int res = 0;
+    for (int i = idx1; i <= idx2; i++) {
+        if (val == vec->p_r_nums[i]) {
+            res = 1;
+        }
+    }
+    return res;
+}
+
+void *agx_vector_sort(AgxVector *vec) {
+    AgxVector *temp;
+    AgxVector *vec_new = agx_vector_new_constant(vec->size, 0.);
+    double val, min;
+    int n, isExist;
+    vec_new->p_r_nums[0] = agx_vector_min(vec);
+    for (int i = 1; i < vec->size; i++) {
+        val = vec_new->p_r_nums[i-1];
+        temp = agx_vector_new(vec->size - i);
+        n = 0;
+        for (int j = 0; j < vec->size; j++) {
+            if (val < vec->p_r_nums[j] && agx_vector_isexist(vec_new, 0, i - 1, vec->p_r_nums[j]) == 0) {
+                temp->p_r_nums[n] = vec->p_r_nums[j];
+                n++;
+            }
+        }
+        min = agx_vector_min(temp);
+        vec_new->p_r_nums[i] = min;
+        agx_vector_delete(temp);
+    }
+    agx_vector_copy_elements(vec_new, vec);
+    agx_vector_delete(vec_new);
+}

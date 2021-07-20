@@ -42,6 +42,8 @@ AgxVector *agx_vector_new_from_matrix(AgxMatrix *mat);
 AgxMatrix *agx_matrix_new_extract_column(AgxMatrix *mat, int col);
 AgxMatrix *agx_matrix_new_extract_row(AgxMatrix *mat, int row);
 AgxMatrix *agx_matrix_new_extract_row_col(AgxMatrix *mat, int row1, int row2, int col1, int col2);
+double agx_matrix_min(AgxMatrix *mat);
+double agx_matrix_max(AgxMatrix *mat);
 
 #ifdef __cplusplus
 }

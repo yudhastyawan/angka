@@ -382,3 +382,25 @@ AgxMatrix *agx_matrix_new_extract_row_col(AgxMatrix *mat, int row1, int row2, in
     }
     return mat_new;
 }
+
+double agx_matrix_min(AgxMatrix *mat) {
+    double val;
+    val = mat->p_r_nums[0];
+    for(int i = 1; i < mat->size; i++) {
+        if (val > mat->p_r_nums[i]) {
+            val = mat->p_r_nums[i];
+        }
+    }
+    return val;
+}
+
+double agx_matrix_max(AgxMatrix *mat) {
+    double val;
+    val = mat->p_r_nums[0];
+    for(int i = 1; i < mat->size; i++) {
+        if (val < mat->p_r_nums[i]) {
+            val = mat->p_r_nums[i];
+        }
+    }
+    return val;
+}

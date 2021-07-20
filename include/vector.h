@@ -33,6 +33,17 @@ AgxVector *agx_vector_new_duplicate_size(AgxVector *vec);
 void *agx_vector_copy_elements(AgxVector *src, AgxVector *target);
 AgxVector *agx_vector_new_copy(AgxVector *vec);
 AgxVector *agx_vector_new_zero(int size);
+AgxVector *agx_vector_new_linspace(double min, double max, int size);
+AgxVector *agx_vector_new_arange(int min, int step, int max);
+AgxVector *agx_vector_new_arange_double(double min, double step, double max);
+double agx_vector_min(AgxVector *vec);
+double agx_vector_max(AgxVector *vec);
+AgxVector *agx_vector_new_values(int size, ... );
+void *agx_vector_input_function(AgxVector *vec, void (*function)(double *));
+void *agx_vector_sin(AgxVector *vec);
+void agx_sin(double *val);
+int agx_vector_isexist(AgxVector *vec, int idx1, int idx2, double val);
+void *agx_vector_sort(AgxVector *vec);
 
 #ifdef __cplusplus
 }

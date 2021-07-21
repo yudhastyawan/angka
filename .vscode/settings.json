@@ -10,5 +10,8 @@
         "type_traits": "c",
         "plot.h": "c"
     },
-    "python.analysis.extraPaths": ["${workspaceFolder}/swig"]
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/swig"
+    ],
+    "restructuredtext.confPath": "${workspaceFolder}/docs"
 }

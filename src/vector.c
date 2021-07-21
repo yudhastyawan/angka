@@ -3,6 +3,9 @@
 #include "vector.h"
 #include <malloc.h>
 #include <string.h>
+#include <stdarg.h>
+#include <math.h>
+#include <stdio.h>
 
 AgxVector *agx_vector_new(int size) {
     AgxVector *vec;
@@ -202,4 +205,117 @@ AgxVector *agx_vector_new_copy(AgxVector *vec) {
 
 AgxVector *agx_vector_new_zero(int size) {
     return agx_vector_new_constant(size, 0.);
+}
+
+AgxVector *agx_vector_new_linspace(double min, double max, int size) {
+    AgxVector *vec = agx_vector_new(size);
+    for(int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = (min + (max-min)*((double)i/size));
+    }
+    return vec;
+}
+
+AgxVector *agx_vector_new_arange(int min, int step, int max) {
+    int size = 0;
+    for (int i = min; i <= max; i += step) {
+        size++;
+    }
+    AgxVector *vec = agx_vector_new(size);
+    for (int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = (double)(min + (step*i));
+    }
+    return vec;
+}
+
+AgxVector *agx_vector_new_arange_double(double min, double step, double max) {
+    int size = 0;
+    for (double i = min; i <= max; i += step) {
+        size++;
+    }
+    AgxVector *vec = agx_vector_new(size);
+    for (int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = (double)(min + (step*i));
+    }
+    return vec;
+}
+
+double agx_vector_min(AgxVector *vec) {
+    double val;
+    val = vec->p_r_nums[0];
+    for(int i = 1; i < vec->size; i++) {
+        if (val > vec->p_r_nums[i]) {
+            val = vec->p_r_nums[i];
+        }
+    }
+    return val;
+}
+
+double agx_vector_max(AgxVector *vec) {
+    double val;
+    val = vec->p_r_nums[0];
+    for(int i = 1; i < vec->size; i++) {
+        if (val < vec->p_r_nums[i]) {
+            val = vec->p_r_nums[i];
+        }
+    }
+    return val;
+}
+
+AgxVector *agx_vector_new_values(int size, ... ) {
+    AgxVector *vec = agx_vector_new(size);
+    va_list args;
+    va_start(args, size);
+    for (int i = 0; i < size; i++) {
+        vec->p_r_nums[i] = va_arg(args, double);
+    }
+    va_end(args);
+    return vec;
+}
+
+void *agx_vector_input_function(AgxVector *vec, void (*function)(double *)) {
+    for (int i = 0; i < vec->size; i++) {
+        function(&(vec->p_r_nums[i]));
+    }
+}
+
+void agx_sin(double *val) {
+    *val = sin(*val);
+}
+
+void *agx_vector_sin(AgxVector *vec) {
+    agx_vector_input_function(vec, agx_sin);
+}
+
+int agx_vector_isexist(AgxVector *vec, int idx1, int idx2, double val) {
+    int res = 0;
+    for (int i = idx1; i <= idx2; i++) {
+        if (val == vec->p_r_nums[i]) {
+            res = 1;
+        }
+    }
+    return res;
+}
+
+void *agx_vector_sort(AgxVector *vec) {
+    AgxVector *temp;
+    AgxVector *vec_new = agx_vector_new_constant(vec->size, 0.);
+    double val, min;
+    int n, isExist;
+    vec_new->p_r_nums[0] = agx_vector_min(vec);
+    for (int i = 1; i < vec->size; i++) {
+        val = vec_new->p_r_nums[i-1];
+        temp = agx_vector_new(vec->size - i);
+        n = 0;
+        for (int j = 0; j < vec->size; j++) {
+            if (val < vec->p_r_nums[j] && agx_vector_isexist(vec_new, 0, i - 1, vec->p_r_nums[j]) == 0) {
+                temp->p_r_nums[n] = vec->p_r_nums[j];
+                n++;
+            }
+        }
+        min = agx_vector_min(temp);
+        vec_new->p_r_nums[i] = min;
+        agx_vector_delete(temp);
+    }
+    agx_vector_copy_elements(vec_new, vec);
+    agx_vector_delete(vec_new);
 }

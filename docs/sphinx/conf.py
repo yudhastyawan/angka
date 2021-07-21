@@ -14,7 +14,11 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import subprocess
-subprocess.call("git log --pretty=format:'%h : %s' --graph > ../doxs/07_gitlog.md", shell=True)
+subprocess.call("echo '/** \page gitlog Git History' > ../doxs/07_gitlog.dox", shell=True)
+subprocess.call("echo '\code {.unparsed}' >> ../doxs/07_gitlog.dox", shell=True)
+subprocess.call("git log --pretty=format:'%h : %s' --graph >> ../doxs/07_gitlog.dox", shell=True)
+subprocess.call("echo '\endcode' >> ../doxs/07_gitlog.dox", shell=True)
+subprocess.call("echo '**/' >> ../doxs/07_gitlog.dox", shell=True)
 subprocess.call('cd .. ; doxygen', shell=True)
 
 # -- Project information -----------------------------------------------------

@@ -162,6 +162,7 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/sphinx/_build/
 
 # PyBuilder
 .pybuilder/
@@ -627,3 +628,4 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/c,c++,visualstudiocode,python,visualstudio,git
 {"mode":"full","isActive":false}
+

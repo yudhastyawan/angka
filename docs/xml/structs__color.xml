@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structs__color" kind="struct" language="C++" prot="public">
+    <compoundname>s_color</compoundname>
+    <includes refid="plot_8h" local="no">plot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__color_1acab531abaa74a7e664e3986f2522b33a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="13" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__color_1a71867e609034d4dbd6d0ad8d84540e59" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="14" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__color_1a148e3876077787926724625411d6e7a9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="15" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__color_1a1031d0e0a97a340abfe0a6ab9e831045" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="16" column="12" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__color_1a3c8bc0bb4f045bfe78d1196cb786792c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="17" column="12" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__color_1a439227feff9d7f55384e8780cfc2eb82" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="18" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="12" column="1" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="12" bodyend="19"/>
+    <listofallmembers>
+      <member refid="structs__color_1a1031d0e0a97a340abfe0a6ab9e831045" prot="public" virt="non-virtual"><scope>s_color</scope><name>a</name></member>
+      <member refid="structs__color_1a148e3876077787926724625411d6e7a9" prot="public" virt="non-virtual"><scope>s_color</scope><name>b</name></member>
+      <member refid="structs__color_1a71867e609034d4dbd6d0ad8d84540e59" prot="public" virt="non-virtual"><scope>s_color</scope><name>g</name></member>
+      <member refid="structs__color_1acab531abaa74a7e664e3986f2522b33a" prot="public" virt="non-virtual"><scope>s_color</scope><name>r</name></member>
+      <member refid="structs__color_1a439227feff9d7f55384e8780cfc2eb82" prot="public" virt="non-virtual"><scope>s_color</scope><name>size</name></member>
+      <member refid="structs__color_1a3c8bc0bb4f045bfe78d1196cb786792c" prot="public" virt="non-virtual"><scope>s_color</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

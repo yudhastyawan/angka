@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="standard_8h" kind="file" language="C++">
+    <compoundname>standard.h</compoundname>
+    <includedby refid="angka_8h" local="yes">C:/Users/Lenovo/Documents/projects/windows/angka/include/angka.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Users/Lenovo/Documents/projects/windows/angka/include/angka.h</label>
+        <link refid="angka_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/Lenovo/Documents/projects/windows/angka/include/standard.h</label>
+        <link refid="standard_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="standard_8h_1a96d8b98813ad4979e054e856a619d0b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double agx_random</definition>
+        <argsstring>(double min, double max)</argsstring>
+        <name>agx_random</name>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/standard.h" line="8" column="8" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/include/standard.h" declline="8" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="standard_8h_1a61612d7d276cb87519cb63eac6057efa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void agx_data_delete</definition>
+        <argsstring>(void *__ptr)</argsstring>
+        <name>agx_data_delete</name>
+        <param>
+          <type>void *</type>
+          <declname>__ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/standard.h" line="9" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/include/standard.h" declline="9" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__STANDARD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__STANDARD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="standard_8h_1a96d8b98813ad4979e054e856a619d0b4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="standard_8h_1a96d8b98813ad4979e054e856a619d0b4" kindref="member">agx_random</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="9" refid="standard_8h_1a61612d7d276cb87519cb63eac6057efa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="standard_8h_1a61612d7d276cb87519cb63eac6057efa" kindref="member">agx_data_delete</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*__ptr);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/standard.h"/>
+  </compounddef>
+</doxygen>

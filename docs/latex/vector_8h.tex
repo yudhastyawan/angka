@@ -1,0 +1,291 @@
+\hypertarget{vector_8h}{}\doxysection{C\+:/\+Users/\+Lenovo/\+Documents/projects/windows/angka/include/vector.h File Reference}
+\label{vector_8h}\index{C:/Users/Lenovo/Documents/projects/windows/angka/include/vector.h@{C:/Users/Lenovo/Documents/projects/windows/angka/include/vector.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__vector}{s\+\_\+vector}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef char $\ast$ \mbox{\hyperlink{vector_8h_acf38fefb2121add30c4070bec3e07182}{p\+\_\+vector\+String\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structs__vector}{s\+\_\+vector}} \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_a457045cc78bbf48783605f0243e60cdd}{agx\+\_\+vector\+\_\+new}} (int size)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_ad32bae52f994504eebf6ab7b17048a79}{agx\+\_\+vector\+\_\+set\+\_\+item}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, int index, double val)
+\item 
+double \mbox{\hyperlink{vector_8h_aea6bd165c3bf998e0ae8c02fdc26c568}{agx\+\_\+vector\+\_\+get\+\_\+item}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, int index)
+\item 
+\mbox{\hyperlink{vector_8h_acf38fefb2121add30c4070bec3e07182}{p\+\_\+vector\+String\+\_\+t}} \mbox{\hyperlink{vector_8h_ae85875c8e7b7af9cd1c93d65805b4bbd}{agx\+\_\+vector\+\_\+to\+\_\+string}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, int islong)
+\item 
+void \mbox{\hyperlink{vector_8h_a52e20a9dff729e8eff11d5a4c40bb919}{agx\+\_\+vector\+\_\+delete}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_ad85459b19a7f5c885b0a77a1394aadb4}{agx\+\_\+vector\+\_\+new\+\_\+random}} (int size, double min, double max)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_acc2a8d402609ce6ee7d56cb87c460a53}{agx\+\_\+vector\+\_\+print}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, int islong)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_ab5987bae85e72223c2865df095ac6e24}{agx\+\_\+vector\+\_\+append\+\_\+value}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, double val)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_adaa50b66314d48d0931fa6609ab3d53b}{agx\+\_\+vector\+\_\+append\+\_\+vector}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec\+\_\+target, \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec\+\_\+another)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_a9a5f1d7dda65b63f3db93a0a05297216}{agx\+\_\+vector\+\_\+print\+\_\+partial}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_a4e9d05541c9275e40ead6d1c1b40e363}{agx\+\_\+vector\+\_\+print\+\_\+full}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_a7b64164c6e944af558ad49b2817e50b8}{agx\+\_\+vector\+\_\+add\+\_\+by\+\_\+value}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, double val)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_aff90b9fb127b046b2b5527e64161fe8b}{agx\+\_\+vector\+\_\+substract\+\_\+by\+\_\+value}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, double val)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_a8dbb9647a6c1d41ead49622a00cb3c70}{agx\+\_\+vector\+\_\+multiply\+\_\+by\+\_\+value}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, double val)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_accc6db9c3c2dd6741fdb68f5c6dc06a1}{agx\+\_\+vector\+\_\+devide\+\_\+by\+\_\+value}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, double val)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_abc05df59c0499344f389274e5efc21eb}{agx\+\_\+vector\+\_\+change\+\_\+elements\+\_\+by\+\_\+value}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, double val)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_af9e1c8ee2bf7351bc31df147eb42afe7}{agx\+\_\+vector\+\_\+new\+\_\+constant}} (int size, double val)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_a867ecf8d30d18a4be0bceea2dff0c8e9}{agx\+\_\+vector\+\_\+new\+\_\+duplicate\+\_\+size}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_a5ce220c5e9517000994a481a4d9da1f0}{agx\+\_\+vector\+\_\+copy\+\_\+elements}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$src, \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$target)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_acc3369d2eef5cd31c459e74e6f712309}{agx\+\_\+vector\+\_\+new\+\_\+copy}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_ab939bf6fddf72446bd6ce0cd461b67f5}{agx\+\_\+vector\+\_\+new\+\_\+zero}} (int size)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_a9d9c652f8e2eaf95147b94a8f652185e}{agx\+\_\+vector\+\_\+new\+\_\+linspace}} (double min, double max, int size)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_ac66edd408e8636a3baafa4a030b69a64}{agx\+\_\+vector\+\_\+new\+\_\+arange}} (int min, int step, int max)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_a2e61de1958f826c7c48979ff08fcc1ca}{agx\+\_\+vector\+\_\+new\+\_\+arange\+\_\+double}} (double min, double step, double max)
+\item 
+double \mbox{\hyperlink{vector_8h_a6b0302f279e3e983932bc5b7f5367440}{agx\+\_\+vector\+\_\+min}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+double \mbox{\hyperlink{vector_8h_a0d30058c1ad1b89b2e0f193164517a93}{agx\+\_\+vector\+\_\+max}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$ \mbox{\hyperlink{vector_8h_aacf739153ee1da0fcbf8f9ac9533e0e4}{agx\+\_\+vector\+\_\+new\+\_\+values}} (int size,...)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_af2a12cb2b7c53f1f847f703576985429}{agx\+\_\+vector\+\_\+input\+\_\+function}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, void($\ast$function)(double $\ast$))
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_a1a43a39fc6104b5db6324bd3edd61cc2}{agx\+\_\+vector\+\_\+sin}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\item 
+void \mbox{\hyperlink{vector_8h_a773299e2206268d67dc091a9f1384199}{agx\+\_\+sin}} (double $\ast$val)
+\item 
+int \mbox{\hyperlink{vector_8h_a8075f305aa780c98cbb7ea742e3001dd}{agx\+\_\+vector\+\_\+isexist}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec, int idx1, int idx2, double val)
+\item 
+void $\ast$ \mbox{\hyperlink{vector_8h_a7955330a6a1d466443570769996930dc}{agx\+\_\+vector\+\_\+sort}} (\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}\label{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}} 
+\index{vector.h@{vector.h}!AgxVector@{AgxVector}}
+\index{AgxVector@{AgxVector}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{AgxVector}{AgxVector}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__vector}{s\+\_\+vector}} \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}}
+
+\mbox{\Hypertarget{vector_8h_acf38fefb2121add30c4070bec3e07182}\label{vector_8h_acf38fefb2121add30c4070bec3e07182}} 
+\index{vector.h@{vector.h}!p\_vectorString\_t@{p\_vectorString\_t}}
+\index{p\_vectorString\_t@{p\_vectorString\_t}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{p\_vectorString\_t}{p\_vectorString\_t}}
+{\footnotesize\ttfamily typedef char$\ast$ \mbox{\hyperlink{vector_8h_acf38fefb2121add30c4070bec3e07182}{p\+\_\+vector\+String\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vector_8h_a773299e2206268d67dc091a9f1384199}\label{vector_8h_a773299e2206268d67dc091a9f1384199}} 
+\index{vector.h@{vector.h}!agx\_sin@{agx\_sin}}
+\index{agx\_sin@{agx\_sin}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_sin()}{agx\_sin()}}
+{\footnotesize\ttfamily void agx\+\_\+sin (\begin{DoxyParamCaption}\item[{double $\ast$}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a7b64164c6e944af558ad49b2817e50b8}\label{vector_8h_a7b64164c6e944af558ad49b2817e50b8}} 
+\index{vector.h@{vector.h}!agx\_vector\_add\_by\_value@{agx\_vector\_add\_by\_value}}
+\index{agx\_vector\_add\_by\_value@{agx\_vector\_add\_by\_value}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_add\_by\_value()}{agx\_vector\_add\_by\_value()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+add\+\_\+by\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_ab5987bae85e72223c2865df095ac6e24}\label{vector_8h_ab5987bae85e72223c2865df095ac6e24}} 
+\index{vector.h@{vector.h}!agx\_vector\_append\_value@{agx\_vector\_append\_value}}
+\index{agx\_vector\_append\_value@{agx\_vector\_append\_value}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_append\_value()}{agx\_vector\_append\_value()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+append\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_adaa50b66314d48d0931fa6609ab3d53b}\label{vector_8h_adaa50b66314d48d0931fa6609ab3d53b}} 
+\index{vector.h@{vector.h}!agx\_vector\_append\_vector@{agx\_vector\_append\_vector}}
+\index{agx\_vector\_append\_vector@{agx\_vector\_append\_vector}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_append\_vector()}{agx\_vector\_append\_vector()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+append\+\_\+vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec\+\_\+target,  }\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec\+\_\+another }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_abc05df59c0499344f389274e5efc21eb}\label{vector_8h_abc05df59c0499344f389274e5efc21eb}} 
+\index{vector.h@{vector.h}!agx\_vector\_change\_elements\_by\_value@{agx\_vector\_change\_elements\_by\_value}}
+\index{agx\_vector\_change\_elements\_by\_value@{agx\_vector\_change\_elements\_by\_value}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_change\_elements\_by\_value()}{agx\_vector\_change\_elements\_by\_value()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+change\+\_\+elements\+\_\+by\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a5ce220c5e9517000994a481a4d9da1f0}\label{vector_8h_a5ce220c5e9517000994a481a4d9da1f0}} 
+\index{vector.h@{vector.h}!agx\_vector\_copy\_elements@{agx\_vector\_copy\_elements}}
+\index{agx\_vector\_copy\_elements@{agx\_vector\_copy\_elements}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_copy\_elements()}{agx\_vector\_copy\_elements()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+copy\+\_\+elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{target }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a52e20a9dff729e8eff11d5a4c40bb919}\label{vector_8h_a52e20a9dff729e8eff11d5a4c40bb919}} 
+\index{vector.h@{vector.h}!agx\_vector\_delete@{agx\_vector\_delete}}
+\index{agx\_vector\_delete@{agx\_vector\_delete}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_delete()}{agx\_vector\_delete()}}
+{\footnotesize\ttfamily void agx\+\_\+vector\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_accc6db9c3c2dd6741fdb68f5c6dc06a1}\label{vector_8h_accc6db9c3c2dd6741fdb68f5c6dc06a1}} 
+\index{vector.h@{vector.h}!agx\_vector\_devide\_by\_value@{agx\_vector\_devide\_by\_value}}
+\index{agx\_vector\_devide\_by\_value@{agx\_vector\_devide\_by\_value}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_devide\_by\_value()}{agx\_vector\_devide\_by\_value()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+devide\+\_\+by\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_aea6bd165c3bf998e0ae8c02fdc26c568}\label{vector_8h_aea6bd165c3bf998e0ae8c02fdc26c568}} 
+\index{vector.h@{vector.h}!agx\_vector\_get\_item@{agx\_vector\_get\_item}}
+\index{agx\_vector\_get\_item@{agx\_vector\_get\_item}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_get\_item()}{agx\_vector\_get\_item()}}
+{\footnotesize\ttfamily double agx\+\_\+vector\+\_\+get\+\_\+item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_af2a12cb2b7c53f1f847f703576985429}\label{vector_8h_af2a12cb2b7c53f1f847f703576985429}} 
+\index{vector.h@{vector.h}!agx\_vector\_input\_function@{agx\_vector\_input\_function}}
+\index{agx\_vector\_input\_function@{agx\_vector\_input\_function}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_input\_function()}{agx\_vector\_input\_function()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+input\+\_\+function (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{void($\ast$)(double $\ast$)}]{function }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a8075f305aa780c98cbb7ea742e3001dd}\label{vector_8h_a8075f305aa780c98cbb7ea742e3001dd}} 
+\index{vector.h@{vector.h}!agx\_vector\_isexist@{agx\_vector\_isexist}}
+\index{agx\_vector\_isexist@{agx\_vector\_isexist}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_isexist()}{agx\_vector\_isexist()}}
+{\footnotesize\ttfamily int agx\+\_\+vector\+\_\+isexist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{int}]{idx1,  }\item[{int}]{idx2,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a0d30058c1ad1b89b2e0f193164517a93}\label{vector_8h_a0d30058c1ad1b89b2e0f193164517a93}} 
+\index{vector.h@{vector.h}!agx\_vector\_max@{agx\_vector\_max}}
+\index{agx\_vector\_max@{agx\_vector\_max}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_max()}{agx\_vector\_max()}}
+{\footnotesize\ttfamily double agx\+\_\+vector\+\_\+max (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a6b0302f279e3e983932bc5b7f5367440}\label{vector_8h_a6b0302f279e3e983932bc5b7f5367440}} 
+\index{vector.h@{vector.h}!agx\_vector\_min@{agx\_vector\_min}}
+\index{agx\_vector\_min@{agx\_vector\_min}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_min()}{agx\_vector\_min()}}
+{\footnotesize\ttfamily double agx\+\_\+vector\+\_\+min (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a8dbb9647a6c1d41ead49622a00cb3c70}\label{vector_8h_a8dbb9647a6c1d41ead49622a00cb3c70}} 
+\index{vector.h@{vector.h}!agx\_vector\_multiply\_by\_value@{agx\_vector\_multiply\_by\_value}}
+\index{agx\_vector\_multiply\_by\_value@{agx\_vector\_multiply\_by\_value}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_multiply\_by\_value()}{agx\_vector\_multiply\_by\_value()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+multiply\+\_\+by\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a457045cc78bbf48783605f0243e60cdd}\label{vector_8h_a457045cc78bbf48783605f0243e60cdd}} 
+\index{vector.h@{vector.h}!agx\_vector\_new@{agx\_vector\_new}}
+\index{agx\_vector\_new@{agx\_vector\_new}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new()}{agx\_vector\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_ac66edd408e8636a3baafa4a030b69a64}\label{vector_8h_ac66edd408e8636a3baafa4a030b69a64}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_arange@{agx\_vector\_new\_arange}}
+\index{agx\_vector\_new\_arange@{agx\_vector\_new\_arange}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_arange()}{agx\_vector\_new\_arange()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+arange (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{step,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a2e61de1958f826c7c48979ff08fcc1ca}\label{vector_8h_a2e61de1958f826c7c48979ff08fcc1ca}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_arange\_double@{agx\_vector\_new\_arange\_double}}
+\index{agx\_vector\_new\_arange\_double@{agx\_vector\_new\_arange\_double}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_arange\_double()}{agx\_vector\_new\_arange\_double()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+arange\+\_\+double (\begin{DoxyParamCaption}\item[{double}]{min,  }\item[{double}]{step,  }\item[{double}]{max }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_af9e1c8ee2bf7351bc31df147eb42afe7}\label{vector_8h_af9e1c8ee2bf7351bc31df147eb42afe7}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_constant@{agx\_vector\_new\_constant}}
+\index{agx\_vector\_new\_constant@{agx\_vector\_new\_constant}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_constant()}{agx\_vector\_new\_constant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+constant (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_acc3369d2eef5cd31c459e74e6f712309}\label{vector_8h_acc3369d2eef5cd31c459e74e6f712309}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_copy@{agx\_vector\_new\_copy}}
+\index{agx\_vector\_new\_copy@{agx\_vector\_new\_copy}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_copy()}{agx\_vector\_new\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a867ecf8d30d18a4be0bceea2dff0c8e9}\label{vector_8h_a867ecf8d30d18a4be0bceea2dff0c8e9}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_duplicate\_size@{agx\_vector\_new\_duplicate\_size}}
+\index{agx\_vector\_new\_duplicate\_size@{agx\_vector\_new\_duplicate\_size}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_duplicate\_size()}{agx\_vector\_new\_duplicate\_size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+duplicate\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a9d9c652f8e2eaf95147b94a8f652185e}\label{vector_8h_a9d9c652f8e2eaf95147b94a8f652185e}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_linspace@{agx\_vector\_new\_linspace}}
+\index{agx\_vector\_new\_linspace@{agx\_vector\_new\_linspace}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_linspace()}{agx\_vector\_new\_linspace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+linspace (\begin{DoxyParamCaption}\item[{double}]{min,  }\item[{double}]{max,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_ad85459b19a7f5c885b0a77a1394aadb4}\label{vector_8h_ad85459b19a7f5c885b0a77a1394aadb4}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_random@{agx\_vector\_new\_random}}
+\index{agx\_vector\_new\_random@{agx\_vector\_new\_random}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_random()}{agx\_vector\_new\_random()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+random (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_aacf739153ee1da0fcbf8f9ac9533e0e4}\label{vector_8h_aacf739153ee1da0fcbf8f9ac9533e0e4}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_values@{agx\_vector\_new\_values}}
+\index{agx\_vector\_new\_values@{agx\_vector\_new\_values}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_values()}{agx\_vector\_new\_values()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+values (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_ab939bf6fddf72446bd6ce0cd461b67f5}\label{vector_8h_ab939bf6fddf72446bd6ce0cd461b67f5}} 
+\index{vector.h@{vector.h}!agx\_vector\_new\_zero@{agx\_vector\_new\_zero}}
+\index{agx\_vector\_new\_zero@{agx\_vector\_new\_zero}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_new\_zero()}{agx\_vector\_new\_zero()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}}$\ast$ agx\+\_\+vector\+\_\+new\+\_\+zero (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_acc2a8d402609ce6ee7d56cb87c460a53}\label{vector_8h_acc2a8d402609ce6ee7d56cb87c460a53}} 
+\index{vector.h@{vector.h}!agx\_vector\_print@{agx\_vector\_print}}
+\index{agx\_vector\_print@{agx\_vector\_print}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_print()}{agx\_vector\_print()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{int}]{islong }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a4e9d05541c9275e40ead6d1c1b40e363}\label{vector_8h_a4e9d05541c9275e40ead6d1c1b40e363}} 
+\index{vector.h@{vector.h}!agx\_vector\_print\_full@{agx\_vector\_print\_full}}
+\index{agx\_vector\_print\_full@{agx\_vector\_print\_full}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_print\_full()}{agx\_vector\_print\_full()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+print\+\_\+full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a9a5f1d7dda65b63f3db93a0a05297216}\label{vector_8h_a9a5f1d7dda65b63f3db93a0a05297216}} 
+\index{vector.h@{vector.h}!agx\_vector\_print\_partial@{agx\_vector\_print\_partial}}
+\index{agx\_vector\_print\_partial@{agx\_vector\_print\_partial}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_print\_partial()}{agx\_vector\_print\_partial()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+print\+\_\+partial (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_ad32bae52f994504eebf6ab7b17048a79}\label{vector_8h_ad32bae52f994504eebf6ab7b17048a79}} 
+\index{vector.h@{vector.h}!agx\_vector\_set\_item@{agx\_vector\_set\_item}}
+\index{agx\_vector\_set\_item@{agx\_vector\_set\_item}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_set\_item()}{agx\_vector\_set\_item()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+set\+\_\+item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{int}]{index,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a1a43a39fc6104b5db6324bd3edd61cc2}\label{vector_8h_a1a43a39fc6104b5db6324bd3edd61cc2}} 
+\index{vector.h@{vector.h}!agx\_vector\_sin@{agx\_vector\_sin}}
+\index{agx\_vector\_sin@{agx\_vector\_sin}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_sin()}{agx\_vector\_sin()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+sin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_a7955330a6a1d466443570769996930dc}\label{vector_8h_a7955330a6a1d466443570769996930dc}} 
+\index{vector.h@{vector.h}!agx\_vector\_sort@{agx\_vector\_sort}}
+\index{agx\_vector\_sort@{agx\_vector\_sort}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_sort()}{agx\_vector\_sort()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_aff90b9fb127b046b2b5527e64161fe8b}\label{vector_8h_aff90b9fb127b046b2b5527e64161fe8b}} 
+\index{vector.h@{vector.h}!agx\_vector\_substract\_by\_value@{agx\_vector\_substract\_by\_value}}
+\index{agx\_vector\_substract\_by\_value@{agx\_vector\_substract\_by\_value}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_substract\_by\_value()}{agx\_vector\_substract\_by\_value()}}
+{\footnotesize\ttfamily void$\ast$ agx\+\_\+vector\+\_\+substract\+\_\+by\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vector_8h_ae85875c8e7b7af9cd1c93d65805b4bbd}\label{vector_8h_ae85875c8e7b7af9cd1c93d65805b4bbd}} 
+\index{vector.h@{vector.h}!agx\_vector\_to\_string@{agx\_vector\_to\_string}}
+\index{agx\_vector\_to\_string@{agx\_vector\_to\_string}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{agx\_vector\_to\_string()}{agx\_vector\_to\_string()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_acf38fefb2121add30c4070bec3e07182}{p\+\_\+vector\+String\+\_\+t}} agx\+\_\+vector\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vec,  }\item[{int}]{islong }\end{DoxyParamCaption})}
+

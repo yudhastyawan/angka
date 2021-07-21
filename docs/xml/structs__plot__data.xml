@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structs__plot__data" kind="struct" language="C++" prot="public">
+    <compoundname>s_plot_data</compoundname>
+    <includes refid="plot_8h" local="no">plot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__plot__data_1a13b0fe177472856b6afc8eb0d5ede7fa" prot="public" static="no" mutable="no">
+        <type><ref refid="vector_8h_1aaa1a616db5a4ca5a1e1c1597bdac180b" kindref="member">AgxVector</ref> *</type>
+        <definition>AgxVector* vecx</definition>
+        <argsstring></argsstring>
+        <name>vecx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="22" column="15" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__plot__data_1a93c0b5925657916c317846c7a80fdc07" prot="public" static="no" mutable="no">
+        <type><ref refid="vector_8h_1aaa1a616db5a4ca5a1e1c1597bdac180b" kindref="member">AgxVector</ref> *</type>
+        <definition>AgxVector* vecy</definition>
+        <argsstring></argsstring>
+        <name>vecy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="23" column="15" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>s_plot_data</label>
+        <link refid="structs__plot__data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vecx</edgelabel>
+          <edgelabel>vecy</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>s_vector</label>
+        <link refid="structs__vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="21" column="1" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="21" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structs__plot__data_1a13b0fe177472856b6afc8eb0d5ede7fa" prot="public" virt="non-virtual"><scope>s_plot_data</scope><name>vecx</name></member>
+      <member refid="structs__plot__data_1a93c0b5925657916c317846c7a80fdc07" prot="public" virt="non-virtual"><scope>s_plot_data</scope><name>vecy</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

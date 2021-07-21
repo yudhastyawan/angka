@@ -1,0 +1,314 @@
+\hypertarget{plot_8h}{}\doxysection{C\+:/\+Users/\+Lenovo/\+Documents/projects/windows/angka/visual/include/plot.h File Reference}
+\label{plot_8h}\index{C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h@{C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__color}{s\+\_\+color}}
+\item 
+struct \mbox{\hyperlink{structs__plot__data}{s\+\_\+plot\+\_\+data}}
+\item 
+struct \mbox{\hyperlink{structs__coord__double}{s\+\_\+coord\+\_\+double}}
+\item 
+struct \mbox{\hyperlink{structs__coord__int}{s\+\_\+coord\+\_\+int}}
+\item 
+struct \mbox{\hyperlink{structs__canvas}{s\+\_\+canvas}}
+\item 
+struct \mbox{\hyperlink{structs__figure}{s\+\_\+figure}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plot_8h_aee490d814b330e099c69beb9963078ae}{VRGB}}~255
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78}{e\+\_\+canvas\+\_\+type}} \mbox{\hyperlink{plot_8h_a7e55b33c245eed376aadcec90f4cd699}{Agv\+Canvas\+Type}}
+\item 
+typedef struct \mbox{\hyperlink{structs__color}{s\+\_\+color}} \mbox{\hyperlink{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}{Agx\+Color}}
+\item 
+typedef struct \mbox{\hyperlink{structs__plot__data}{s\+\_\+plot\+\_\+data}} \mbox{\hyperlink{plot_8h_a08d7c87dfca27b666e4f366aeed21d4d}{Agx\+Plot\+Data}}
+\item 
+typedef struct \mbox{\hyperlink{structs__coord__double}{s\+\_\+coord\+\_\+double}} \mbox{\hyperlink{plot_8h_a66502df3091619d2e3cbdd6fdc2e3809}{Agx\+Coord\+Double}}
+\item 
+typedef struct \mbox{\hyperlink{structs__coord__int}{s\+\_\+coord\+\_\+int}} \mbox{\hyperlink{plot_8h_a2454ed86b1350b932332c182aa04fd1b}{Agx\+Coord\+Int}}
+\item 
+typedef struct \mbox{\hyperlink{structs__canvas}{s\+\_\+canvas}} \mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}}
+\item 
+typedef struct \mbox{\hyperlink{structs__figure}{s\+\_\+figure}} \mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78}{e\+\_\+canvas\+\_\+type}} \{ \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78a3f547f79c914114b3dee13df29bc1df8}{AGV\+\_\+\+PLOT}}
+, \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78a02097dcaf787e02520ee5219772de912}{AGV\+\_\+\+SCATTER}}
+, \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78a5c3b467a897019f082f99daeebd62f97}{AGV\+\_\+\+IMAGE}}
+, \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78adc282eff974935f56e8c0fd3354b3e6b}{AGV\+\_\+\+CONTOUR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_ad692b4e4639b6973c0496030837aea67}{agv\+\_\+color\+\_\+pallete\+\_\+set}} (\mbox{\hyperlink{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}{Agx\+Color}} $\ast$clr, int index, int r, int g, int b, double a, double val)
+\item 
+\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$ \mbox{\hyperlink{plot_8h_af91eb15a259adcc4060fe45ea34b14fe}{agv\+\_\+figure\+\_\+new}} (int row, int col)
+\item 
+void \mbox{\hyperlink{plot_8h_a07ec1dee9c9ab9889518fecdbc04c8b3}{agv\+\_\+figure\+\_\+delete}} (\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$fig)
+\item 
+\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$ \mbox{\hyperlink{plot_8h_a768c61cc4c39025ab00683ebe5c01ba3}{agv\+\_\+subplots}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Create a figure with subplots definition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$ \mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\+\_\+set\+\_\+canvas}} (\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$fig, int index)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_ab0ffe026599b126359c44b51454e1d8d}{agv\+\_\+plot}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vecx, \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vecy)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_a8fd1f374c38bbad10394c36563f96322}{agv\+\_\+scatter}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vecx, \mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$vecy)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_af6a8d29520453e59d9cc969a937ae113}{agv\+\_\+imshow}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, \mbox{\hyperlink{matrix_8h_a42f11ce0f56bde42506b9d33a13213ff}{Agx\+Matrix}} $\ast$mat)
+\item 
+\mbox{\hyperlink{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}{Agx\+Color}} $\ast$ \mbox{\hyperlink{plot_8h_ab3b6443056aa749b1245a08c5a00da41}{agv\+\_\+color\+\_\+pallete\+\_\+canvas\+\_\+set}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, int line, int size)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_a7d07ee409ed6445845d6be1de8c077cf}{agv\+\_\+xlim}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, double min, double max)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_af4679a3eb18a106ebda4a10e2e62a3d5}{agv\+\_\+ylim}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, double min, double max)
+\item 
+void \mbox{\hyperlink{plot_8h_a3003a7dc495d536db3c43a5e02a827d3}{agv\+\_\+show}} (\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$fig)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_a919eaeaa5016f1127ba0df1d2fa07729}{agv\+\_\+set\+\_\+color\+\_\+alpha}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, int line, int red, int green, int blue, double alpha)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_a3137eab434a4b55c31a686b5477120e6}{agv\+\_\+set\+\_\+color\+\_\+alpha\+\_\+line\+\_\+scatter}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, int line, int red, int green, int blue, double alpha)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_a55446dd180f950296361e6c06dba0677}{agv\+\_\+set\+\_\+radius}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, int line, int radius)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_abcf4ae0614d621fa1d180bd71fea5e34}{agv\+\_\+set\+\_\+linewidth}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, int line, int linewidth)
+\item 
+void $\ast$ \mbox{\hyperlink{plot_8h_aab37fbc6bc07ccca6923176e3cb8fca2}{agv\+\_\+set\+\_\+grid}} (\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$can, int boolean)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{plot_8h_aee490d814b330e099c69beb9963078ae}\label{plot_8h_aee490d814b330e099c69beb9963078ae}} 
+\index{plot.h@{plot.h}!VRGB@{VRGB}}
+\index{VRGB@{VRGB}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{VRGB}{VRGB}}
+{\footnotesize\ttfamily \#define VRGB~255}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}\label{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}} 
+\index{plot.h@{plot.h}!AgvCanvas@{AgvCanvas}}
+\index{AgvCanvas@{AgvCanvas}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{AgvCanvas}{AgvCanvas}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__canvas}{s\+\_\+canvas}} \mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}}}
+
+\mbox{\Hypertarget{plot_8h_a7e55b33c245eed376aadcec90f4cd699}\label{plot_8h_a7e55b33c245eed376aadcec90f4cd699}} 
+\index{plot.h@{plot.h}!AgvCanvasType@{AgvCanvasType}}
+\index{AgvCanvasType@{AgvCanvasType}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{AgvCanvasType}{AgvCanvasType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78}{e\+\_\+canvas\+\_\+type}} \mbox{\hyperlink{plot_8h_a7e55b33c245eed376aadcec90f4cd699}{Agv\+Canvas\+Type}}}
+
+\mbox{\Hypertarget{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}\label{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}} 
+\index{plot.h@{plot.h}!AgvFigure@{AgvFigure}}
+\index{AgvFigure@{AgvFigure}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{AgvFigure}{AgvFigure}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__figure}{s\+\_\+figure}} \mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}}}
+
+\mbox{\Hypertarget{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}\label{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}} 
+\index{plot.h@{plot.h}!AgxColor@{AgxColor}}
+\index{AgxColor@{AgxColor}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{AgxColor}{AgxColor}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__color}{s\+\_\+color}} \mbox{\hyperlink{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}{Agx\+Color}}}
+
+\mbox{\Hypertarget{plot_8h_a66502df3091619d2e3cbdd6fdc2e3809}\label{plot_8h_a66502df3091619d2e3cbdd6fdc2e3809}} 
+\index{plot.h@{plot.h}!AgxCoordDouble@{AgxCoordDouble}}
+\index{AgxCoordDouble@{AgxCoordDouble}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{AgxCoordDouble}{AgxCoordDouble}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__coord__double}{s\+\_\+coord\+\_\+double}} \mbox{\hyperlink{plot_8h_a66502df3091619d2e3cbdd6fdc2e3809}{Agx\+Coord\+Double}}}
+
+\mbox{\Hypertarget{plot_8h_a2454ed86b1350b932332c182aa04fd1b}\label{plot_8h_a2454ed86b1350b932332c182aa04fd1b}} 
+\index{plot.h@{plot.h}!AgxCoordInt@{AgxCoordInt}}
+\index{AgxCoordInt@{AgxCoordInt}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{AgxCoordInt}{AgxCoordInt}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__coord__int}{s\+\_\+coord\+\_\+int}} \mbox{\hyperlink{plot_8h_a2454ed86b1350b932332c182aa04fd1b}{Agx\+Coord\+Int}}}
+
+\mbox{\Hypertarget{plot_8h_a08d7c87dfca27b666e4f366aeed21d4d}\label{plot_8h_a08d7c87dfca27b666e4f366aeed21d4d}} 
+\index{plot.h@{plot.h}!AgxPlotData@{AgxPlotData}}
+\index{AgxPlotData@{AgxPlotData}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{AgxPlotData}{AgxPlotData}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__plot__data}{s\+\_\+plot\+\_\+data}} \mbox{\hyperlink{plot_8h_a08d7c87dfca27b666e4f366aeed21d4d}{Agx\+Plot\+Data}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{plot_8h_abe92458836e8ef8513b04b2d2770ef78}\label{plot_8h_abe92458836e8ef8513b04b2d2770ef78}} 
+\index{plot.h@{plot.h}!e\_canvas\_type@{e\_canvas\_type}}
+\index{e\_canvas\_type@{e\_canvas\_type}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{e\_canvas\_type}{e\_canvas\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{plot_8h_abe92458836e8ef8513b04b2d2770ef78}{e\+\_\+canvas\+\_\+type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AGV\_PLOT@{AGV\_PLOT}!plot.h@{plot.h}}\index{plot.h@{plot.h}!AGV\_PLOT@{AGV\_PLOT}}}\mbox{\Hypertarget{plot_8h_abe92458836e8ef8513b04b2d2770ef78a3f547f79c914114b3dee13df29bc1df8}\label{plot_8h_abe92458836e8ef8513b04b2d2770ef78a3f547f79c914114b3dee13df29bc1df8}} 
+AGV\+\_\+\+PLOT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AGV\_SCATTER@{AGV\_SCATTER}!plot.h@{plot.h}}\index{plot.h@{plot.h}!AGV\_SCATTER@{AGV\_SCATTER}}}\mbox{\Hypertarget{plot_8h_abe92458836e8ef8513b04b2d2770ef78a02097dcaf787e02520ee5219772de912}\label{plot_8h_abe92458836e8ef8513b04b2d2770ef78a02097dcaf787e02520ee5219772de912}} 
+AGV\+\_\+\+SCATTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AGV\_IMAGE@{AGV\_IMAGE}!plot.h@{plot.h}}\index{plot.h@{plot.h}!AGV\_IMAGE@{AGV\_IMAGE}}}\mbox{\Hypertarget{plot_8h_abe92458836e8ef8513b04b2d2770ef78a5c3b467a897019f082f99daeebd62f97}\label{plot_8h_abe92458836e8ef8513b04b2d2770ef78a5c3b467a897019f082f99daeebd62f97}} 
+AGV\+\_\+\+IMAGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AGV\_CONTOUR@{AGV\_CONTOUR}!plot.h@{plot.h}}\index{plot.h@{plot.h}!AGV\_CONTOUR@{AGV\_CONTOUR}}}\mbox{\Hypertarget{plot_8h_abe92458836e8ef8513b04b2d2770ef78adc282eff974935f56e8c0fd3354b3e6b}\label{plot_8h_abe92458836e8ef8513b04b2d2770ef78adc282eff974935f56e8c0fd3354b3e6b}} 
+AGV\+\_\+\+CONTOUR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{plot_8h_ab3b6443056aa749b1245a08c5a00da41}\label{plot_8h_ab3b6443056aa749b1245a08c5a00da41}} 
+\index{plot.h@{plot.h}!agv\_color\_pallete\_canvas\_set@{agv\_color\_pallete\_canvas\_set}}
+\index{agv\_color\_pallete\_canvas\_set@{agv\_color\_pallete\_canvas\_set}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_color\_pallete\_canvas\_set()}{agv\_color\_pallete\_canvas\_set()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}{Agx\+Color}}$\ast$ agv\+\_\+color\+\_\+pallete\+\_\+canvas\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{int}]{line,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_ad692b4e4639b6973c0496030837aea67}\label{plot_8h_ad692b4e4639b6973c0496030837aea67}} 
+\index{plot.h@{plot.h}!agv\_color\_pallete\_set@{agv\_color\_pallete\_set}}
+\index{agv\_color\_pallete\_set@{agv\_color\_pallete\_set}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_color\_pallete\_set()}{agv\_color\_pallete\_set()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+color\+\_\+pallete\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_a34826e5f8ba37be141b9396d099f4e0f}{Agx\+Color}} $\ast$}]{clr,  }\item[{int}]{index,  }\item[{int}]{r,  }\item[{int}]{g,  }\item[{int}]{b,  }\item[{double}]{a,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a07ec1dee9c9ab9889518fecdbc04c8b3}\label{plot_8h_a07ec1dee9c9ab9889518fecdbc04c8b3}} 
+\index{plot.h@{plot.h}!agv\_figure\_delete@{agv\_figure\_delete}}
+\index{agv\_figure\_delete@{agv\_figure\_delete}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_figure\_delete()}{agv\_figure\_delete()}}
+{\footnotesize\ttfamily void agv\+\_\+figure\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$}]{fig }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_af91eb15a259adcc4060fe45ea34b14fe}\label{plot_8h_af91eb15a259adcc4060fe45ea34b14fe}} 
+\index{plot.h@{plot.h}!agv\_figure\_new@{agv\_figure\_new}}
+\index{agv\_figure\_new@{agv\_figure\_new}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_figure\_new()}{agv\_figure\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}}$\ast$ agv\+\_\+figure\+\_\+new (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_af6a8d29520453e59d9cc969a937ae113}\label{plot_8h_af6a8d29520453e59d9cc969a937ae113}} 
+\index{plot.h@{plot.h}!agv\_imshow@{agv\_imshow}}
+\index{agv\_imshow@{agv\_imshow}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_imshow()}{agv\_imshow()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+imshow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{\mbox{\hyperlink{matrix_8h_a42f11ce0f56bde42506b9d33a13213ff}{Agx\+Matrix}} $\ast$}]{mat }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_ab0ffe026599b126359c44b51454e1d8d}\label{plot_8h_ab0ffe026599b126359c44b51454e1d8d}} 
+\index{plot.h@{plot.h}!agv\_plot@{agv\_plot}}
+\index{agv\_plot@{agv\_plot}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_plot()}{agv\_plot()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+plot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vecx,  }\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vecy }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a8fd1f374c38bbad10394c36563f96322}\label{plot_8h_a8fd1f374c38bbad10394c36563f96322}} 
+\index{plot.h@{plot.h}!agv\_scatter@{agv\_scatter}}
+\index{agv\_scatter@{agv\_scatter}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_scatter()}{agv\_scatter()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+scatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vecx,  }\item[{\mbox{\hyperlink{vector_8h_aaa1a616db5a4ca5a1e1c1597bdac180b}{Agx\+Vector}} $\ast$}]{vecy }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}\label{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}} 
+\index{plot.h@{plot.h}!agv\_set\_canvas@{agv\_set\_canvas}}
+\index{agv\_set\_canvas@{agv\_set\_canvas}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_set\_canvas()}{agv\_set\_canvas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}}$\ast$ agv\+\_\+set\+\_\+canvas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$}]{fig,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a919eaeaa5016f1127ba0df1d2fa07729}\label{plot_8h_a919eaeaa5016f1127ba0df1d2fa07729}} 
+\index{plot.h@{plot.h}!agv\_set\_color\_alpha@{agv\_set\_color\_alpha}}
+\index{agv\_set\_color\_alpha@{agv\_set\_color\_alpha}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_set\_color\_alpha()}{agv\_set\_color\_alpha()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+set\+\_\+color\+\_\+alpha (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{int}]{line,  }\item[{int}]{red,  }\item[{int}]{green,  }\item[{int}]{blue,  }\item[{double}]{alpha }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a3137eab434a4b55c31a686b5477120e6}\label{plot_8h_a3137eab434a4b55c31a686b5477120e6}} 
+\index{plot.h@{plot.h}!agv\_set\_color\_alpha\_line\_scatter@{agv\_set\_color\_alpha\_line\_scatter}}
+\index{agv\_set\_color\_alpha\_line\_scatter@{agv\_set\_color\_alpha\_line\_scatter}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_set\_color\_alpha\_line\_scatter()}{agv\_set\_color\_alpha\_line\_scatter()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+set\+\_\+color\+\_\+alpha\+\_\+line\+\_\+scatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{int}]{line,  }\item[{int}]{red,  }\item[{int}]{green,  }\item[{int}]{blue,  }\item[{double}]{alpha }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_aab37fbc6bc07ccca6923176e3cb8fca2}\label{plot_8h_aab37fbc6bc07ccca6923176e3cb8fca2}} 
+\index{plot.h@{plot.h}!agv\_set\_grid@{agv\_set\_grid}}
+\index{agv\_set\_grid@{agv\_set\_grid}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_set\_grid()}{agv\_set\_grid()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+set\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{int}]{boolean }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_abcf4ae0614d621fa1d180bd71fea5e34}\label{plot_8h_abcf4ae0614d621fa1d180bd71fea5e34}} 
+\index{plot.h@{plot.h}!agv\_set\_linewidth@{agv\_set\_linewidth}}
+\index{agv\_set\_linewidth@{agv\_set\_linewidth}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_set\_linewidth()}{agv\_set\_linewidth()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+set\+\_\+linewidth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{int}]{line,  }\item[{int}]{linewidth }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a55446dd180f950296361e6c06dba0677}\label{plot_8h_a55446dd180f950296361e6c06dba0677}} 
+\index{plot.h@{plot.h}!agv\_set\_radius@{agv\_set\_radius}}
+\index{agv\_set\_radius@{agv\_set\_radius}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_set\_radius()}{agv\_set\_radius()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+set\+\_\+radius (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{int}]{line,  }\item[{int}]{radius }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a3003a7dc495d536db3c43a5e02a827d3}\label{plot_8h_a3003a7dc495d536db3c43a5e02a827d3}} 
+\index{plot.h@{plot.h}!agv\_show@{agv\_show}}
+\index{agv\_show@{agv\_show}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_show()}{agv\_show()}}
+{\footnotesize\ttfamily void agv\+\_\+show (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}} $\ast$}]{fig }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_a768c61cc4c39025ab00683ebe5c01ba3}\label{plot_8h_a768c61cc4c39025ab00683ebe5c01ba3}} 
+\index{plot.h@{plot.h}!agv\_subplots@{agv\_subplots}}
+\index{agv\_subplots@{agv\_subplots}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_subplots()}{agv\_subplots()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot_8h_aeb5e23c1950bb887a72f25810b36fbaa}{Agv\+Figure}}$\ast$ agv\+\_\+subplots (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Create a figure with subplots definition. 
+
+see my example at 
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{angka_8h}{angka.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{angkavisual_8h}{angkavisual.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} size = 100;}
+\DoxyCodeLine{    \mbox{\hyperlink{structs__vector}{AgxVector}} *vecx = \mbox{\hyperlink{vector_8h_a9d9c652f8e2eaf95147b94a8f652185e}{agx\_vector\_new\_linspace}}(0., 10., size);}
+\DoxyCodeLine{    \mbox{\hyperlink{structs__vector}{AgxVector}} *vecy = \mbox{\hyperlink{vector_8h_ad85459b19a7f5c885b0a77a1394aadb4}{agx\_vector\_new\_random}}(size, -\/10., 10.);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{structs__figure}{AgvFigure}} *fig = \mbox{\hyperlink{plot_8h_a768c61cc4c39025ab00683ebe5c01ba3}{agv\_subplots}}(2,2);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_ab0ffe026599b126359c44b51454e1d8d}{agv\_plot}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 0), vecx, vecy);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a8fd1f374c38bbad10394c36563f96322}{agv\_scatter}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 0), vecx, vecy);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a919eaeaa5016f1127ba0df1d2fa07729}{agv\_set\_color\_alpha}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 0), 0, 255, 100, 127, 0.7);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a919eaeaa5016f1127ba0df1d2fa07729}{agv\_set\_color\_alpha}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 0), 1, 0, 0, 255, 0.4);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a3137eab434a4b55c31a686b5477120e6}{agv\_set\_color\_alpha\_line\_scatter}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 0), 1, 255, 0, 0, 0.4);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a55446dd180f950296361e6c06dba0677}{agv\_set\_radius}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 0), 1, 10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_ab0ffe026599b126359c44b51454e1d8d}{agv\_plot}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 1), vecx, vecy);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a919eaeaa5016f1127ba0df1d2fa07729}{agv\_set\_color\_alpha}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 1), 0, 93, 241, 93, 1.);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_aab37fbc6bc07ccca6923176e3cb8fca2}{agv\_set\_grid}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 1), \mbox{\hyperlink{init_8h_a5638bcc6164376dfb0f0e96b4c289292aa82764c3079aea4e60c80e45befbb839}{TRUE}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_ab0ffe026599b126359c44b51454e1d8d}{agv\_plot}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 2), vecx, vecy);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_ab0ffe026599b126359c44b51454e1d8d}{agv\_plot}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 3), vecx, vecy);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_abcf4ae0614d621fa1d180bd71fea5e34}{agv\_set\_linewidth}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, 3), 0, 20);}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < fig-\/>\mbox{\hyperlink{structs__figure_a439227feff9d7f55384e8780cfc2eb82}{size}}; i++) \{}
+\DoxyCodeLine{        \mbox{\hyperlink{plot_8h_a7d07ee409ed6445845d6be1de8c077cf}{agv\_xlim}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, i), 0., 10.);}
+\DoxyCodeLine{        \mbox{\hyperlink{plot_8h_af4679a3eb18a106ebda4a10e2e62a3d5}{agv\_ylim}}(\mbox{\hyperlink{plot_8h_a009a2bd9a8208dd5a4fcb163d0b042d5}{agv\_set\_canvas}}(fig, i), -\/10., 10.);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a3003a7dc495d536db3c43a5e02a827d3}{agv\_show}}(fig);}
+\DoxyCodeLine{    \mbox{\hyperlink{plot_8h_a07ec1dee9c9ab9889518fecdbc04c8b3}{agv\_figure\_delete}}(fig);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{vector_8h_a52e20a9dff729e8eff11d5a4c40bb919}{agx\_vector\_delete}}(vecx);}
+\DoxyCodeLine{    \mbox{\hyperlink{vector_8h_a52e20a9dff729e8eff11d5a4c40bb919}{agx\_vector\_delete}}(vecy);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \mbox{\Hypertarget{plot_8h_a7d07ee409ed6445845d6be1de8c077cf}\label{plot_8h_a7d07ee409ed6445845d6be1de8c077cf}} 
+\index{plot.h@{plot.h}!agv\_xlim@{agv\_xlim}}
+\index{agv\_xlim@{agv\_xlim}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_xlim()}{agv\_xlim()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+xlim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{plot_8h_af4679a3eb18a106ebda4a10e2e62a3d5}\label{plot_8h_af4679a3eb18a106ebda4a10e2e62a3d5}} 
+\index{plot.h@{plot.h}!agv\_ylim@{agv\_ylim}}
+\index{agv\_ylim@{agv\_ylim}!plot.h@{plot.h}}
+\doxysubsubsection{\texorpdfstring{agv\_ylim()}{agv\_ylim()}}
+{\footnotesize\ttfamily void$\ast$ agv\+\_\+ylim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot_8h_aa6ae1123316a40bb6e5b45b007bb6d2e}{Agv\+Canvas}} $\ast$}]{can,  }\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})}
+

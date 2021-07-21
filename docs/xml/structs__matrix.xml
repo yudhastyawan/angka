@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structs__matrix" kind="struct" language="C++" prot="public">
+    <compoundname>s_matrix</compoundname>
+    <includes refid="matrix_8h" local="no">matrix.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__matrix_1a3496ea3931d9ec95424474a39a844e8f" prot="public" static="no" mutable="no">
+        <type>double *</type>
+        <definition>double* p_r_nums</definition>
+        <argsstring></argsstring>
+        <name>p_r_nums</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" line="11" column="12" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__matrix_1a0c705c5d4d0a5dc96bcbacc8ddfce247" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int r_shape[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>r_shape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" line="12" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__matrix_1a439227feff9d7f55384e8780cfc2eb82" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" line="13" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" line="10" column="1" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/include/matrix.h" bodystart="10" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structs__matrix_1a3496ea3931d9ec95424474a39a844e8f" prot="public" virt="non-virtual"><scope>s_matrix</scope><name>p_r_nums</name></member>
+      <member refid="structs__matrix_1a0c705c5d4d0a5dc96bcbacc8ddfce247" prot="public" virt="non-virtual"><scope>s_matrix</scope><name>r_shape</name></member>
+      <member refid="structs__matrix_1a439227feff9d7f55384e8780cfc2eb82" prot="public" virt="non-virtual"><scope>s_matrix</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

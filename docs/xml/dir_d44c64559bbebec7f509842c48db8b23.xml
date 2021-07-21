@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
+    <compoundname>C:/Users/Lenovo/Documents/projects/windows/angka/include</compoundname>
+    <innerfile refid="angka_8h">angka.h</innerfile>
+    <innerfile refid="init_8h">init.h</innerfile>
+    <innerfile refid="matrix_8h">matrix.h</innerfile>
+    <innerfile refid="standard_8h">standard.h</innerfile>
+    <innerfile refid="vector_8h">vector.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Lenovo/Documents/projects/windows/angka/include/"/>
+  </compounddef>
+</doxygen>

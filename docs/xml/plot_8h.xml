@@ -1,0 +1,732 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="plot_8h" kind="file" language="C++">
+    <compoundname>plot.h</compoundname>
+    <includedby refid="angkavisual_8h" local="yes">C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/angkavisual.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/angkavisual.h</label>
+        <link refid="angkavisual_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h</label>
+        <link refid="plot_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structs__color" prot="public">s_color</innerclass>
+    <innerclass refid="structs__plot__data" prot="public">s_plot_data</innerclass>
+    <innerclass refid="structs__coord__double" prot="public">s_coord_double</innerclass>
+    <innerclass refid="structs__coord__int" prot="public">s_coord_int</innerclass>
+    <innerclass refid="structs__canvas" prot="public">s_canvas</innerclass>
+    <innerclass refid="structs__figure" prot="public">s_figure</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="plot_8h_1aee490d814b330e099c69beb9963078ae" prot="public" static="no">
+        <name>VRGB</name>
+        <initializer>255</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="8" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="plot_8h_1abe92458836e8ef8513b04b2d2770ef78" prot="public" static="no" strong="no">
+        <type></type>
+        <name>e_canvas_type</name>
+        <enumvalue id="plot_8h_1abe92458836e8ef8513b04b2d2770ef78a3f547f79c914114b3dee13df29bc1df8" prot="public">
+          <name>AGV_PLOT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="plot_8h_1abe92458836e8ef8513b04b2d2770ef78a02097dcaf787e02520ee5219772de912" prot="public">
+          <name>AGV_SCATTER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="plot_8h_1abe92458836e8ef8513b04b2d2770ef78a5c3b467a897019f082f99daeebd62f97" prot="public">
+          <name>AGV_IMAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="plot_8h_1abe92458836e8ef8513b04b2d2770ef78adc282eff974935f56e8c0fd3354b3e6b" prot="public">
+          <name>AGV_CONTOUR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="10" column="1" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="10" bodyend="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="plot_8h_1a7e55b33c245eed376aadcec90f4cd699" prot="public" static="no">
+        <type>enum <ref refid="plot_8h_1abe92458836e8ef8513b04b2d2770ef78" kindref="member">e_canvas_type</ref></type>
+        <definition>typedef enum e_canvas_type AgvCanvasType</definition>
+        <argsstring></argsstring>
+        <name>AgvCanvasType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="10" column="41"/>
+      </memberdef>
+      <memberdef kind="typedef" id="plot_8h_1a34826e5f8ba37be141b9396d099f4e0f" prot="public" static="no">
+        <type>struct <ref refid="structs__color" kindref="compound">s_color</ref></type>
+        <definition>typedef struct s_color AgxColor</definition>
+        <argsstring></argsstring>
+        <name>AgxColor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="19" column="10"/>
+      </memberdef>
+      <memberdef kind="typedef" id="plot_8h_1a08d7c87dfca27b666e4f366aeed21d4d" prot="public" static="no">
+        <type>struct <ref refid="structs__plot__data" kindref="compound">s_plot_data</ref></type>
+        <definition>typedef struct s_plot_data AgxPlotData</definition>
+        <argsstring></argsstring>
+        <name>AgxPlotData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="24" column="13"/>
+      </memberdef>
+      <memberdef kind="typedef" id="plot_8h_1a66502df3091619d2e3cbdd6fdc2e3809" prot="public" static="no">
+        <type>struct <ref refid="structs__coord__double" kindref="compound">s_coord_double</ref></type>
+        <definition>typedef struct s_coord_double AgxCoordDouble</definition>
+        <argsstring></argsstring>
+        <name>AgxCoordDouble</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="29" column="16"/>
+      </memberdef>
+      <memberdef kind="typedef" id="plot_8h_1a2454ed86b1350b932332c182aa04fd1b" prot="public" static="no">
+        <type>struct <ref refid="structs__coord__int" kindref="compound">s_coord_int</ref></type>
+        <definition>typedef struct s_coord_int AgxCoordInt</definition>
+        <argsstring></argsstring>
+        <name>AgxCoordInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="34" column="13"/>
+      </memberdef>
+      <memberdef kind="typedef" id="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" prot="public" static="no">
+        <type>struct <ref refid="structs__canvas" kindref="compound">s_canvas</ref></type>
+        <definition>typedef struct s_canvas AgvCanvas</definition>
+        <argsstring></argsstring>
+        <name>AgvCanvas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="53" column="11"/>
+      </memberdef>
+      <memberdef kind="typedef" id="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" prot="public" static="no">
+        <type>struct <ref refid="structs__figure" kindref="compound">s_figure</ref></type>
+        <definition>typedef struct s_figure AgvFigure</definition>
+        <argsstring></argsstring>
+        <name>AgvFigure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="60" column="11"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="plot_8h_1ad692b4e4639b6973c0496030837aea67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_color_pallete_set</definition>
+        <argsstring>(AgxColor *clr, int index, int r, int g, int b, double a, double val)</argsstring>
+        <name>agv_color_pallete_set</name>
+        <param>
+          <type><ref refid="plot_8h_1a34826e5f8ba37be141b9396d099f4e0f" kindref="member">AgxColor</ref> *</type>
+          <declname>clr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="62" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="62" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1af91eb15a259adcc4060fe45ea34b14fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" kindref="member">AgvFigure</ref> *</type>
+        <definition>AgvFigure* agv_figure_new</definition>
+        <argsstring>(int row, int col)</argsstring>
+        <name>agv_figure_new</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="63" column="11" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="63" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a07ec1dee9c9ab9889518fecdbc04c8b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void agv_figure_delete</definition>
+        <argsstring>(AgvFigure *fig)</argsstring>
+        <name>agv_figure_delete</name>
+        <param>
+          <type><ref refid="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" kindref="member">AgvFigure</ref> *</type>
+          <declname>fig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="64" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="64" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a768c61cc4c39025ab00683ebe5c01ba3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" kindref="member">AgvFigure</ref> *</type>
+        <definition>AgvFigure* agv_subplots</definition>
+        <argsstring>(int row, int col)</argsstring>
+        <name>agv_subplots</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+<para>Create a figure with subplots definition. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>see my example at <programlisting filename="main_1.c"><codeline><highlight class="preprocessor">#include<sp/>&quot;<ref refid="angka_8h" kindref="compound">angka.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="angkavisual_8h" kindref="compound">angkavisual.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>100;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*vecx<sp/>=<sp/><ref refid="vector_8h_1a9d9c652f8e2eaf95147b94a8f652185e" kindref="member">agx_vector_new_linspace</ref>(0.,<sp/>10.,<sp/>size);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*vecy<sp/>=<sp/><ref refid="vector_8h_1ad85459b19a7f5c885b0a77a1394aadb4" kindref="member">agx_vector_new_random</ref>(size,<sp/>-10.,<sp/>10.);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__figure" kindref="compound">AgvFigure</ref><sp/>*fig<sp/>=<sp/><ref refid="plot_8h_1a768c61cc4c39025ab00683ebe5c01ba3" kindref="member">agv_subplots</ref>(2,2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1ab0ffe026599b126359c44b51454e1d8d" kindref="member">agv_plot</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>0),<sp/>vecx,<sp/>vecy);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a8fd1f374c38bbad10394c36563f96322" kindref="member">agv_scatter</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>0),<sp/>vecx,<sp/>vecy);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a919eaeaa5016f1127ba0df1d2fa07729" kindref="member">agv_set_color_alpha</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>0),<sp/>0,<sp/>255,<sp/>100,<sp/>127,<sp/>0.7);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a919eaeaa5016f1127ba0df1d2fa07729" kindref="member">agv_set_color_alpha</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>0),<sp/>1,<sp/>0,<sp/>0,<sp/>255,<sp/>0.4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a3137eab434a4b55c31a686b5477120e6" kindref="member">agv_set_color_alpha_line_scatter</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>0),<sp/>1,<sp/>255,<sp/>0,<sp/>0,<sp/>0.4);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a55446dd180f950296361e6c06dba0677" kindref="member">agv_set_radius</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>0),<sp/>1,<sp/>10);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1ab0ffe026599b126359c44b51454e1d8d" kindref="member">agv_plot</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>1),<sp/>vecx,<sp/>vecy);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a919eaeaa5016f1127ba0df1d2fa07729" kindref="member">agv_set_color_alpha</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>1),<sp/>0,<sp/>93,<sp/>241,<sp/>93,<sp/>1.);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1aab37fbc6bc07ccca6923176e3cb8fca2" kindref="member">agv_set_grid</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>1),<sp/><ref refid="init_8h_1a5638bcc6164376dfb0f0e96b4c289292aa82764c3079aea4e60c80e45befbb839" kindref="member">TRUE</ref>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1ab0ffe026599b126359c44b51454e1d8d" kindref="member">agv_plot</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>2),<sp/>vecx,<sp/>vecy);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1ab0ffe026599b126359c44b51454e1d8d" kindref="member">agv_plot</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>3),<sp/>vecx,<sp/>vecy);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1abcf4ae0614d621fa1d180bd71fea5e34" kindref="member">agv_set_linewidth</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>3),<sp/>0,<sp/>20);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>fig-&gt;<ref refid="structs__figure_1a439227feff9d7f55384e8780cfc2eb82" kindref="member">size</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a7d07ee409ed6445845d6be1de8c077cf" kindref="member">agv_xlim</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>i),<sp/>0.,<sp/>10.);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="plot_8h_1af4679a3eb18a106ebda4a10e2e62a3d5" kindref="member">agv_ylim</ref>(<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(fig,<sp/>i),<sp/>-10.,<sp/>10.);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a3003a7dc495d536db3c43a5e02a827d3" kindref="member">agv_show</ref>(fig);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="plot_8h_1a07ec1dee9c9ab9889518fecdbc04c8b3" kindref="member">agv_figure_delete</ref>(fig);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="vector_8h_1a52e20a9dff729e8eff11d5a4c40bb919" kindref="member">agx_vector_delete</ref>(vecx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="vector_8h_1a52e20a9dff729e8eff11d5a4c40bb919" kindref="member">agx_vector_delete</ref>(vecy);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="70" column="11" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="70" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+        <definition>AgvCanvas* agv_set_canvas</definition>
+        <argsstring>(AgvFigure *fig, int index)</argsstring>
+        <name>agv_set_canvas</name>
+        <param>
+          <type><ref refid="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" kindref="member">AgvFigure</ref> *</type>
+          <declname>fig</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="71" column="11" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="71" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1ab0ffe026599b126359c44b51454e1d8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_plot</definition>
+        <argsstring>(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy)</argsstring>
+        <name>agv_plot</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type><ref refid="vector_8h_1aaa1a616db5a4ca5a1e1c1597bdac180b" kindref="member">AgxVector</ref> *</type>
+          <declname>vecx</declname>
+        </param>
+        <param>
+          <type><ref refid="vector_8h_1aaa1a616db5a4ca5a1e1c1597bdac180b" kindref="member">AgxVector</ref> *</type>
+          <declname>vecy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="72" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="72" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a8fd1f374c38bbad10394c36563f96322" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_scatter</definition>
+        <argsstring>(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy)</argsstring>
+        <name>agv_scatter</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type><ref refid="vector_8h_1aaa1a616db5a4ca5a1e1c1597bdac180b" kindref="member">AgxVector</ref> *</type>
+          <declname>vecx</declname>
+        </param>
+        <param>
+          <type><ref refid="vector_8h_1aaa1a616db5a4ca5a1e1c1597bdac180b" kindref="member">AgxVector</ref> *</type>
+          <declname>vecy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="73" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="73" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1af6a8d29520453e59d9cc969a937ae113" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_imshow</definition>
+        <argsstring>(AgvCanvas *can, AgxMatrix *mat)</argsstring>
+        <name>agv_imshow</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type><ref refid="matrix_8h_1a42f11ce0f56bde42506b9d33a13213ff" kindref="member">AgxMatrix</ref> *</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="74" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="74" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1ab3b6443056aa749b1245a08c5a00da41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="plot_8h_1a34826e5f8ba37be141b9396d099f4e0f" kindref="member">AgxColor</ref> *</type>
+        <definition>AgxColor* agv_color_pallete_canvas_set</definition>
+        <argsstring>(AgvCanvas *can, int line, int size)</argsstring>
+        <name>agv_color_pallete_canvas_set</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="75" column="10" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="75" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a7d07ee409ed6445845d6be1de8c077cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_xlim</definition>
+        <argsstring>(AgvCanvas *can, double min, double max)</argsstring>
+        <name>agv_xlim</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="76" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="76" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1af4679a3eb18a106ebda4a10e2e62a3d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_ylim</definition>
+        <argsstring>(AgvCanvas *can, double min, double max)</argsstring>
+        <name>agv_ylim</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="77" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="77" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a3003a7dc495d536db3c43a5e02a827d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void agv_show</definition>
+        <argsstring>(AgvFigure *fig)</argsstring>
+        <name>agv_show</name>
+        <param>
+          <type><ref refid="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" kindref="member">AgvFigure</ref> *</type>
+          <declname>fig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="78" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="78" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a919eaeaa5016f1127ba0df1d2fa07729" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_set_color_alpha</definition>
+        <argsstring>(AgvCanvas *can, int line, int red, int green, int blue, double alpha)</argsstring>
+        <name>agv_set_color_alpha</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blue</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="79" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="79" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a3137eab434a4b55c31a686b5477120e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_set_color_alpha_line_scatter</definition>
+        <argsstring>(AgvCanvas *can, int line, int red, int green, int blue, double alpha)</argsstring>
+        <name>agv_set_color_alpha_line_scatter</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blue</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="80" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="80" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1a55446dd180f950296361e6c06dba0677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_set_radius</definition>
+        <argsstring>(AgvCanvas *can, int line, int radius)</argsstring>
+        <name>agv_set_radius</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>radius</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="81" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1abcf4ae0614d621fa1d180bd71fea5e34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_set_linewidth</definition>
+        <argsstring>(AgvCanvas *can, int line, int linewidth)</argsstring>
+        <name>agv_set_linewidth</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>linewidth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="82" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="82" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="plot_8h_1aab37fbc6bc07ccca6923176e3cb8fca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* agv_set_grid</definition>
+        <argsstring>(AgvCanvas *can, int boolean)</argsstring>
+        <name>agv_set_grid</name>
+        <param>
+          <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+          <declname>can</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>boolean</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="83" column="6" declfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" declline="83" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__PLOT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__PLOT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="plot_8h_1aee490d814b330e099c69beb9963078ae" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VRGB<sp/>255</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="plot_8h_1abe92458836e8ef8513b04b2d2770ef78adc282eff974935f56e8c0fd3354b3e6b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="plot_8h_1abe92458836e8ef8513b04b2d2770ef78" kindref="member">e_canvas_type</ref><sp/>{<ref refid="plot_8h_1abe92458836e8ef8513b04b2d2770ef78a3f547f79c914114b3dee13df29bc1df8" kindref="member">AGV_PLOT</ref>,<sp/><ref refid="plot_8h_1abe92458836e8ef8513b04b2d2770ef78a02097dcaf787e02520ee5219772de912" kindref="member">AGV_SCATTER</ref>,<sp/><ref refid="plot_8h_1abe92458836e8ef8513b04b2d2770ef78a5c3b467a897019f082f99daeebd62f97" kindref="member">AGV_IMAGE</ref>,<sp/><ref refid="plot_8h_1abe92458836e8ef8513b04b2d2770ef78adc282eff974935f56e8c0fd3354b3e6b" kindref="member">AGV_CONTOUR</ref>}<sp/><ref refid="plot_8h_1a7e55b33c245eed376aadcec90f4cd699" kindref="member">AgvCanvasType</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="structs__color" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__color" kindref="compound">s_color</ref><sp/>{</highlight></codeline>
+<codeline lineno="13" refid="structs__color_1acab531abaa74a7e664e3986f2522b33a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__color_1acab531abaa74a7e664e3986f2522b33a" kindref="member">r</ref>;</highlight></codeline>
+<codeline lineno="14" refid="structs__color_1a71867e609034d4dbd6d0ad8d84540e59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__color_1a71867e609034d4dbd6d0ad8d84540e59" kindref="member">g</ref>;</highlight></codeline>
+<codeline lineno="15" refid="structs__color_1a148e3876077787926724625411d6e7a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__color_1a148e3876077787926724625411d6e7a9" kindref="member">b</ref>;</highlight></codeline>
+<codeline lineno="16" refid="structs__color_1a1031d0e0a97a340abfe0a6ab9e831045" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structs__color_1a1031d0e0a97a340abfe0a6ab9e831045" kindref="member">a</ref>;</highlight></codeline>
+<codeline lineno="17" refid="structs__color_1a3c8bc0bb4f045bfe78d1196cb786792c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structs__color_1a3c8bc0bb4f045bfe78d1196cb786792c" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="18" refid="structs__color_1a439227feff9d7f55384e8780cfc2eb82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__color_1a439227feff9d7f55384e8780cfc2eb82" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="19" refid="plot_8h_1a34826e5f8ba37be141b9396d099f4e0f" refkind="member"><highlight class="normal">}<sp/><ref refid="plot_8h_1a34826e5f8ba37be141b9396d099f4e0f" kindref="member">AgxColor</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structs__plot__data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__plot__data" kindref="compound">s_plot_data</ref><sp/>{</highlight></codeline>
+<codeline lineno="22" refid="structs__plot__data_1a13b0fe177472856b6afc8eb0d5ede7fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*<ref refid="structs__plot__data_1a13b0fe177472856b6afc8eb0d5ede7fa" kindref="member">vecx</ref>;</highlight></codeline>
+<codeline lineno="23" refid="structs__plot__data_1a93c0b5925657916c317846c7a80fdc07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*<ref refid="structs__plot__data_1a93c0b5925657916c317846c7a80fdc07" kindref="member">vecy</ref>;</highlight></codeline>
+<codeline lineno="24" refid="plot_8h_1a08d7c87dfca27b666e4f366aeed21d4d" refkind="member"><highlight class="normal">}<sp/><ref refid="plot_8h_1a08d7c87dfca27b666e4f366aeed21d4d" kindref="member">AgxPlotData</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="structs__coord__double" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__coord__double" kindref="compound">s_coord_double</ref><sp/>{</highlight></codeline>
+<codeline lineno="27" refid="structs__coord__double_1af88b946fb90d5f08b5fb740c70e98c10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structs__coord__double_1af88b946fb90d5f08b5fb740c70e98c10" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="28" refid="structs__coord__double_1ab927965981178aa1fba979a37168db2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structs__coord__double_1ab927965981178aa1fba979a37168db2a" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="29" refid="plot_8h_1a66502df3091619d2e3cbdd6fdc2e3809" refkind="member"><highlight class="normal">}<sp/><ref refid="plot_8h_1a66502df3091619d2e3cbdd6fdc2e3809" kindref="member">AgxCoordDouble</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structs__coord__int" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__coord__int" kindref="compound">s_coord_int</ref><sp/>{</highlight></codeline>
+<codeline lineno="32" refid="structs__coord__int_1a6150e0515f7202e2fb518f7206ed97dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__coord__int_1a6150e0515f7202e2fb518f7206ed97dc" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="33" refid="structs__coord__int_1a0a2f84ed7838f07779ae24c5a9086d33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__coord__int_1a0a2f84ed7838f07779ae24c5a9086d33" kindref="member">y</ref>;</highlight></codeline>
+<codeline lineno="34" refid="plot_8h_1a2454ed86b1350b932332c182aa04fd1b" refkind="member"><highlight class="normal">}<sp/><ref refid="plot_8h_1a2454ed86b1350b932332c182aa04fd1b" kindref="member">AgxCoordInt</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structs__canvas" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__canvas" kindref="compound">s_canvas</ref><sp/>{</highlight></codeline>
+<codeline lineno="37" refid="structs__canvas_1a04fb048a1a9c414e3acd9cbc31e42535" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="structs__canvas_1a04fb048a1a9c414e3acd9cbc31e42535" kindref="member">p_r_type</ref>;</highlight></codeline>
+<codeline lineno="38" refid="structs__canvas_1a79f467c14f29716e3fb1c7036070e086" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="structs__canvas_1a79f467c14f29716e3fb1c7036070e086" kindref="member">p_r_linewidth</ref>;</highlight></codeline>
+<codeline lineno="39" refid="structs__canvas_1a06daf35891e082c6f44dccccfefaf3c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="structs__canvas_1a06daf35891e082c6f44dccccfefaf3c5" kindref="member">p_r_radius</ref>;</highlight></codeline>
+<codeline lineno="40" refid="structs__canvas_1af1d3cff2e4538e23400e260bae3dadad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__canvas_1af1d3cff2e4538e23400e260bae3dadad" kindref="member">row</ref>;</highlight></codeline>
+<codeline lineno="41" refid="structs__canvas_1afb52e720f5f0c483db5861f9e42e924e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__canvas_1afb52e720f5f0c483db5861f9e42e924e" kindref="member">col</ref>;</highlight></codeline>
+<codeline lineno="42" refid="structs__canvas_1a750b5d744c39a06bfb13e6eb010e35d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__canvas_1a750b5d744c39a06bfb13e6eb010e35d0" kindref="member">index</ref>;</highlight></codeline>
+<codeline lineno="43" refid="structs__canvas_1af695cb0da4ad42f891f9575a0b726e1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__canvas_1af695cb0da4ad42f891f9575a0b726e1e" kindref="member">grid</ref>;</highlight></codeline>
+<codeline lineno="44" refid="structs__canvas_1acbfd5c530fa55ba69ea5dc9f8b8dca00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__coord__double" kindref="compound">AgxCoordDouble</ref><sp/><ref refid="structs__canvas_1acbfd5c530fa55ba69ea5dc9f8b8dca00" kindref="member">min</ref>;</highlight></codeline>
+<codeline lineno="45" refid="structs__canvas_1a3671989b14bb721bb6c1919f173ab22b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__coord__double" kindref="compound">AgxCoordDouble</ref><sp/><ref refid="structs__canvas_1a3671989b14bb721bb6c1919f173ab22b" kindref="member">max</ref>;</highlight></codeline>
+<codeline lineno="46" refid="structs__canvas_1a3a16c76ff034eea01dc08b4beb4d144a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>**<ref refid="structs__canvas_1a3a16c76ff034eea01dc08b4beb4d144a" kindref="member">p_r_vecx</ref>;</highlight></codeline>
+<codeline lineno="47" refid="structs__canvas_1a9e923907fc72cde5fbe78125b1bf20be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>**<ref refid="structs__canvas_1a9e923907fc72cde5fbe78125b1bf20be" kindref="member">p_r_vecy</ref>;</highlight></codeline>
+<codeline lineno="48" refid="structs__canvas_1a78eeb60742685d7725accd40a47f2d31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__matrix" kindref="compound">AgxMatrix</ref><sp/>**<ref refid="structs__canvas_1a78eeb60742685d7725accd40a47f2d31" kindref="member">p_r_mat</ref>;</highlight></codeline>
+<codeline lineno="49" refid="structs__canvas_1af8ab33b7f091107e703aca3b6e5014e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__color" kindref="compound">AgxColor</ref><sp/>*<ref refid="structs__canvas_1af8ab33b7f091107e703aca3b6e5014e3" kindref="member">p_r_color</ref>;</highlight></codeline>
+<codeline lineno="50" refid="structs__canvas_1a9cbe6aa0f6b453bcb892ef2c08b3a9e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__color" kindref="compound">AgxColor</ref><sp/>*<ref refid="structs__canvas_1a9cbe6aa0f6b453bcb892ef2c08b3a9e4" kindref="member">p_r_color_outside</ref>;</highlight></codeline>
+<codeline lineno="51" refid="structs__canvas_1ad0788565956cdd6fa99145ee0c4b67c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__color" kindref="compound">AgxColor</ref><sp/>**<ref refid="structs__canvas_1ad0788565956cdd6fa99145ee0c4b67c3" kindref="member">p_r_color_pallete</ref>;</highlight></codeline>
+<codeline lineno="52" refid="structs__canvas_1af7701474312ddf0e611b94387d5ee2ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__canvas_1af7701474312ddf0e611b94387d5ee2ca" kindref="member">numOfVec</ref>;</highlight></codeline>
+<codeline lineno="53" refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" refkind="member"><highlight class="normal">}<sp/><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structs__figure" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__figure" kindref="compound">s_figure</ref><sp/>{</highlight></codeline>
+<codeline lineno="56" refid="structs__figure_1af1d3cff2e4538e23400e260bae3dadad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__figure_1af1d3cff2e4538e23400e260bae3dadad" kindref="member">row</ref>;</highlight></codeline>
+<codeline lineno="57" refid="structs__figure_1afb52e720f5f0c483db5861f9e42e924e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__figure_1afb52e720f5f0c483db5861f9e42e924e" kindref="member">col</ref>;</highlight></codeline>
+<codeline lineno="58" refid="structs__figure_1a439227feff9d7f55384e8780cfc2eb82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs__figure_1a439227feff9d7f55384e8780cfc2eb82" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="59" refid="structs__figure_1a5af63d5139c44396667379e7cff0ca3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*<ref refid="structs__figure_1a5af63d5139c44396667379e7cff0ca3b" kindref="member">p_r_canvas</ref>;</highlight></codeline>
+<codeline lineno="60" refid="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" refkind="member"><highlight class="normal">}<sp/><ref refid="plot_8h_1aeb5e23c1950bb887a72f25810b36fbaa" kindref="member">AgvFigure</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="plot_8h_1ad692b4e4639b6973c0496030837aea67" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1ad692b4e4639b6973c0496030837aea67" kindref="member">agv_color_pallete_set</ref>(<ref refid="structs__color" kindref="compound">AgxColor</ref><sp/>*clr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>r,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>g,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val);</highlight></codeline>
+<codeline lineno="63" refid="plot_8h_1af91eb15a259adcc4060fe45ea34b14fe" refkind="member"><highlight class="normal"><ref refid="structs__figure" kindref="compound">AgvFigure</ref><sp/>*<ref refid="plot_8h_1af91eb15a259adcc4060fe45ea34b14fe" kindref="member">agv_figure_new</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>col);</highlight></codeline>
+<codeline lineno="64" refid="plot_8h_1a07ec1dee9c9ab9889518fecdbc04c8b3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="plot_8h_1a07ec1dee9c9ab9889518fecdbc04c8b3" kindref="member">agv_figure_delete</ref>(<ref refid="structs__figure" kindref="compound">AgvFigure</ref><sp/>*fig);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="plot_8h_1a768c61cc4c39025ab00683ebe5c01ba3" refkind="member"><highlight class="normal"><ref refid="structs__figure" kindref="compound">AgvFigure</ref><sp/>*<ref refid="plot_8h_1a768c61cc4c39025ab00683ebe5c01ba3" kindref="member">agv_subplots</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>col);</highlight></codeline>
+<codeline lineno="71" refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" refkind="member"><highlight class="normal"><ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*<ref refid="plot_8h_1a009a2bd9a8208dd5a4fcb163d0b042d5" kindref="member">agv_set_canvas</ref>(<ref refid="structs__figure" kindref="compound">AgvFigure</ref><sp/>*fig,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index);</highlight></codeline>
+<codeline lineno="72" refid="plot_8h_1ab0ffe026599b126359c44b51454e1d8d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1ab0ffe026599b126359c44b51454e1d8d" kindref="member">agv_plot</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*vecx,<sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*vecy);</highlight></codeline>
+<codeline lineno="73" refid="plot_8h_1a8fd1f374c38bbad10394c36563f96322" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1a8fd1f374c38bbad10394c36563f96322" kindref="member">agv_scatter</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*vecx,<sp/><ref refid="structs__vector" kindref="compound">AgxVector</ref><sp/>*vecy);</highlight></codeline>
+<codeline lineno="74" refid="plot_8h_1af6a8d29520453e59d9cc969a937ae113" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1af6a8d29520453e59d9cc969a937ae113" kindref="member">agv_imshow</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/><ref refid="structs__matrix" kindref="compound">AgxMatrix</ref><sp/>*mat);</highlight></codeline>
+<codeline lineno="75" refid="plot_8h_1ab3b6443056aa749b1245a08c5a00da41" refkind="member"><highlight class="normal"><ref refid="structs__color" kindref="compound">AgxColor</ref><sp/>*<ref refid="plot_8h_1ab3b6443056aa749b1245a08c5a00da41" kindref="member">agv_color_pallete_canvas_set</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="76" refid="plot_8h_1a7d07ee409ed6445845d6be1de8c077cf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1a7d07ee409ed6445845d6be1de8c077cf" kindref="member">agv_xlim</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="77" refid="plot_8h_1af4679a3eb18a106ebda4a10e2e62a3d5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1af4679a3eb18a106ebda4a10e2e62a3d5" kindref="member">agv_ylim</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="78" refid="plot_8h_1a3003a7dc495d536db3c43a5e02a827d3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="plot_8h_1a3003a7dc495d536db3c43a5e02a827d3" kindref="member">agv_show</ref>(<ref refid="structs__figure" kindref="compound">AgvFigure</ref><sp/>*fig);</highlight></codeline>
+<codeline lineno="79" refid="plot_8h_1a919eaeaa5016f1127ba0df1d2fa07729" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1a919eaeaa5016f1127ba0df1d2fa07729" kindref="member">agv_set_color_alpha</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>red,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>green,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blue,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha);</highlight></codeline>
+<codeline lineno="80" refid="plot_8h_1a3137eab434a4b55c31a686b5477120e6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1a3137eab434a4b55c31a686b5477120e6" kindref="member">agv_set_color_alpha_line_scatter</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>red,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>green,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blue,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha);</highlight></codeline>
+<codeline lineno="81" refid="plot_8h_1a55446dd180f950296361e6c06dba0677" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1a55446dd180f950296361e6c06dba0677" kindref="member">agv_set_radius</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>radius);</highlight></codeline>
+<codeline lineno="82" refid="plot_8h_1abcf4ae0614d621fa1d180bd71fea5e34" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1abcf4ae0614d621fa1d180bd71fea5e34" kindref="member">agv_set_linewidth</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>linewidth);</highlight></codeline>
+<codeline lineno="83" refid="plot_8h_1aab37fbc6bc07ccca6923176e3cb8fca2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="plot_8h_1aab37fbc6bc07ccca6923176e3cb8fca2" kindref="member">agv_set_grid</ref>(<ref refid="structs__canvas" kindref="compound">AgvCanvas</ref><sp/>*can,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h"/>
+  </compounddef>
+</doxygen>

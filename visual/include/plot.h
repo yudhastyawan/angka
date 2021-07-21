@@ -62,6 +62,11 @@ typedef struct s_figure {
 void *agv_color_pallete_set(AgxColor *clr, int index, int r, int g, int b, double a, double val);
 AgvFigure *agv_figure_new(int row, int col);
 void agv_figure_delete(AgvFigure *fig);
+
+/**
+ * @brief Create a figure with subplots definition
+ * @details see my example at @include main_1.c
+ * */
 AgvFigure *agv_subplots(int row, int col);
 AgvCanvas *agv_set_canvas(AgvFigure *fig, int index);
 void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);

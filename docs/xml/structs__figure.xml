@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structs__figure" kind="struct" language="C++" prot="public">
+    <compoundname>s_figure</compoundname>
+    <includes refid="plot_8h" local="no">plot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__figure_1af1d3cff2e4538e23400e260bae3dadad" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int row</definition>
+        <argsstring></argsstring>
+        <name>row</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="56" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__figure_1afb52e720f5f0c483db5861f9e42e924e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int col</definition>
+        <argsstring></argsstring>
+        <name>col</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="57" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__figure_1a439227feff9d7f55384e8780cfc2eb82" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="58" column="9" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__figure_1a5af63d5139c44396667379e7cff0ca3b" prot="public" static="no" mutable="no">
+        <type><ref refid="plot_8h_1aa6ae1123316a40bb6e5b45b007bb6d2e" kindref="member">AgvCanvas</ref> *</type>
+        <definition>AgvCanvas* p_r_canvas</definition>
+        <argsstring></argsstring>
+        <name>p_r_canvas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="59" column="15" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>s_coord_double</label>
+        <link refid="structs__coord__double"/>
+      </node>
+      <node id="1">
+        <label>s_figure</label>
+        <link refid="structs__figure"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>p_r_canvas</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>s_matrix</label>
+        <link refid="structs__matrix"/>
+      </node>
+      <node id="2">
+        <label>s_canvas</label>
+        <link refid="structs__canvas"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>p_r_color</edgelabel>
+          <edgelabel>p_r_color_outside</edgelabel>
+          <edgelabel>p_r_color_pallete</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>p_r_vecx</edgelabel>
+          <edgelabel>p_r_vecy</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>max</edgelabel>
+          <edgelabel>min</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>p_r_mat</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>s_color</label>
+        <link refid="structs__color"/>
+      </node>
+      <node id="4">
+        <label>s_vector</label>
+        <link refid="structs__vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" line="55" column="1" bodyfile="C:/Users/Lenovo/Documents/projects/windows/angka/visual/include/plot.h" bodystart="55" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structs__figure_1afb52e720f5f0c483db5861f9e42e924e" prot="public" virt="non-virtual"><scope>s_figure</scope><name>col</name></member>
+      <member refid="structs__figure_1a5af63d5139c44396667379e7cff0ca3b" prot="public" virt="non-virtual"><scope>s_figure</scope><name>p_r_canvas</name></member>
+      <member refid="structs__figure_1af1d3cff2e4538e23400e260bae3dadad" prot="public" virt="non-virtual"><scope>s_figure</scope><name>row</name></member>
+      <member refid="structs__figure_1a439227feff9d7f55384e8780cfc2eb82" prot="public" virt="non-virtual"><scope>s_figure</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

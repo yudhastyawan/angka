@@ -14,7 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import subprocess
-subprocess.call('bash ./git-log.sh', shell=True)
+# subprocess.call('sh ./git-log.sh', shell=True)
 subprocess.call('cd .. ; doxygen', shell=True)
 
 # -- Project information -----------------------------------------------------

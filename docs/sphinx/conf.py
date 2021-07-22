@@ -16,7 +16,7 @@
 import subprocess
 subprocess.call("echo '/** \page gitlog Git History' > ../doxs/07_gitlog.dox", shell=True)
 subprocess.call("echo '\code {.md}' >> ../doxs/07_gitlog.dox", shell=True)
-subprocess.call("git log --format='- %h %s' >> ../doxs/07_gitlog.dox", shell=True)
+subprocess.call("git log --pretty=format:'- %C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(7,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D' >> ../doxs/07_gitlog.dox", shell=True)
 subprocess.call("echo '\endcode' >> ../doxs/07_gitlog.dox", shell=True)
 subprocess.call("echo '**/' >> ../doxs/07_gitlog.dox", shell=True)
 subprocess.call('cd .. ; doxygen', shell=True)

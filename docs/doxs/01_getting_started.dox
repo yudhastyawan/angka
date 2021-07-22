@@ -1,5 +1,12 @@
 /** \page pagegetstarted Getting Started
 
+\section contents The contents
+- \ref quickstart
+- \ref createvector
+- \ref creatematrix
+- \ref showplot
+- \ref showmatrix
+
 \section quickstart Quick start
 Compile Angka and Angkavisual to a library.
 We can use this Makefile file to create both of them:

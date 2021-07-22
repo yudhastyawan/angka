@@ -1,3 +1,9 @@
+/**
+ * \file vector.h
+ * @brief the library for vector data manipulation
+ * 
+ * */
+
 #ifndef __VECTOR_H
 #define __VECTOR_H
 
@@ -5,6 +11,11 @@
 extern "C" {
 #endif
 
+/**
+ * @brief vector string typedef
+ * @details it is used for indentifying that this typedef need to be delete in memory before quit a program.
+ *          Deleting this type can use @ref agx_data_delete in @ref standard.h.
+ **/
 typedef char * p_vectorString_t;
 
 typedef struct s_vector {

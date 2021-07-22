@@ -7,15 +7,41 @@
 </a>
 \endhtmlonly
 
-\par
-a repository focusing on data processing package namely angka. 
+\section brief A Brief Decription
+A repository focusing on data processing package namely angka. 
 It focuses on matrix data manipulating and visualization in C.
 The project is an initial step for the applied focuses, especially
 earth science purposes. We also have a goal to wrap this library to
 another language such as Python.
 
-\section The important links
+@image html getting-started-1.png width=300px
+\par
+@image html getting-started-2.png width=300px
 
+\section whyclang Why do we use C language?
+That is because C languange is a simple low-level programming language that
+not only has a few syntax for easily taking the action but also has a lot of
+capability to talk directly to memory (the memomy management features).
+
+\par
+this is also for creating a basic library that can continue to be applied in
+some other issues so that the development can be easily conducted.
+
+\section dependencies What are the dependencies?
+Angka has only need a gtk+-3 library for the dependencies. It will be further
+discribed in <a href="@ref pagecompile">here</a>. If you want to wrap to Python
+manually by yourself, you can see <a href="@ref pagetopython">this link</a> for 
+further description.
+
+\section contribution Do you want to take a contribution?
+If you want to contribute to this project, don't hesitate to look into this
+github and making a request for a better enhancement. You can also create an
+issue that can help us to take a priority what we have to do or giving some
+bug or problem with our library.
+
+\section mainlinks The important links
+
+- Github: <a href="https://github.com/yudhastyawan/angka"> Angka in github </a>
 - Documentation: <a href="http://angka.readthedocs.io">angka.readthedocs.io</a>
 
 **/

@@ -1,5 +1,203 @@
 /** \page pagegetstarted Getting Started
-@include main_1.c
-@include main_2.c
-@include test1.py
+
+\section quickstart Quick start
+Compile Angka and Angkavisual to a library.
+We can use this Makefile file to create both of them:
+\code {.sh}
+all:
+	make angka
+	make visual
+
+angka:
+	mkdir -p ./lib/
+	gcc -c ./src/matrix.c -I./include -o ./lib/matrix.o
+	gcc -c ./src/vector.c -I./include -o ./lib/vector.o
+	gcc -c ./src/standard.c -I./include -o ./lib/standard.o
+	gcc -c ./src/init.c -I./include -o ./lib/init.o
+	ar rcs ./lib/libagx.a ./lib/init.o ./lib/standard.o ./lib/vector.o ./lib/matrix.o
+	rm -rf ./lib/*.o
+
+visual:
+	mkdir -p ./lib/
+	gcc -c ./src/matrix.c -I./include -o ./lib/matrix.o
+	gcc -c ./src/vector.c -I./include -o ./lib/vector.o
+	gcc -c ./src/standard.c -I./include -o ./lib/standard.o
+	gcc -c ./src/init.c -I./include -o ./lib/init.o
+	gcc -c ./visual/src/plot.c -I./visual/include -I./include `pkg-config --cflags gtk+-3.0` -o ./lib/plot.o
+	ar rcs ./lib/libagv.a ./lib/plot.o ./lib/init.o ./lib/standard.o ./lib/vector.o ./lib/matrix.o
+	rm -rf ./lib/*.o
+
+clean:
+	rm -f ./lib/*.a
+
+.PHONY: all angka visual clean
+\endcode
+
+\par
+If you run <code>make all</code> in the parent directory, it will create all libraries such as
+<code>libagx.a</code> based on <code>angka.h</code> header and <code>libagv.a</code> based 
+on <code>angkavisual.h</code> header. You can modify where the output location of both libraries
+in that makefile.
+
+\note
+You can compile individually, for the example: <code>make angka</code> command or 
+<code>make visual</code> command.
+
+\note
+You can not use the <code>angkavisual.h</code> features without <code>angka.h</code>.
+However, during compiling the main program,
+you can still use <code>libagv.a</code> only to take Angka visual features 
+such as plot, scatter, and imshow.
+
+\section createvector Create a vector
+Once you have installed them, we can use those files for running our main programs. In this
+section, we introduce the simple program to use @ref agx_vector_new_random to create our vector,
+@ref agx_vector_print_full to print the full elements, and @ref agx_vector_delete to delete it.
+
+@include getting_started/create_a_vector.c
+<b>details: </b> This program has some steps:
+
+\snippet getting_started/create_a_vector.c create a vector
+
+@ref agx_vector_new_random with size = 10 from -8. to 5.
+
+\snippet getting_started/create_a_vector.c print a vector
+print all elements using @ref agx_vector_print_full, the result in terminal
+should be like this:
+@code
+10 [-4.02545, -0.27546, -4.85146, -3.81160, 2.63780, -5.43189, 1.49043, 2.43784, -7.61079, -6.15317]
+@endcode
+or you can print in a short mode:
+\snippet getting_started/create_a_vector.c print a vector in a short mode
+@code
+10 [-3.56404, -3.22086, -3.79891, 1.77886,..., -3.47755]
+@endcode
+\par
+and then,
+\snippet getting_started/create_a_vector.c delete a vector
+delete the memory, including an array inside vector
+using @ref agx_vector_delete.
+
+@warning every @ref AgxVector that has been created, need to
+         delete eventough you still need it until the end of
+         program. This will make sure that @ref AgxVector has
+         been destroy in the computer. That is bad thing if
+         we ignore this and let the operating system handle it
+         for us.
+
+If we save that <code>create_a_vector.c</code> in this tree directory:
+@code {.sh}
+Angka
+    |__ Makefile <-- compiling the library
+    |__ lib/
+            |__ libagx.a
+            |__ libagv.a
+    |__ include/
+    |__ src/
+    |__ visual
+            |__ include/
+            |__ src/
+    |__ tests/
+            |__ getting_started
+                    |__ create_a_vector.c
+                    |__ Makefile <-- compiling create_a_vector.c program
+@endcode
+
+Then we can compile this main program including the library using this makefile
+@code {.sh}
+test:
+	gcc -c create_a_vector.c -I../../include -o main.o
+	gcc main.o -L../../lib/ -lagx -lm -o ./main.out
+	./main.out
+	rm -rf *.o *.out
+@endcode
+We can run using the command <code>make test</code>
+
+\par here is the output:
+@code {.sh}
+$ make test
+gcc -c create_a_vector.c -I../../include -o main.o
+gcc main.o -L../../lib/ -lagx -lm -o ./main.out
+./main.out
+10 [-4.02545, -0.27546, -4.85146, -3.81160, 2.63780, -5.43189, 1.49043, 2.43784, -7.61079, -6.15317]
+10 [-3.56404, -3.22086, -3.79891, 1.77886,..., -3.47755]
+rm -rf *.o *.out
+@endcode
+
+\section creatematrix Create a matrix
+
+@include getting_started/create_a_matrix.c
+<b>details: </b>
+@ref agx_matrix_new_random with row = 6, col = 10 from -8. to 5.
+print all elements using @ref agx_matrix_print_full
+delete the memory, including an array inside matrix
+using @ref agx_matrix_delete.
+
+@warning every @ref AgxMatrix that has been created, need to
+         delete eventough you still need it until the end of
+         program. This will make sure that @ref AgxMatrix has
+         been destroy in the computer. That is bad thing if
+         we ignore this and let the operating system handle it
+         for us.
+
+We can use the same <code>makefile</code> from the previous one to compile this program.
+
+The result should be like this:
+@code {.sh}
+$ make test
+gcc -c create_a_matrix.c -I../../include -o main.o
+gcc main.o -L../../lib/ -lagx -lm -o ./main.out
+./main.out
+shape (6,10)
+[-3.09509, -6.58046, 0.77709, -0.35084, 2.75524, -4.89867, 4.07519, 0.60014, 2.73381, -2.43650]
+[-4.18057, -3.99053, -7.51875, -5.30732, -6.58442, -5.04229, 1.35633, -4.88915, -0.58253, 2.02960]      
+[-1.62636, -6.02700, 3.25434, 0.75051, 2.01055, -3.81716, -2.28812, -3.22641, -2.22425, -7.69530]
+[-5.67946, -0.65990, 1.95660, 2.95440, 2.30732, -4.95580, -7.55961, 1.94985, -5.73064, 0.43946]
+[-6.97085, 3.00241, -7.77465, 0.51127, -6.85857, 3.23093, -1.80092, 2.55250, 2.31446, 3.27893]
+[-6.00915, -0.53254, -0.58729, -7.68419, -5.70207, -5.95876, -2.05246, 0.70766, 0.83501, -4.79552]
+shape (6,10)
+[-3.09509, -6.58046, 0.77709, -0.35084,..., -2.43650]
+[-4.18057, -3.99053, -7.51875, -5.30732,..., 2.02960]
+[-1.62636, -6.02700, 3.25434, 0.75051,..., -7.69530]
+[-5.67946, -0.65990, 1.95660, 2.95440,..., 0.43946]
+        ...
+[-6.00915, -0.53254, -0.58729, -7.68419,..., -4.79552]
+rm -rf *.o *.out
+@endcode
+
+\section showplot Show a plot
+
+Start with this example code:
+@include getting_started/show_a_plot.c
+
+Then, use this makefile file:
+@code {.sh}
+test:
+	gcc -c show_a_plot.c -I../../include -I../../visual/include -o main.o
+	gcc main.o -L../../lib/ -lagv -lm `pkg-config --libs gtk+-3.0` -o ./main.out
+	./main.out
+	rm -rf *.o *.out
+@endcode
+
+it can create this window:
+
+@image html getting-started-1.png "plot a vector" width=500px
+
+\section showmatrix Show a matrix
+
+Start with this example code:
+@include getting_started/show_a_matrix.c
+
+Then, use this makefile file:
+@code {.sh}
+test:
+	gcc -c show_a_matrix.c -I../../include -I../../visual/include -o main.o
+	gcc main.o -L../../lib/ -lagv -lm `pkg-config --libs gtk+-3.0` -o ./main.out
+	./main.out
+	rm -rf *.o *.out
+@endcode
+
+it can create this window:
+
+@image html getting-started-2.png "show a matrix" width=500px
 **/

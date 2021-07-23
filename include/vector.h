@@ -18,21 +18,85 @@ extern "C" {
  **/
 typedef char * p_vectorString_t;
 
+/**
+ * @brief creating vector data type in this library
+ * @details after this struct is created, we need to delete 
+ *          unused using @ref agx_vector_delete.
+ *          Usually we call this struct using its typedef @ref AgxVector
+ **/
 typedef struct s_vector {
+    /// array of vector
     double *p_r_nums;
+    /// length of array
     int size;
 } AgxVector;
 
+/**
+ * @brief create an empty vector with a certain size
+ * @note we can use @ref agx_vector_new_zero to make sure that
+ *       the initial value for each element is zero.
+ **/
 AgxVector *agx_vector_new(int size);
+
+/**
+ * @brief set value in a certain element of vector
+ * @param vec overwrite the existing vector
+ * @param index the index of vector
+ * @param val the value for that index
+ **/
 void *agx_vector_set_item(AgxVector *vec, int index, double val);
+
+/**
+ * @brief get value in a certain element of vector
+ * @return the value of that index in vector array
+ * */
 double agx_vector_get_item(AgxVector *vec, int index);
+
+/**
+ * @brief convert vector to string
+ * @details it is used for saving the string before put in the print function
+ * @note we need to delete this manually using @ref agx_data_delete because it remains in memory
+ * */
 p_vectorString_t agx_vector_to_string(AgxVector *vec, int islong);
+
+/**
+ * @brief delete vector
+ * */
 void agx_vector_delete(AgxVector *vec);
+
+/**
+ * @brief create a vector with random values
+ * */
 AgxVector *agx_vector_new_random(int size, double min, double max);
+
+/**
+ * @brief print vector in the console
+ * @details it is using @ref agx_vector_to_string to create a string vector and
+ *          this function has automatically delete the return of @ref agx_vector_to_string
+ * @param islong BOOLEAN for deciding that it is partial (0) or full vector (1) that need to be printed
+ * */
 void *agx_vector_print(AgxVector *vec, int islong);
+
+/**
+ * @brief append vector with a value in the end of vector array
+ **/
 void *agx_vector_append_value(AgxVector *vec, double val);
+
+/**
+ * @brief append vector with another vector and overwriting
+ * */
 void *agx_vector_append_vector(AgxVector *vec_target, AgxVector *vec_another);
+
+/**
+ * @brief print the partial of vector
+ * @details it is based on @ref agx_vector_print with islong = 0
+ * */
 void *agx_vector_print_partial(AgxVector *vec);
+
+/**
+ * @brief print the full of vector
+ * @details it is based on @ref agx_vector_print with islong = 1
+ * */
 void *agx_vector_print_full(AgxVector *vec);
 void *agx_vector_add_by_value(AgxVector *vec, double val);
 void *agx_vector_substract_by_value(AgxVector *vec, double val);

@@ -8,7 +8,6 @@ all:
 	make py38
 	make py39
 	rm -rf dist/*.tar.gz
-	twine upload -r pypi dist/*
 
 py37:
 	mkdir -p ${ROOT}lib/
@@ -61,7 +60,10 @@ py39:
 	cp -r py39/dist/* dist/
 	rm -rf py39/dist
 
+upload:
+	twine upload -r pypi dist/*
+
 clean:
 	rm -rf dist/*
 
-.PHONY: all py37 py38 py39 clean
+.PHONY: all py37 py38 py39 upload clean

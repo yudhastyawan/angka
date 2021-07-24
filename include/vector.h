@@ -115,9 +115,9 @@ void *agx_vector_substract_by_value(AgxVector *vec, double val);
 void *agx_vector_multiply_by_value(AgxVector *vec, double val);
 
 /**
- * @brief deviding all elements of vector by a value
+ * @brief dividing all elements of vector by a value
  * */
-void *agx_vector_devide_by_value(AgxVector *vec, double val);
+void *agx_vector_divide_by_value(AgxVector *vec, double val);
 
 /**
  * @brief changing all elements of vector by a value

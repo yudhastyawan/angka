@@ -150,7 +150,7 @@ void *agv_imshow(AgvCanvas *can, AgxMatrix *mat){
     can->grid = 0;
 }
 
-AgxColor *agv_color_pallete_canvas_set(AgvCanvas *can, int line, int size) {
+AgxColor *agv_color_pallete_canvas_set_size(AgvCanvas *can, int line, int size) {
     AgxColor *clr = agv_color_pallete_new(size);
     agv_color_pallete_delete(can->p_r_color_pallete[line]);
     can->p_r_color_pallete[line] = clr;
@@ -178,7 +178,7 @@ void *agv_set_color_alpha(AgvCanvas *can, int line, int red, int green, int blue
     can->p_r_color[line].a = alpha;
 }
 
-void *agv_set_color_alpha_line_scatter(AgvCanvas *can, int line, int red, int green, int blue, double alpha) {
+void *agv_set_color_alpha_line(AgvCanvas *can, int line, int red, int green, int blue, double alpha) {
     can->p_r_color_outside[line].r = red;
     can->p_r_color_outside[line].g = green;
     can->p_r_color_outside[line].b = blue;

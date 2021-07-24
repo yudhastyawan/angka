@@ -1,10 +1,10 @@
 all:
-	make compile --directory=../../
+	make angka --directory=../../
 	make compile --directory=../../visual/
 	make test
 
 test:
-	gcc -c main_3.c -I../../include -I../../visual/include -o main.o
+	gcc -c main_1.c -I../../include -I../../visual/include -o main.o
 	gcc main.o -L../../lib -lagx -lagv `pkg-config --libs gtk+-3.0` -lm -o ./main.out
 	./main.out
 	rm -rf *.o *.out

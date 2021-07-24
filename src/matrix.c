@@ -258,7 +258,7 @@ void *agx_matrix_multiply_by_value(AgxMatrix *mat, double val) {
     }
 }
 
-void *agx_matrix_devide_by_value(AgxMatrix *mat, double val) {
+void *agx_matrix_divide_by_value(AgxMatrix *mat, double val) {
     for (int i = 0; i < mat->size; i++) {
         mat->p_r_nums[i] /= val;
     }

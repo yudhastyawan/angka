@@ -166,7 +166,7 @@ void *agx_vector_multiply_by_value(AgxVector *vec, double val) {
     }
 }
 
-void *agx_vector_devide_by_value(AgxVector *vec, double val) {
+void *agx_vector_divide_by_value(AgxVector *vec, double val) {
     for (int i = 0; i < vec->size; i++) {
         vec->p_r_nums[i] /= val;
     }

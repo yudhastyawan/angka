@@ -629,3 +629,8 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/c,c++,visualstudiocode,python,visualstudio,git
 {"mode":"full","isActive":false}
 
+swig/*_wrap.c
+swig/angka.py
+swig/angkapy/src/angka/angka.py
+swig/angkapy/src/angka/*.dll
+swig/angkapy/src/angka/*-config

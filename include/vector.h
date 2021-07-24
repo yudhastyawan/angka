@@ -70,6 +70,18 @@ void agx_vector_delete(AgxVector *vec);
 AgxVector *agx_vector_new_random(int size, double min, double max);
 
 /**
+ * @brief create a new vector from C array
+ * */
+AgxVector *agx_vector_new_from_array(double *ndarray_in, int size);
+
+/**
+ * @brief passing the array reference to ndarray_out
+ * @warning it is still not recommended to use it, especially after wrapping to Python
+ *          due to being not able to deal with the data malloc in ndarray_out
+ * */
+void *agx_vector_to_array(AgxVector *vec, double **ndarray_out, int *size);
+
+/**
  * @brief print vector in the console
  * @details it is using @ref agx_vector_to_string to create a string vector and
  *          this function has automatically delete the return of @ref agx_vector_to_string

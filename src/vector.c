@@ -118,6 +118,19 @@ AgxVector *agx_vector_new_random(int size, double min, double max) {
     return vec;
 }
 
+AgxVector *agx_vector_new_from_array(double *ndarray_in, int size) {
+    AgxVector *vec = agx_vector_new(size);
+    for(int i = 0; i < vec->size; i++) {
+        vec->p_r_nums[i] = ndarray_in[i];
+    }
+    return vec;
+}
+
+void *agx_vector_to_array(AgxVector *vec, double **ndarray_out, int *size) {
+    *ndarray_out = vec->p_r_nums;
+    *size = vec->size;
+}
+
 void *agx_vector_print(AgxVector *vec, int islong) {
     p_vectorString_t vec_str = agx_vector_to_string(vec, islong);
     printf("%s", vec_str);

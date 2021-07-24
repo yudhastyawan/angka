@@ -45,6 +45,20 @@ AgxMatrix *agx_matrix_new_random(int row, int column, double min, double max) {
     return mat;
 }
 
+AgxMatrix *agx_matrix_new_from_array(double *ndarray_in, int dim1, int dim2) {
+    AgxMatrix *mat = agx_matrix_new(dim1, dim2);
+    for(int i = 0; i < mat->size; i++) {
+        mat->p_r_nums[i] = ndarray_in[i];
+    }
+    return mat;
+}
+
+void *agx_matrix_to_array(AgxMatrix *mat, double **ndarray_out, int *dim1, int *dim2) {
+    *ndarray_out = mat->p_r_nums;
+    *dim1 = mat->r_shape[0];
+    *dim2 = mat->r_shape[1];
+}
+
 int agx_matrix_row_col_to_index(AgxMatrix *mat, int row, int col) {
     return col + row*mat->r_shape[1];
 }

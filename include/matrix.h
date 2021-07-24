@@ -61,6 +61,21 @@ AgxMatrix *agx_matrix_new_constant(int row, int column, double val);
 AgxMatrix *agx_matrix_new_random(int row, int column, double min, double max);
 
 /**
+ * @brief create a new matrix from C array
+ * @param dim1 equals to row number
+ * @param dim2 equals to column number
+ * @note this function is prioritized to be a Python wrapping
+ * */
+AgxMatrix *agx_matrix_new_from_array(double *ndarray_in, int dim1, int dim2);
+
+/**
+ * @brief passing the array reference to ndarray_out
+ * @warning it is still not recommended to use it, especially after wrapping to Python
+ *          due to being not able to deal with the data malloc in ndarray_out
+ * */
+void *agx_matrix_to_array(AgxMatrix *mat, double **ndarray_out, int *dim1, int *dim2);
+
+/**
  * @brief change row and col values to index of array matrix
  * */
 int agx_matrix_row_col_to_index(AgxMatrix *mat, int row, int col);

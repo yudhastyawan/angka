@@ -636,3 +636,4 @@ swig/angkapy/src/angka/angka.py
 *-config
 swig/python/pyversions/*
 !swig/python/pyversions/README.md
+swig/python/tests/

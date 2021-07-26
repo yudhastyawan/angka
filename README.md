@@ -62,6 +62,8 @@ another language such as Python.
 # using built-in len() python
 >>> len(vec2)
 9
+
+# create a new vector based on an existing vector changed by a value.
 >>> vec3 = vec2 << 5.
 >>> print(vec3)
 9 [5.00000, 5.00000, 5.00000, 5.00000,..., 5.00000]

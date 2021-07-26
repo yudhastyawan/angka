@@ -4,6 +4,8 @@
 # Do not make changes to this file unless you know what you are doing--modify
 # the SWIG interface file instead.
 
+"""Python module from C Angka library"""
+
 from sys import version_info as _swig_python_version_info
 if _swig_python_version_info < (2, 7, 0):
     raise RuntimeError("Python 2.7 or later required")
@@ -61,16 +63,45 @@ class _SwigNonDynamicMeta(type):
     __setattr__ = _swig_setattr_nondynamic_class_variable(type.__setattr__)
 
 
-FALSE = _angka.FALSE
-TRUE = _angka.TRUE
-class AgxSlice(object):
+class s_iter(object):
+    r"""Proxy of C s_iter struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    start = property(_angka.AgxSlice_start_get, _angka.AgxSlice_start_set)
-    step = property(_angka.AgxSlice_step_get, _angka.AgxSlice_step_set)
-    stop = property(_angka.AgxSlice_stop_get, _angka.AgxSlice_stop_set)
+    ptr = property(_angka.s_iter_ptr_get, _angka.s_iter_ptr_set, doc=r"""ptr : p.double""")
+    len = property(_angka.s_iter_len_get, _angka.s_iter_len_set, doc=r"""len : int""")
+
+    def __iter__(self):
+        r"""__iter__(s_iter self) -> s_iter"""
+        return _angka.s_iter___iter__(self)
+
+    def __next__(self):
+        r"""__next__(s_iter self) -> double"""
+        return _angka.s_iter___next__(self)
 
     def __init__(self):
+        r"""__init__(s_iter self) -> s_iter"""
+        _angka.s_iter_swiginit(self, _angka.new_s_iter())
+    __swig_destroy__ = _angka.delete_s_iter
+
+# Register s_iter in _angka:
+_angka.s_iter_swigregister(s_iter)
+
+FALSE = _angka.FALSE
+
+TRUE = _angka.TRUE
+
+class AgxSlice(object):
+    r"""Proxy of C s_slice struct."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    start = property(_angka.AgxSlice_start_get, _angka.AgxSlice_start_set, doc=r"""start : int""")
+    step = property(_angka.AgxSlice_step_get, _angka.AgxSlice_step_set, doc=r"""step : int""")
+    stop = property(_angka.AgxSlice_stop_get, _angka.AgxSlice_stop_set, doc=r"""stop : int""")
+
+    def __init__(self):
+        r"""__init__(AgxSlice self) -> AgxSlice"""
         _angka.AgxSlice_swiginit(self, _angka.new_AgxSlice())
     __swig_destroy__ = _angka.delete_AgxSlice
 
@@ -79,296 +110,1651 @@ _angka.AgxSlice_swigregister(AgxSlice)
 
 
 def agx_print_integer(val):
+    r"""
+    agx_print_integer(int val) -> void *
+
+    Parameters
+    ----------
+    val: int
+
+    """
     return _angka.agx_print_integer(val)
 
 def agx_print_double(val):
+    r"""
+    agx_print_double(double val) -> void *
+
+    Parameters
+    ----------
+    val: double
+
+    """
     return _angka.agx_print_double(val)
 
 def agx_print_string(val):
+    r"""
+    agx_print_string(char * val) -> void *
+
+    Parameters
+    ----------
+    val: char *
+
+    """
     return _angka.agx_print_string(val)
 
 def agx_string_length_integer(val):
+    r"""
+    agx_string_length_integer(int val) -> int
+
+    Parameters
+    ----------
+    val: int
+
+    """
     return _angka.agx_string_length_integer(val)
 
 def agx_string_length_string(str):
+    r"""
+    agx_string_length_string(char * str) -> int
+
+    Parameters
+    ----------
+    str: char *
+
+    """
     return _angka.agx_string_length_string(str)
 
 def agx_string_length_double(val):
+    r"""
+    agx_string_length_double(double val) -> int
+
+    Parameters
+    ----------
+    val: double
+
+    """
     return _angka.agx_string_length_double(val)
 
 def agx_string_from_double_set(fmt, val):
+    r"""
+    agx_string_from_double_set(char * fmt, double val) -> char *
+
+    Parameters
+    ----------
+    fmt: char *
+    val: double
+
+    """
     return _angka.agx_string_from_double_set(fmt, val)
 
 def agx_string_from_integer(val):
+    r"""
+    agx_string_from_integer(int val) -> char *
+
+    Parameters
+    ----------
+    val: int
+
+    """
     return _angka.agx_string_from_integer(val)
 
 def agx_string_append_integer(target, val, isInitial):
+    r"""
+    agx_string_append_integer(char * target, int val, int isInitial) -> void *
+
+    Parameters
+    ----------
+    target: char *
+    val: int
+    isInitial: int
+
+    """
     return _angka.agx_string_append_integer(target, val, isInitial)
 
 def agx_string_from_double(val):
+    r"""
+    agx_string_from_double(double val) -> char *
+
+    Parameters
+    ----------
+    val: double
+
+    """
     return _angka.agx_string_from_double(val)
 
 def agx_string_append_double(target, val, isInitial):
+    r"""
+    agx_string_append_double(char * target, double val, int isInitial) -> void *
+
+    Parameters
+    ----------
+    target: char *
+    val: double
+    isInitial: int
+
+    """
     return _angka.agx_string_append_double(target, val, isInitial)
 
 def agx_print_values(*args):
+    r"""
+    agx_print_values(char * inbetween, char * end, char * fmt) -> void *
+
+    Parameters
+    ----------
+    inbetween: char *
+    end: char *
+    fmt: char *
+
+    """
     return _angka.agx_print_values(*args)
 
 def agx_print_values_space(*args):
+    r"""
+    agx_print_values_space(char * fmt) -> void *
+
+    Parameters
+    ----------
+    fmt: char *
+
+    """
     return _angka.agx_print_values_space(*args)
 
 def agx_print_values_new_line(*args):
+    r"""
+    agx_print_values_new_line(char * fmt) -> void *
+
+    Parameters
+    ----------
+    fmt: char *
+
+    """
     return _angka.agx_print_values_new_line(*args)
 
 def agx_random(min, max):
+    r"""
+    agx_random(double min, double max) -> double
+
+    Parameters
+    ----------
+    min: double
+    max: double
+
+    """
     return _angka.agx_random(min, max)
 
 def agx_data_delete(__ptr):
+    r"""
+    agx_data_delete(void * __ptr)
+
+    Parameters
+    ----------
+    __ptr: void *
+
+    """
     return _angka.agx_data_delete(__ptr)
 class AgxVector(object):
+    r"""Proxy of C s_vector struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    p_r_nums = property(_angka.AgxVector_p_r_nums_get, _angka.AgxVector_p_r_nums_set)
-    size = property(_angka.AgxVector_size_get, _angka.AgxVector_size_set)
+    p_r_nums = property(_angka.AgxVector_p_r_nums_get, _angka.AgxVector_p_r_nums_set, doc=r"""p_r_nums : p.double""")
+    size = property(_angka.AgxVector_size_get, _angka.AgxVector_size_set, doc=r"""size : int""")
 
-    def __init__(self):
-        _angka.AgxVector_swiginit(self, _angka.new_AgxVector())
+    def __init__(self, *args):
+        r"""
+        __init__(AgxVector self, int size) -> AgxVector
+
+        Parameters
+        ----------
+        size: int
+
+        __init__(AgxVector self, int size, double val) -> AgxVector
+
+        Parameters
+        ----------
+        size: int
+        val: double
+
+        __init__(AgxVector self, double * ndarray_in) -> AgxVector
+
+        Parameters
+        ----------
+        ndarray_in: double *
+
+        """
+        _angka.AgxVector_swiginit(self, _angka.new_AgxVector(*args))
     __swig_destroy__ = _angka.delete_AgxVector
+
+    def __iter__(self):
+        r"""__iter__(AgxVector self) -> s_iter"""
+        return _angka.AgxVector___iter__(self)
+
+    def __getitem__(self, index):
+        r"""
+        __getitem__(AgxVector self, int index) -> double
+
+        Parameters
+        ----------
+        index: int
+
+        """
+        return _angka.AgxVector___getitem__(self, index)
+
+    def __setitem__(self, index, value):
+        r"""
+        __setitem__(AgxVector self, int index, double value)
+
+        Parameters
+        ----------
+        index: int
+        value: double
+
+        """
+        return _angka.AgxVector___setitem__(self, index, value)
+
+    def constant(self, val):
+        r"""
+        constant(AgxVector self, double val)
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector_constant(self, val)
+
+    def random(self, min, max):
+        r"""
+        random(AgxVector self, double min, double max)
+
+        Parameters
+        ----------
+        min: double
+        max: double
+
+        """
+        return _angka.AgxVector_random(self, min, max)
+
+    def linspace(self, min, max):
+        r"""
+        linspace(AgxVector self, double min, double max)
+
+        Parameters
+        ----------
+        min: double
+        max: double
+
+        """
+        return _angka.AgxVector_linspace(self, min, max)
+
+    def __str__(self):
+        r"""__str__(AgxVector self) -> p_vectorString_t"""
+        return _angka.AgxVector___str__(self)
+
+    def printFull(self):
+        r"""printFull(AgxVector self)"""
+        return _angka.AgxVector_printFull(self)
+
+    def toNumpy(self):
+        r"""toNumpy(AgxVector self)"""
+        return _angka.AgxVector_toNumpy(self)
+
+    def toMatrix(self):
+        r"""toMatrix(AgxVector self) -> AgxMatrix"""
+        return _angka.AgxVector_toMatrix(self)
+
+    def min(self):
+        r"""min(AgxVector self) -> double"""
+        return _angka.AgxVector_min(self)
+
+    def max(self):
+        r"""max(AgxVector self) -> double"""
+        return _angka.AgxVector_max(self)
+
+    def isexist(self, val, idx1, idx2):
+        r"""
+        isexist(AgxVector self, double val, int idx1, int idx2) -> int
+
+        Parameters
+        ----------
+        val: double
+        idx1: int
+        idx2: int
+
+        """
+        return _angka.AgxVector_isexist(self, val, idx1, idx2)
+
+    def __contains__(self, val):
+        r"""
+        __contains__(AgxVector self, double val) -> int
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___contains__(self, val)
+
+    def __len__(self):
+        r"""__len__(AgxVector self) -> int"""
+        return _angka.AgxVector___len__(self)
+
+    def sort(self):
+        r"""sort(AgxVector self)"""
+        return _angka.AgxVector_sort(self)
+
+    def append(self, *args):
+        r"""
+        append(AgxVector self, double val)
+
+        Parameters
+        ----------
+        val: double
+
+        append(AgxVector self, AgxVector vec)
+
+        Parameters
+        ----------
+        vec: AgxVector *
+
+        append(AgxVector self, double * ndarray_in)
+
+        Parameters
+        ----------
+        ndarray_in: double *
+
+        """
+        return _angka.AgxVector_append(self, *args)
+
+    def __lshift__(self, val):
+        r"""
+        __lshift__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___lshift__(self, val)
+
+    def __ilshift__(self, val):
+        r"""
+        __ilshift__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___ilshift__(self, val)
+
+    def __add__(self, val):
+        r"""
+        __add__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___add__(self, val)
+
+    def __iadd__(self, val):
+        r"""
+        __iadd__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___iadd__(self, val)
+
+    def __sub__(self, val):
+        r"""
+        __sub__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___sub__(self, val)
+
+    def __isub__(self, val):
+        r"""
+        __isub__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___isub__(self, val)
+
+    def __mul__(self, val):
+        r"""
+        __mul__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___mul__(self, val)
+
+    def __imul__(self, val):
+        r"""
+        __imul__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___imul__(self, val)
+
+    def __truediv__(self, val):
+        r"""
+        __truediv__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___truediv__(self, val)
+
+    def __itruediv__(self, val):
+        r"""
+        __itruediv__(AgxVector self, double val) -> AgxVector
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxVector___itruediv__(self, val)
+
+    def copy(self):
+        r"""copy(AgxVector self) -> AgxVector"""
+        return _angka.AgxVector_copy(self)
 
 # Register AgxVector in _angka:
 _angka.AgxVector_swigregister(AgxVector)
 
 
 def agx_vector_new(size):
+    r"""
+    agx_vector_new(int size) -> AgxVector
+
+    Parameters
+    ----------
+    size: int
+
+    """
     return _angka.agx_vector_new(size)
 
 def agx_vector_set_item(vec, index, val):
+    r"""
+    agx_vector_set_item(AgxVector vec, int index, double val) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    index: int
+    val: double
+
+    """
     return _angka.agx_vector_set_item(vec, index, val)
 
 def agx_vector_get_item(vec, index):
+    r"""
+    agx_vector_get_item(AgxVector vec, int index) -> double
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    index: int
+
+    """
     return _angka.agx_vector_get_item(vec, index)
 
 def agx_vector_to_string(vec, islong):
+    r"""
+    agx_vector_to_string(AgxVector vec, int islong) -> p_vectorString_t
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    islong: int
+
+    """
     return _angka.agx_vector_to_string(vec, islong)
 
 def agx_vector_delete(vec):
+    r"""
+    agx_vector_delete(AgxVector vec)
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_delete(vec)
 
 def agx_vector_new_random(size, min, max):
+    r"""
+    agx_vector_new_random(int size, double min, double max) -> AgxVector
+
+    Parameters
+    ----------
+    size: int
+    min: double
+    max: double
+
+    """
     return _angka.agx_vector_new_random(size, min, max)
 
 def agx_vector_new_from_array(ndarray_in):
+    r"""
+    agx_vector_new_from_array(double * ndarray_in) -> AgxVector
+
+    Parameters
+    ----------
+    ndarray_in: double *
+
+    """
     return _angka.agx_vector_new_from_array(ndarray_in)
 
 def agx_vector_to_array(vec):
+    r"""
+    agx_vector_to_array(AgxVector vec) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_to_array(vec)
 
 def agx_vector_print(vec, islong):
+    r"""
+    agx_vector_print(AgxVector vec, int islong) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    islong: int
+
+    """
     return _angka.agx_vector_print(vec, islong)
 
 def agx_vector_append_value(vec, val):
+    r"""
+    agx_vector_append_value(AgxVector vec, double val) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    val: double
+
+    """
     return _angka.agx_vector_append_value(vec, val)
 
 def agx_vector_append_vector(vec_target, vec_another):
+    r"""
+    agx_vector_append_vector(AgxVector vec_target, AgxVector vec_another) -> void *
+
+    Parameters
+    ----------
+    vec_target: AgxVector *
+    vec_another: AgxVector *
+
+    """
     return _angka.agx_vector_append_vector(vec_target, vec_another)
 
 def agx_vector_print_partial(vec):
+    r"""
+    agx_vector_print_partial(AgxVector vec) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_print_partial(vec)
 
 def agx_vector_print_full(vec):
+    r"""
+    agx_vector_print_full(AgxVector vec) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_print_full(vec)
 
 def agx_vector_add_by_value(vec, val):
+    r"""
+    agx_vector_add_by_value(AgxVector vec, double val) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    val: double
+
+    """
     return _angka.agx_vector_add_by_value(vec, val)
 
 def agx_vector_substract_by_value(vec, val):
+    r"""
+    agx_vector_substract_by_value(AgxVector vec, double val) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    val: double
+
+    """
     return _angka.agx_vector_substract_by_value(vec, val)
 
 def agx_vector_multiply_by_value(vec, val):
+    r"""
+    agx_vector_multiply_by_value(AgxVector vec, double val) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    val: double
+
+    """
     return _angka.agx_vector_multiply_by_value(vec, val)
 
 def agx_vector_divide_by_value(vec, val):
+    r"""
+    agx_vector_divide_by_value(AgxVector vec, double val) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    val: double
+
+    """
     return _angka.agx_vector_divide_by_value(vec, val)
 
 def agx_vector_change_elements_by_value(vec, val):
+    r"""
+    agx_vector_change_elements_by_value(AgxVector vec, double val) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    val: double
+
+    """
     return _angka.agx_vector_change_elements_by_value(vec, val)
 
 def agx_vector_new_constant(size, val):
+    r"""
+    agx_vector_new_constant(int size, double val) -> AgxVector
+
+    Parameters
+    ----------
+    size: int
+    val: double
+
+    """
     return _angka.agx_vector_new_constant(size, val)
 
 def agx_vector_new_duplicate_size(vec):
+    r"""
+    agx_vector_new_duplicate_size(AgxVector vec) -> AgxVector
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_new_duplicate_size(vec)
 
 def agx_vector_copy_elements(src, target):
+    r"""
+    agx_vector_copy_elements(AgxVector src, AgxVector target) -> void *
+
+    Parameters
+    ----------
+    src: AgxVector *
+    target: AgxVector *
+
+    """
     return _angka.agx_vector_copy_elements(src, target)
 
 def agx_vector_new_copy(vec):
+    r"""
+    agx_vector_new_copy(AgxVector vec) -> AgxVector
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_new_copy(vec)
 
 def agx_vector_new_zero(size):
+    r"""
+    agx_vector_new_zero(int size) -> AgxVector
+
+    Parameters
+    ----------
+    size: int
+
+    """
     return _angka.agx_vector_new_zero(size)
 
 def agx_vector_new_linspace(min, max, size):
+    r"""
+    agx_vector_new_linspace(double min, double max, int size) -> AgxVector
+
+    Parameters
+    ----------
+    min: double
+    max: double
+    size: int
+
+    """
     return _angka.agx_vector_new_linspace(min, max, size)
 
 def agx_vector_new_arange(min, step, max):
+    r"""
+    agx_vector_new_arange(int min, int step, int max) -> AgxVector
+
+    Parameters
+    ----------
+    min: int
+    step: int
+    max: int
+
+    """
     return _angka.agx_vector_new_arange(min, step, max)
 
 def agx_vector_new_arange_double(min, step, max):
+    r"""
+    agx_vector_new_arange_double(double min, double step, double max) -> AgxVector
+
+    Parameters
+    ----------
+    min: double
+    step: double
+    max: double
+
+    """
     return _angka.agx_vector_new_arange_double(min, step, max)
 
 def agx_vector_min(vec):
+    r"""
+    agx_vector_min(AgxVector vec) -> double
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_min(vec)
 
 def agx_vector_max(vec):
+    r"""
+    agx_vector_max(AgxVector vec) -> double
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_max(vec)
 
 def agx_vector_new_values(*args):
+    r"""
+    agx_vector_new_values(int size) -> AgxVector
+
+    Parameters
+    ----------
+    size: int
+
+    """
     return _angka.agx_vector_new_values(*args)
 
 def agx_vector_input_function(vec, function):
+    r"""
+    agx_vector_input_function(AgxVector vec, void (*)(double *) function) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    function: void (*)(double *)
+
+    """
     return _angka.agx_vector_input_function(vec, function)
 
 def agx_vector_sin(vec):
+    r"""
+    agx_vector_sin(AgxVector vec) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_sin(vec)
 
 def agx_sin(val):
+    r"""
+    agx_sin(double * val)
+
+    Parameters
+    ----------
+    val: double *
+
+    """
     return _angka.agx_sin(val)
 
 def agx_vector_isexist(vec, idx1, idx2, val):
+    r"""
+    agx_vector_isexist(AgxVector vec, int idx1, int idx2, double val) -> int
+
+    Parameters
+    ----------
+    vec: AgxVector *
+    idx1: int
+    idx2: int
+    val: double
+
+    """
     return _angka.agx_vector_isexist(vec, idx1, idx2, val)
 
 def agx_vector_sort(vec):
+    r"""
+    agx_vector_sort(AgxVector vec) -> void *
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_vector_sort(vec)
 class AgxMatrix(object):
+    r"""Proxy of C s_matrix struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    p_r_nums = property(_angka.AgxMatrix_p_r_nums_get, _angka.AgxMatrix_p_r_nums_set)
-    r_shape = property(_angka.AgxMatrix_r_shape_get, _angka.AgxMatrix_r_shape_set)
-    size = property(_angka.AgxMatrix_size_get, _angka.AgxMatrix_size_set)
+    p_r_nums = property(_angka.AgxMatrix_p_r_nums_get, _angka.AgxMatrix_p_r_nums_set, doc=r"""p_r_nums : p.double""")
+    r_shape = property(_angka.AgxMatrix_r_shape_get, _angka.AgxMatrix_r_shape_set, doc=r"""r_shape : a(2).int""")
+    size = property(_angka.AgxMatrix_size_get, _angka.AgxMatrix_size_set, doc=r"""size : int""")
 
-    def __init__(self):
-        _angka.AgxMatrix_swiginit(self, _angka.new_AgxMatrix())
+    def __init__(self, *args):
+        r"""
+        __init__(AgxMatrix self, int dim) -> AgxMatrix
+
+        Parameters
+        ----------
+        dim: int
+
+        __init__(AgxMatrix self, int row, int col) -> AgxMatrix
+
+        Parameters
+        ----------
+        row: int
+        col: int
+
+        __init__(AgxMatrix self, int row, int col, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        row: int
+        col: int
+        val: double
+
+        __init__(AgxMatrix self, double * ndarray_in) -> AgxMatrix
+
+        Parameters
+        ----------
+        ndarray_in: double *
+
+        __init__(AgxMatrix self, AgxMatrix mat_in) -> AgxMatrix
+
+        Parameters
+        ----------
+        mat_in: AgxMatrix *
+
+        __init__(AgxMatrix self, AgxVector vec) -> AgxMatrix
+
+        Parameters
+        ----------
+        vec: AgxVector *
+
+        __init__(AgxMatrix self, double * ndarray_in) -> AgxMatrix
+
+        Parameters
+        ----------
+        ndarray_in: double *
+
+        """
+        _angka.AgxMatrix_swiginit(self, _angka.new_AgxMatrix(*args))
     __swig_destroy__ = _angka.delete_AgxMatrix
+
+    def constant(self, val):
+        r"""
+        constant(AgxMatrix self, double val)
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix_constant(self, val)
+
+    def random(self, min, max):
+        r"""
+        random(AgxMatrix self, double min, double max)
+
+        Parameters
+        ----------
+        min: double
+        max: double
+
+        """
+        return _angka.AgxMatrix_random(self, min, max)
+
+    def __iter__(self):
+        r"""__iter__(AgxMatrix self) -> s_iter"""
+        return _angka.AgxMatrix___iter__(self)
+
+    def __getitem__(self, pyrow):
+        r"""
+        __getitem__(AgxMatrix self, int pyrow) -> double
+
+        Parameters
+        ----------
+        pyrow: int
+
+        """
+        return _angka.AgxMatrix___getitem__(self, pyrow)
+
+    def __setitem__(self, pyrow, value):
+        r"""
+        __setitem__(AgxMatrix self, int pyrow, double value)
+
+        Parameters
+        ----------
+        pyrow: int
+        value: double
+
+        """
+        return _angka.AgxMatrix___setitem__(self, pyrow, value)
+
+    def __str__(self):
+        r"""__str__(AgxMatrix self) -> p_matrixString_t"""
+        return _angka.AgxMatrix___str__(self)
+
+    def printFull(self):
+        r"""printFull(AgxMatrix self)"""
+        return _angka.AgxMatrix_printFull(self)
+
+    def toNumpy(self):
+        r"""toNumpy(AgxMatrix self)"""
+        return _angka.AgxMatrix_toNumpy(self)
+
+    def toVector(self):
+        r"""toVector(AgxMatrix self) -> AgxVector"""
+        return _angka.AgxMatrix_toVector(self)
+
+    def extractColumn(self, col):
+        r"""
+        extractColumn(AgxMatrix self, int col) -> AgxMatrix
+
+        Parameters
+        ----------
+        col: int
+
+        """
+        return _angka.AgxMatrix_extractColumn(self, col)
+
+    def extractRow(self, row):
+        r"""
+        extractRow(AgxMatrix self, int row) -> AgxMatrix
+
+        Parameters
+        ----------
+        row: int
+
+        """
+        return _angka.AgxMatrix_extractRow(self, row)
+
+    def extractRowCol(self, row1, row2, col1, col2):
+        r"""
+        extractRowCol(AgxMatrix self, int row1, int row2, int col1, int col2) -> AgxMatrix
+
+        Parameters
+        ----------
+        row1: int
+        row2: int
+        col1: int
+        col2: int
+
+        """
+        return _angka.AgxMatrix_extractRowCol(self, row1, row2, col1, col2)
+
+    def min(self):
+        r"""min(AgxMatrix self) -> double"""
+        return _angka.AgxMatrix_min(self)
+
+    def max(self):
+        r"""max(AgxMatrix self) -> double"""
+        return _angka.AgxMatrix_max(self)
+
+    def dims2index(self, row, col):
+        r"""
+        dims2index(AgxMatrix self, int row, int col) -> int
+
+        Parameters
+        ----------
+        row: int
+        col: int
+
+        """
+        return _angka.AgxMatrix_dims2index(self, row, col)
+
+    def __len__(self):
+        r"""__len__(AgxMatrix self) -> int"""
+        return _angka.AgxMatrix___len__(self)
+
+    def getShape(self):
+        r"""getShape(AgxMatrix self)"""
+        return _angka.AgxMatrix_getShape(self)
+
+    def __lshift__(self, *args):
+        r"""
+        __lshift__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        __lshift__(AgxMatrix self, AgxMatrix mat_in) -> AgxMatrix
+
+        Parameters
+        ----------
+        mat_in: AgxMatrix *
+
+        """
+        return _angka.AgxMatrix___lshift__(self, *args)
+
+    def __ilshift__(self, *args):
+        r"""
+        __ilshift__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        __ilshift__(AgxMatrix self, AgxMatrix mat_in) -> AgxMatrix
+
+        Parameters
+        ----------
+        mat_in: AgxMatrix *
+
+        """
+        return _angka.AgxMatrix___ilshift__(self, *args)
+
+    def __add__(self, val):
+        r"""
+        __add__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___add__(self, val)
+
+    def __iadd__(self, val):
+        r"""
+        __iadd__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___iadd__(self, val)
+
+    def __sub__(self, val):
+        r"""
+        __sub__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___sub__(self, val)
+
+    def __isub__(self, val):
+        r"""
+        __isub__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___isub__(self, val)
+
+    def __mul__(self, val):
+        r"""
+        __mul__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___mul__(self, val)
+
+    def __imul__(self, val):
+        r"""
+        __imul__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___imul__(self, val)
+
+    def __truediv__(self, val):
+        r"""
+        __truediv__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___truediv__(self, val)
+
+    def __itruediv__(self, val):
+        r"""
+        __itruediv__(AgxMatrix self, double val) -> AgxMatrix
+
+        Parameters
+        ----------
+        val: double
+
+        """
+        return _angka.AgxMatrix___itruediv__(self, val)
+
+    def copy(self):
+        r"""copy(AgxMatrix self) -> AgxMatrix"""
+        return _angka.AgxMatrix_copy(self)
+
+    def __matmul__(self, mat2):
+        r"""
+        __matmul__(AgxMatrix self, AgxMatrix mat2) -> AgxMatrix
+
+        Parameters
+        ----------
+        mat2: AgxMatrix *
+
+        """
+        return _angka.AgxMatrix___matmul__(self, mat2)
+
+    def copyShape(self, mat_in):
+        r"""
+        copyShape(AgxMatrix self, AgxMatrix mat_in)
+
+        Parameters
+        ----------
+        mat_in: AgxMatrix *
+
+        """
+        return _angka.AgxMatrix_copyShape(self, mat_in)
+
+    def transpose(self):
+        r"""transpose(AgxMatrix self)"""
+        return _angka.AgxMatrix_transpose(self)
+
+    @property
+    def T(self):
+        self.transpose()
+        return self
+
+    @property
+    def shape(self):
+        return self.getShape()
+
 
 # Register AgxMatrix in _angka:
 _angka.AgxMatrix_swigregister(AgxMatrix)
 
 
 def agx_matrix_new(row, column):
+    r"""
+    agx_matrix_new(int row, int column) -> AgxMatrix
+
+    Parameters
+    ----------
+    row: int
+    column: int
+
+    """
     return _angka.agx_matrix_new(row, column)
 
 def agx_matrix_delete(mat):
+    r"""
+    agx_matrix_delete(AgxMatrix mat)
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_delete(mat)
 
 def agx_matrix_change_elements_by_value(mat, val):
+    r"""
+    agx_matrix_change_elements_by_value(AgxMatrix mat, double val) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    val: double
+
+    """
     return _angka.agx_matrix_change_elements_by_value(mat, val)
 
 def agx_matrix_new_constant(row, column, val):
+    r"""
+    agx_matrix_new_constant(int row, int column, double val) -> AgxMatrix
+
+    Parameters
+    ----------
+    row: int
+    column: int
+    val: double
+
+    """
     return _angka.agx_matrix_new_constant(row, column, val)
 
 def agx_matrix_new_random(row, column, min, max):
+    r"""
+    agx_matrix_new_random(int row, int column, double min, double max) -> AgxMatrix
+
+    Parameters
+    ----------
+    row: int
+    column: int
+    min: double
+    max: double
+
+    """
     return _angka.agx_matrix_new_random(row, column, min, max)
 
 def agx_matrix_new_from_array(ndarray_in):
+    r"""
+    agx_matrix_new_from_array(double * ndarray_in) -> AgxMatrix
+
+    Parameters
+    ----------
+    ndarray_in: double *
+
+    """
     return _angka.agx_matrix_new_from_array(ndarray_in)
 
 def agx_matrix_to_array(mat):
+    r"""
+    agx_matrix_to_array(AgxMatrix mat) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_to_array(mat)
 
 def agx_matrix_row_col_to_index(mat, row, col):
+    r"""
+    agx_matrix_row_col_to_index(AgxMatrix mat, int row, int col) -> int
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    row: int
+    col: int
+
+    """
     return _angka.agx_matrix_row_col_to_index(mat, row, col)
 
 def agx_matrix_set_item(mat, row, col, val):
+    r"""
+    agx_matrix_set_item(AgxMatrix mat, int row, int col, double val) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    row: int
+    col: int
+    val: double
+
+    """
     return _angka.agx_matrix_set_item(mat, row, col, val)
 
 def agx_matrix_get_item(mat, row, col):
+    r"""
+    agx_matrix_get_item(AgxMatrix mat, int row, int col) -> double
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    row: int
+    col: int
+
+    """
     return _angka.agx_matrix_get_item(mat, row, col)
 
 def agx_matrix_to_string(mat, islong):
+    r"""
+    agx_matrix_to_string(AgxMatrix mat, int islong) -> p_matrixString_t
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    islong: int
+
+    """
     return _angka.agx_matrix_to_string(mat, islong)
 
 def agx_matrix_print(mat, islong):
+    r"""
+    agx_matrix_print(AgxMatrix mat, int islong) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    islong: int
+
+    """
     return _angka.agx_matrix_print(mat, islong)
 
 def agx_matrix_print_partial(mat):
+    r"""
+    agx_matrix_print_partial(AgxMatrix mat) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_print_partial(mat)
 
 def agx_matrix_print_full(mat):
+    r"""
+    agx_matrix_print_full(AgxMatrix mat) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_print_full(mat)
 
 def agx_matrix_add_by_value(mat, val):
+    r"""
+    agx_matrix_add_by_value(AgxMatrix mat, double val) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    val: double
+
+    """
     return _angka.agx_matrix_add_by_value(mat, val)
 
 def agx_matrix_substract_by_value(mat, val):
+    r"""
+    agx_matrix_substract_by_value(AgxMatrix mat, double val) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    val: double
+
+    """
     return _angka.agx_matrix_substract_by_value(mat, val)
 
 def agx_matrix_multiply_by_value(mat, val):
+    r"""
+    agx_matrix_multiply_by_value(AgxMatrix mat, double val) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    val: double
+
+    """
     return _angka.agx_matrix_multiply_by_value(mat, val)
 
 def agx_matrix_divide_by_value(mat, val):
+    r"""
+    agx_matrix_divide_by_value(AgxMatrix mat, double val) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    val: double
+
+    """
     return _angka.agx_matrix_divide_by_value(mat, val)
 
 def agx_matrix_new_duplicate_size(mat):
+    r"""
+    agx_matrix_new_duplicate_size(AgxMatrix mat) -> AgxMatrix
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_new_duplicate_size(mat)
 
 def agx_matrix_copy_elements(src, target):
+    r"""
+    agx_matrix_copy_elements(AgxMatrix src, AgxMatrix target) -> void *
+
+    Parameters
+    ----------
+    src: AgxMatrix *
+    target: AgxMatrix *
+
+    """
     return _angka.agx_matrix_copy_elements(src, target)
 
 def agx_matrix_copy_shape(src, target):
+    r"""
+    agx_matrix_copy_shape(AgxMatrix src, AgxMatrix target) -> void *
+
+    Parameters
+    ----------
+    src: AgxMatrix *
+    target: AgxMatrix *
+
+    """
     return _angka.agx_matrix_copy_shape(src, target)
 
 def agx_matrix_transpose(mat):
+    r"""
+    agx_matrix_transpose(AgxMatrix mat) -> void *
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_transpose(mat)
 
 def agx_matrix_new_copy(mat):
+    r"""
+    agx_matrix_new_copy(AgxMatrix mat) -> AgxMatrix
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_new_copy(mat)
 
 def agx_matrix_new_from_vector(vec):
+    r"""
+    agx_matrix_new_from_vector(AgxVector vec) -> AgxMatrix
+
+    Parameters
+    ----------
+    vec: AgxVector *
+
+    """
     return _angka.agx_matrix_new_from_vector(vec)
 
 def agx_matrix_new_identity(size):
+    r"""
+    agx_matrix_new_identity(int size) -> AgxMatrix
+
+    Parameters
+    ----------
+    size: int
+
+    """
     return _angka.agx_matrix_new_identity(size)
 
 def agx_matrix_new_zero(row, col):
+    r"""
+    agx_matrix_new_zero(int row, int col) -> AgxMatrix
+
+    Parameters
+    ----------
+    row: int
+    col: int
+
+    """
     return _angka.agx_matrix_new_zero(row, col)
 
 def agx_matrix_new_multiplication(mat1, mat2):
+    r"""
+    agx_matrix_new_multiplication(AgxMatrix mat1, AgxMatrix mat2) -> AgxMatrix
+
+    Parameters
+    ----------
+    mat1: AgxMatrix *
+    mat2: AgxMatrix *
+
+    """
     return _angka.agx_matrix_new_multiplication(mat1, mat2)
 
 def agx_vector_new_from_matrix(mat):
+    r"""
+    agx_vector_new_from_matrix(AgxMatrix mat) -> AgxVector
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_vector_new_from_matrix(mat)
 
 def agx_matrix_new_extract_column(mat, col):
+    r"""
+    agx_matrix_new_extract_column(AgxMatrix mat, int col) -> AgxMatrix
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    col: int
+
+    """
     return _angka.agx_matrix_new_extract_column(mat, col)
 
 def agx_matrix_new_extract_row(mat, row):
+    r"""
+    agx_matrix_new_extract_row(AgxMatrix mat, int row) -> AgxMatrix
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    row: int
+
+    """
     return _angka.agx_matrix_new_extract_row(mat, row)
 
 def agx_matrix_new_extract_row_col(mat, row1, row2, col1, col2):
+    r"""
+    agx_matrix_new_extract_row_col(AgxMatrix mat, int row1, int row2, int col1, int col2) -> AgxMatrix
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+    row1: int
+    row2: int
+    col1: int
+    col2: int
+
+    """
     return _angka.agx_matrix_new_extract_row_col(mat, row1, row2, col1, col2)
 
 def agx_matrix_min(mat):
+    r"""
+    agx_matrix_min(AgxMatrix mat) -> double
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_min(mat)
 
 def agx_matrix_max(mat):
+    r"""
+    agx_matrix_max(AgxMatrix mat) -> double
+
+    Parameters
+    ----------
+    mat: AgxMatrix *
+
+    """
     return _angka.agx_matrix_max(mat)
 VRGB = _angka.VRGB
+
 AGV_PLOT = _angka.AGV_PLOT
+
 AGV_SCATTER = _angka.AGV_SCATTER
+
 AGV_IMAGE = _angka.AGV_IMAGE
+
 AGV_CONTOUR = _angka.AGV_CONTOUR
+
 class AgxColor(object):
+    r"""Proxy of C s_color struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    r = property(_angka.AgxColor_r_get, _angka.AgxColor_r_set)
-    g = property(_angka.AgxColor_g_get, _angka.AgxColor_g_set)
-    b = property(_angka.AgxColor_b_get, _angka.AgxColor_b_set)
-    a = property(_angka.AgxColor_a_get, _angka.AgxColor_a_set)
-    val = property(_angka.AgxColor_val_get, _angka.AgxColor_val_set)
-    size = property(_angka.AgxColor_size_get, _angka.AgxColor_size_set)
+    r = property(_angka.AgxColor_r_get, _angka.AgxColor_r_set, doc=r"""r : int""")
+    g = property(_angka.AgxColor_g_get, _angka.AgxColor_g_set, doc=r"""g : int""")
+    b = property(_angka.AgxColor_b_get, _angka.AgxColor_b_set, doc=r"""b : int""")
+    a = property(_angka.AgxColor_a_get, _angka.AgxColor_a_set, doc=r"""a : double""")
+    val = property(_angka.AgxColor_val_get, _angka.AgxColor_val_set, doc=r"""val : double""")
+    size = property(_angka.AgxColor_size_get, _angka.AgxColor_size_set, doc=r"""size : int""")
 
     def __init__(self):
+        r"""__init__(AgxColor self) -> AgxColor"""
         _angka.AgxColor_swiginit(self, _angka.new_AgxColor())
     __swig_destroy__ = _angka.delete_AgxColor
 
@@ -376,12 +1762,15 @@ class AgxColor(object):
 _angka.AgxColor_swigregister(AgxColor)
 
 class AgxPlotData(object):
+    r"""Proxy of C s_plot_data struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    vecx = property(_angka.AgxPlotData_vecx_get, _angka.AgxPlotData_vecx_set)
-    vecy = property(_angka.AgxPlotData_vecy_get, _angka.AgxPlotData_vecy_set)
+    vecx = property(_angka.AgxPlotData_vecx_get, _angka.AgxPlotData_vecx_set, doc=r"""vecx : p.AgxVector""")
+    vecy = property(_angka.AgxPlotData_vecy_get, _angka.AgxPlotData_vecy_set, doc=r"""vecy : p.AgxVector""")
 
     def __init__(self):
+        r"""__init__(AgxPlotData self) -> AgxPlotData"""
         _angka.AgxPlotData_swiginit(self, _angka.new_AgxPlotData())
     __swig_destroy__ = _angka.delete_AgxPlotData
 
@@ -389,12 +1778,15 @@ class AgxPlotData(object):
 _angka.AgxPlotData_swigregister(AgxPlotData)
 
 class AgxCoordDouble(object):
+    r"""Proxy of C s_coord_double struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    x = property(_angka.AgxCoordDouble_x_get, _angka.AgxCoordDouble_x_set)
-    y = property(_angka.AgxCoordDouble_y_get, _angka.AgxCoordDouble_y_set)
+    x = property(_angka.AgxCoordDouble_x_get, _angka.AgxCoordDouble_x_set, doc=r"""x : double""")
+    y = property(_angka.AgxCoordDouble_y_get, _angka.AgxCoordDouble_y_set, doc=r"""y : double""")
 
     def __init__(self):
+        r"""__init__(AgxCoordDouble self) -> AgxCoordDouble"""
         _angka.AgxCoordDouble_swiginit(self, _angka.new_AgxCoordDouble())
     __swig_destroy__ = _angka.delete_AgxCoordDouble
 
@@ -402,12 +1794,15 @@ class AgxCoordDouble(object):
 _angka.AgxCoordDouble_swigregister(AgxCoordDouble)
 
 class AgxCoordInt(object):
+    r"""Proxy of C s_coord_int struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    x = property(_angka.AgxCoordInt_x_get, _angka.AgxCoordInt_x_set)
-    y = property(_angka.AgxCoordInt_y_get, _angka.AgxCoordInt_y_set)
+    x = property(_angka.AgxCoordInt_x_get, _angka.AgxCoordInt_x_set, doc=r"""x : int""")
+    y = property(_angka.AgxCoordInt_y_get, _angka.AgxCoordInt_y_set, doc=r"""y : int""")
 
     def __init__(self):
+        r"""__init__(AgxCoordInt self) -> AgxCoordInt"""
         _angka.AgxCoordInt_swiginit(self, _angka.new_AgxCoordInt())
     __swig_destroy__ = _angka.delete_AgxCoordInt
 
@@ -415,26 +1810,29 @@ class AgxCoordInt(object):
 _angka.AgxCoordInt_swigregister(AgxCoordInt)
 
 class AgvCanvas(object):
+    r"""Proxy of C s_canvas struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    p_r_type = property(_angka.AgvCanvas_p_r_type_get, _angka.AgvCanvas_p_r_type_set)
-    p_r_linewidth = property(_angka.AgvCanvas_p_r_linewidth_get, _angka.AgvCanvas_p_r_linewidth_set)
-    p_r_radius = property(_angka.AgvCanvas_p_r_radius_get, _angka.AgvCanvas_p_r_radius_set)
-    row = property(_angka.AgvCanvas_row_get, _angka.AgvCanvas_row_set)
-    col = property(_angka.AgvCanvas_col_get, _angka.AgvCanvas_col_set)
-    index = property(_angka.AgvCanvas_index_get, _angka.AgvCanvas_index_set)
-    grid = property(_angka.AgvCanvas_grid_get, _angka.AgvCanvas_grid_set)
-    min = property(_angka.AgvCanvas_min_get, _angka.AgvCanvas_min_set)
-    max = property(_angka.AgvCanvas_max_get, _angka.AgvCanvas_max_set)
-    p_r_vecx = property(_angka.AgvCanvas_p_r_vecx_get, _angka.AgvCanvas_p_r_vecx_set)
-    p_r_vecy = property(_angka.AgvCanvas_p_r_vecy_get, _angka.AgvCanvas_p_r_vecy_set)
-    p_r_mat = property(_angka.AgvCanvas_p_r_mat_get, _angka.AgvCanvas_p_r_mat_set)
-    p_r_color = property(_angka.AgvCanvas_p_r_color_get, _angka.AgvCanvas_p_r_color_set)
-    p_r_color_outside = property(_angka.AgvCanvas_p_r_color_outside_get, _angka.AgvCanvas_p_r_color_outside_set)
-    p_r_color_pallete = property(_angka.AgvCanvas_p_r_color_pallete_get, _angka.AgvCanvas_p_r_color_pallete_set)
-    numOfVec = property(_angka.AgvCanvas_numOfVec_get, _angka.AgvCanvas_numOfVec_set)
+    p_r_type = property(_angka.AgvCanvas_p_r_type_get, _angka.AgvCanvas_p_r_type_set, doc=r"""p_r_type : p.int""")
+    p_r_linewidth = property(_angka.AgvCanvas_p_r_linewidth_get, _angka.AgvCanvas_p_r_linewidth_set, doc=r"""p_r_linewidth : p.int""")
+    p_r_radius = property(_angka.AgvCanvas_p_r_radius_get, _angka.AgvCanvas_p_r_radius_set, doc=r"""p_r_radius : p.int""")
+    row = property(_angka.AgvCanvas_row_get, _angka.AgvCanvas_row_set, doc=r"""row : int""")
+    col = property(_angka.AgvCanvas_col_get, _angka.AgvCanvas_col_set, doc=r"""col : int""")
+    index = property(_angka.AgvCanvas_index_get, _angka.AgvCanvas_index_set, doc=r"""index : int""")
+    grid = property(_angka.AgvCanvas_grid_get, _angka.AgvCanvas_grid_set, doc=r"""grid : int""")
+    min = property(_angka.AgvCanvas_min_get, _angka.AgvCanvas_min_set, doc=r"""min : AgxCoordDouble""")
+    max = property(_angka.AgvCanvas_max_get, _angka.AgvCanvas_max_set, doc=r"""max : AgxCoordDouble""")
+    p_r_vecx = property(_angka.AgvCanvas_p_r_vecx_get, _angka.AgvCanvas_p_r_vecx_set, doc=r"""p_r_vecx : p.p.AgxVector""")
+    p_r_vecy = property(_angka.AgvCanvas_p_r_vecy_get, _angka.AgvCanvas_p_r_vecy_set, doc=r"""p_r_vecy : p.p.AgxVector""")
+    p_r_mat = property(_angka.AgvCanvas_p_r_mat_get, _angka.AgvCanvas_p_r_mat_set, doc=r"""p_r_mat : p.p.AgxMatrix""")
+    p_r_color = property(_angka.AgvCanvas_p_r_color_get, _angka.AgvCanvas_p_r_color_set, doc=r"""p_r_color : p.AgxColor""")
+    p_r_color_outside = property(_angka.AgvCanvas_p_r_color_outside_get, _angka.AgvCanvas_p_r_color_outside_set, doc=r"""p_r_color_outside : p.AgxColor""")
+    p_r_color_pallete = property(_angka.AgvCanvas_p_r_color_pallete_get, _angka.AgvCanvas_p_r_color_pallete_set, doc=r"""p_r_color_pallete : p.p.AgxColor""")
+    numOfVec = property(_angka.AgvCanvas_numOfVec_get, _angka.AgvCanvas_numOfVec_set, doc=r"""numOfVec : int""")
 
     def __init__(self):
+        r"""__init__(AgvCanvas self) -> AgvCanvas"""
         _angka.AgvCanvas_swiginit(self, _angka.new_AgvCanvas())
     __swig_destroy__ = _angka.delete_AgvCanvas
 
@@ -442,70 +1840,294 @@ class AgvCanvas(object):
 _angka.AgvCanvas_swigregister(AgvCanvas)
 
 class AgvFigure(object):
+    r"""Proxy of C s_figure struct."""
+
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    row = property(_angka.AgvFigure_row_get, _angka.AgvFigure_row_set)
-    col = property(_angka.AgvFigure_col_get, _angka.AgvFigure_col_set)
-    size = property(_angka.AgvFigure_size_get, _angka.AgvFigure_size_set)
-    p_r_canvas = property(_angka.AgvFigure_p_r_canvas_get, _angka.AgvFigure_p_r_canvas_set)
+    row = property(_angka.AgvFigure_row_get, _angka.AgvFigure_row_set, doc=r"""row : int""")
+    col = property(_angka.AgvFigure_col_get, _angka.AgvFigure_col_set, doc=r"""col : int""")
+    size = property(_angka.AgvFigure_size_get, _angka.AgvFigure_size_set, doc=r"""size : int""")
+    p_r_canvas = property(_angka.AgvFigure_p_r_canvas_get, _angka.AgvFigure_p_r_canvas_set, doc=r"""p_r_canvas : p.AgvCanvas""")
 
-    def __init__(self):
-        _angka.AgvFigure_swiginit(self, _angka.new_AgvFigure())
+    def __init__(self, dim1, dim2):
+        r"""
+        __init__(AgvFigure self, int dim1, int dim2) -> AgvFigure
+
+        Parameters
+        ----------
+        dim1: int
+        dim2: int
+
+        """
+        _angka.AgvFigure_swiginit(self, _angka.new_AgvFigure(dim1, dim2))
     __swig_destroy__ = _angka.delete_AgvFigure
+
+    def plot(self, canvas, vecx, vecy):
+        r"""
+        plot(AgvFigure self, int canvas, AgxVector vecx, AgxVector vecy)
+
+        Parameters
+        ----------
+        canvas: int
+        vecx: AgxVector *
+        vecy: AgxVector *
+
+        """
+        return _angka.AgvFigure_plot(self, canvas, vecx, vecy)
+
+    def scatter(self, canvas, vecx, vecy):
+        r"""
+        scatter(AgvFigure self, int canvas, AgxVector vecx, AgxVector vecy)
+
+        Parameters
+        ----------
+        canvas: int
+        vecx: AgxVector *
+        vecy: AgxVector *
+
+        """
+        return _angka.AgvFigure_scatter(self, canvas, vecx, vecy)
+
+    def imshow(self, canvas, mat):
+        r"""
+        imshow(AgvFigure self, int canvas, AgxMatrix mat)
+
+        Parameters
+        ----------
+        canvas: int
+        mat: AgxMatrix *
+
+        """
+        return _angka.AgvFigure_imshow(self, canvas, mat)
+
+    def show(self):
+        r"""show(AgvFigure self)"""
+        return _angka.AgvFigure_show(self)
 
 # Register AgvFigure in _angka:
 _angka.AgvFigure_swigregister(AgvFigure)
 
 
 def agv_color_pallete_set(clr, index, r, g, b, a, val):
+    r"""
+    agv_color_pallete_set(AgxColor clr, int index, int r, int g, int b, double a, double val) -> void *
+
+    Parameters
+    ----------
+    clr: AgxColor *
+    index: int
+    r: int
+    g: int
+    b: int
+    a: double
+    val: double
+
+    """
     return _angka.agv_color_pallete_set(clr, index, r, g, b, a, val)
 
 def agv_figure_new(row, col):
+    r"""
+    agv_figure_new(int row, int col) -> AgvFigure
+
+    Parameters
+    ----------
+    row: int
+    col: int
+
+    """
     return _angka.agv_figure_new(row, col)
 
 def agv_figure_delete(fig):
+    r"""
+    agv_figure_delete(AgvFigure fig)
+
+    Parameters
+    ----------
+    fig: AgvFigure *
+
+    """
     return _angka.agv_figure_delete(fig)
 
 def agv_subplots(row, col):
+    r"""
+    agv_subplots(int row, int col) -> AgvFigure
+
+    Parameters
+    ----------
+    row: int
+    col: int
+
+    """
     return _angka.agv_subplots(row, col)
 
 def agv_set_canvas(fig, index):
+    r"""
+    agv_set_canvas(AgvFigure fig, int index) -> AgvCanvas
+
+    Parameters
+    ----------
+    fig: AgvFigure *
+    index: int
+
+    """
     return _angka.agv_set_canvas(fig, index)
 
 def agv_plot(can, vecx, vecy):
+    r"""
+    agv_plot(AgvCanvas can, AgxVector vecx, AgxVector vecy) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    vecx: AgxVector *
+    vecy: AgxVector *
+
+    """
     return _angka.agv_plot(can, vecx, vecy)
 
 def agv_scatter(can, vecx, vecy):
+    r"""
+    agv_scatter(AgvCanvas can, AgxVector vecx, AgxVector vecy) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    vecx: AgxVector *
+    vecy: AgxVector *
+
+    """
     return _angka.agv_scatter(can, vecx, vecy)
 
 def agv_imshow(can, mat):
+    r"""
+    agv_imshow(AgvCanvas can, AgxMatrix mat) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    mat: AgxMatrix *
+
+    """
     return _angka.agv_imshow(can, mat)
 
 def agv_color_pallete_canvas_set_size(can, line, size):
+    r"""
+    agv_color_pallete_canvas_set_size(AgvCanvas can, int line, int size) -> AgxColor
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    line: int
+    size: int
+
+    """
     return _angka.agv_color_pallete_canvas_set_size(can, line, size)
 
 def agv_xlim(can, min, max):
+    r"""
+    agv_xlim(AgvCanvas can, double min, double max) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    min: double
+    max: double
+
+    """
     return _angka.agv_xlim(can, min, max)
 
 def agv_ylim(can, min, max):
+    r"""
+    agv_ylim(AgvCanvas can, double min, double max) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    min: double
+    max: double
+
+    """
     return _angka.agv_ylim(can, min, max)
 
 def agv_show(fig):
+    r"""
+    agv_show(AgvFigure fig)
+
+    Parameters
+    ----------
+    fig: AgvFigure *
+
+    """
     return _angka.agv_show(fig)
 
 def agv_set_color_alpha(can, line, red, green, blue, alpha):
+    r"""
+    agv_set_color_alpha(AgvCanvas can, int line, int red, int green, int blue, double alpha) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    line: int
+    red: int
+    green: int
+    blue: int
+    alpha: double
+
+    """
     return _angka.agv_set_color_alpha(can, line, red, green, blue, alpha)
 
 def agv_set_color_alpha_line(can, line, red, green, blue, alpha):
+    r"""
+    agv_set_color_alpha_line(AgvCanvas can, int line, int red, int green, int blue, double alpha) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    line: int
+    red: int
+    green: int
+    blue: int
+    alpha: double
+
+    """
     return _angka.agv_set_color_alpha_line(can, line, red, green, blue, alpha)
 
 def agv_set_radius(can, line, radius):
+    r"""
+    agv_set_radius(AgvCanvas can, int line, int radius) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    line: int
+    radius: int
+
+    """
     return _angka.agv_set_radius(can, line, radius)
 
 def agv_set_linewidth(can, line, linewidth):
+    r"""
+    agv_set_linewidth(AgvCanvas can, int line, int linewidth) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    line: int
+    linewidth: int
+
+    """
     return _angka.agv_set_linewidth(can, line, linewidth)
 
 def agv_set_grid(can, boolean):
+    r"""
+    agv_set_grid(AgvCanvas can, int boolean) -> void *
+
+    Parameters
+    ----------
+    can: AgvCanvas *
+    boolean: int
+
+    """
     return _angka.agv_set_grid(can, boolean)
 
 

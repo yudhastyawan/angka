@@ -1,11 +1,12 @@
 /**
- * \file plot.h
+ * \file visual.h
  * @brief the library for data visualization
- * 
+ * @note always use this header for using visual library
+ *       <code>libagv.a</code>.
  * */
 
-#ifndef __PLOT_H
-#define __PLOT_H
+#ifndef __VISUAL_H
+#define __VISUAL_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -93,89 +94,94 @@ typedef struct s_figure {
 /**
  * @brief setting the color pallete of imshow canvas
  * */
-void *agv_color_pallete_set(AgxColor *clr, int index, int r, int g, int b, double a, double val);
+void agv_color_pallete_set(AgxColor *clr, int index, int r, int g, int b, double a, double val);
 
 /**
  * @brief create a new figure struct (should use @ref agv_subplots instead)
  * @note need to be manually deleted using @ref agv_figure_delete
+ * @return AgvFigure, NULL if error.
  * */
 AgvFigure *agv_figure_new(int row, int col);
 
 /**
  * @brief delete a figure
  * */
-void agv_figure_delete(AgvFigure *fig);
+void agv_figure_delete(AgvFigure **fig);
 
 /**
  * @brief Create a figure with subplots definition
+ * @return AgvFigure, NULL if error.
  * */
 AgvFigure *agv_subplots(int row, int col);
 
 /**
  * @brief select a canvas from the existing figure
  * @note it is used for the input of the other functions
+ * @return NULL if error.
  * */
 AgvCanvas *agv_set_canvas(AgvFigure *fig, int index);
 
 /**
  * @brief plotting the data on a line
  * */
-void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
+void agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
 
 /**
  * @brief plotting the data on some scattering bullets
  * */
-void *agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
+void agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy);
 
 /**
  * @brief imaging the matrix data
  * */
-void *agv_imshow(AgvCanvas *can, AgxMatrix *mat);
+void agv_imshow(AgvCanvas *can, AgxMatrix *mat);
 
 /**
  * @brief set the size of color pallete from the existing canvas
+ * @return NULL if error.
  * */
 AgxColor *agv_color_pallete_canvas_set_size(AgvCanvas *can, int line, int size);
 
 /**
  * @brief x limit values of the canvas
  * */
-void *agv_xlim(AgvCanvas *can, double min, double max);
+void agv_xlim(AgvCanvas *can, double min, double max);
 
 /**
  * @brief y limit values of the canvas
  * */
-void *agv_ylim(AgvCanvas *can, double min, double max);
+void agv_ylim(AgvCanvas *can, double min, double max);
 
 /**
  * @brief construct the figure and show it
+ * @return 0 if success, -1 if error.
  * */
-void agv_show(AgvFigure *fig);
+int agv_show(AgvFigure *fig);
 
 /**
  * @brief set the color of plotting and scattering, and image (the color fill)
  * */
-void *agv_set_color_alpha(AgvCanvas *can, int line, int red, int green, int blue, double alpha);
+void agv_set_color_alpha(AgvCanvas *can, int line, int red, int green, int blue, double alpha);
 
 /**
  * @brief set the color of the boundary of scattering sircle and image
  * */
-void *agv_set_color_alpha_line(AgvCanvas *can, int line, int red, int green, int blue, double alpha);
+void agv_set_color_alpha_line(AgvCanvas *can, int line, int red, int green, int blue, double alpha);
 
 /**
  * @brief set the radius of scattering circle
  * */
-void *agv_set_radius(AgvCanvas *can, int line, int radius);
+void agv_set_radius(AgvCanvas *can, int line, int radius);
 
 /**
  * @brief set the thick of line, the boundary of image and scattering circle
  * */
-void *agv_set_linewidth(AgvCanvas *can, int line, int linewidth);
+void agv_set_linewidth(AgvCanvas *can, int line, int linewidth);
 
 /**
  * @brief true if showing grid, default is false
  * */
-void *agv_set_grid(AgvCanvas *can, int boolean);
+void agv_set_grid(AgvCanvas *can, int boolean);
 
 #ifdef __cplusplus
 }

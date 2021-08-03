@@ -1,5 +1,4 @@
 #include "angka.h"
-#include "angkavisual.h"
 #include <math.h>
 
 int main() {
@@ -12,7 +11,7 @@ int main() {
     agv_scatter(agv_set_canvas(fig, 0), vecx, vecy);
     agv_set_color_alpha(agv_set_canvas(fig, 0), 0, 255, 100, 127, 0.7);
     agv_set_color_alpha(agv_set_canvas(fig, 0), 1, 0, 0, 255, 0.4);
-    agv_set_color_alpha_line_scatter(agv_set_canvas(fig, 0), 1, 255, 0, 0, 0.4);
+    agv_set_color_alpha_line(agv_set_canvas(fig, 0), 1, 255, 0, 0, 0.4);
     agv_set_radius(agv_set_canvas(fig, 0), 1, 10);
 
     AgxVector *vecx2 = agx_vector_new_linspace(0., 4*M_PI, size);
@@ -21,14 +20,14 @@ int main() {
 
     agv_scatter(agv_set_canvas(fig, 1), vecx2, vecy2);
     agv_set_color_alpha(agv_set_canvas(fig, 1), 0, 0, 255, 0, 0.8);
-    agv_set_color_alpha_line_scatter(agv_set_canvas(fig, 1), 0, 255, 100, 127, 0.7);
+    agv_set_color_alpha_line(agv_set_canvas(fig, 1), 0, 255, 100, 127, 0.7);
     agv_set_radius(agv_set_canvas(fig, 1), 0, 10);    
 
     agv_show(fig);
-    agv_figure_delete(fig);
-    agx_vector_delete(vecx);
-    agx_vector_delete(vecy);
-    agx_vector_delete(vecx2);
-    agx_vector_delete(vecy2);
+    agv_figure_delete(&fig);
+    agx_vector_delete(&vecx);
+    agx_vector_delete(&vecy);
+    agx_vector_delete(&vecx2);
+    agx_vector_delete(&vecy2);
     return 0;
 }

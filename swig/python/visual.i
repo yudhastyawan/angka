@@ -1,6 +1,6 @@
 %include base.i
 
-%include "plot.h"
+%include "visual.h"
 
 %extend s_figure {
     s_figure(int dim1, int dim2) {
@@ -9,7 +9,11 @@
     }
 
     ~s_figure() {
-        agv_figure_delete($self);
+        agv_figure_delete(&$self);
+    }
+
+    void delete() {
+        agv_figure_delete(&$self);
     }
 
     void plot(int canvas, AgxVector *vecx, AgxVector *vecy) {

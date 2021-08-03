@@ -111,7 +111,7 @@ _angka.AgxSlice_swigregister(AgxSlice)
 
 def agx_print_integer(val):
     r"""
-    agx_print_integer(int val) -> void *
+    agx_print_integer(int val)
 
     Parameters
     ----------
@@ -122,7 +122,7 @@ def agx_print_integer(val):
 
 def agx_print_double(val):
     r"""
-    agx_print_double(double val) -> void *
+    agx_print_double(double val)
 
     Parameters
     ----------
@@ -133,7 +133,7 @@ def agx_print_double(val):
 
 def agx_print_string(val):
     r"""
-    agx_print_string(char * val) -> void *
+    agx_print_string(char * val)
 
     Parameters
     ----------
@@ -200,7 +200,7 @@ def agx_string_from_integer(val):
 
 def agx_string_append_integer(target, val, isInitial):
     r"""
-    agx_string_append_integer(char * target, int val, int isInitial) -> void *
+    agx_string_append_integer(char * target, int val, int isInitial) -> int
 
     Parameters
     ----------
@@ -224,7 +224,7 @@ def agx_string_from_double(val):
 
 def agx_string_append_double(target, val, isInitial):
     r"""
-    agx_string_append_double(char * target, double val, int isInitial) -> void *
+    agx_string_append_double(char * target, double val, int isInitial) -> int
 
     Parameters
     ----------
@@ -237,7 +237,7 @@ def agx_string_append_double(target, val, isInitial):
 
 def agx_print_values(*args):
     r"""
-    agx_print_values(char * inbetween, char * end, char * fmt) -> void *
+    agx_print_values(char * inbetween, char * end, char * fmt) -> int
 
     Parameters
     ----------
@@ -250,7 +250,7 @@ def agx_print_values(*args):
 
 def agx_print_values_space(*args):
     r"""
-    agx_print_values_space(char * fmt) -> void *
+    agx_print_values_space(char * fmt) -> int
 
     Parameters
     ----------
@@ -261,7 +261,7 @@ def agx_print_values_space(*args):
 
 def agx_print_values_new_line(*args):
     r"""
-    agx_print_values_new_line(char * fmt) -> void *
+    agx_print_values_new_line(char * fmt) -> int
 
     Parameters
     ----------
@@ -597,7 +597,7 @@ def agx_vector_new(size):
 
 def agx_vector_set_item(vec, index, val):
     r"""
-    agx_vector_set_item(AgxVector vec, int index, double val) -> void *
+    agx_vector_set_item(AgxVector vec, int index, double val) -> int
 
     Parameters
     ----------
@@ -608,17 +608,18 @@ def agx_vector_set_item(vec, index, val):
     """
     return _angka.agx_vector_set_item(vec, index, val)
 
-def agx_vector_get_item(vec, index):
+def agx_vector_get_item(vec, index, output):
     r"""
-    agx_vector_get_item(AgxVector vec, int index) -> double
+    agx_vector_get_item(AgxVector vec, int index, double * output) -> int
 
     Parameters
     ----------
     vec: AgxVector *
     index: int
+    output: double *
 
     """
-    return _angka.agx_vector_get_item(vec, index)
+    return _angka.agx_vector_get_item(vec, index, output)
 
 def agx_vector_to_string(vec, islong):
     r"""
@@ -669,7 +670,7 @@ def agx_vector_new_from_array(ndarray_in):
 
 def agx_vector_to_array(vec):
     r"""
-    agx_vector_to_array(AgxVector vec) -> void *
+    agx_vector_to_array(AgxVector vec)
 
     Parameters
     ----------
@@ -680,7 +681,7 @@ def agx_vector_to_array(vec):
 
 def agx_vector_print(vec, islong):
     r"""
-    agx_vector_print(AgxVector vec, int islong) -> void *
+    agx_vector_print(AgxVector vec, int islong) -> int
 
     Parameters
     ----------
@@ -692,7 +693,7 @@ def agx_vector_print(vec, islong):
 
 def agx_vector_append_value(vec, val):
     r"""
-    agx_vector_append_value(AgxVector vec, double val) -> void *
+    agx_vector_append_value(AgxVector vec, double val) -> int
 
     Parameters
     ----------
@@ -704,7 +705,7 @@ def agx_vector_append_value(vec, val):
 
 def agx_vector_append_vector(vec_target, vec_another):
     r"""
-    agx_vector_append_vector(AgxVector vec_target, AgxVector vec_another) -> void *
+    agx_vector_append_vector(AgxVector vec_target, AgxVector vec_another) -> int
 
     Parameters
     ----------
@@ -716,7 +717,7 @@ def agx_vector_append_vector(vec_target, vec_another):
 
 def agx_vector_print_partial(vec):
     r"""
-    agx_vector_print_partial(AgxVector vec) -> void *
+    agx_vector_print_partial(AgxVector vec) -> int
 
     Parameters
     ----------
@@ -727,7 +728,7 @@ def agx_vector_print_partial(vec):
 
 def agx_vector_print_full(vec):
     r"""
-    agx_vector_print_full(AgxVector vec) -> void *
+    agx_vector_print_full(AgxVector vec) -> int
 
     Parameters
     ----------
@@ -738,7 +739,7 @@ def agx_vector_print_full(vec):
 
 def agx_vector_add_by_value(vec, val):
     r"""
-    agx_vector_add_by_value(AgxVector vec, double val) -> void *
+    agx_vector_add_by_value(AgxVector vec, double val) -> int
 
     Parameters
     ----------
@@ -750,7 +751,7 @@ def agx_vector_add_by_value(vec, val):
 
 def agx_vector_substract_by_value(vec, val):
     r"""
-    agx_vector_substract_by_value(AgxVector vec, double val) -> void *
+    agx_vector_substract_by_value(AgxVector vec, double val) -> int
 
     Parameters
     ----------
@@ -762,7 +763,7 @@ def agx_vector_substract_by_value(vec, val):
 
 def agx_vector_multiply_by_value(vec, val):
     r"""
-    agx_vector_multiply_by_value(AgxVector vec, double val) -> void *
+    agx_vector_multiply_by_value(AgxVector vec, double val) -> int
 
     Parameters
     ----------
@@ -774,7 +775,7 @@ def agx_vector_multiply_by_value(vec, val):
 
 def agx_vector_divide_by_value(vec, val):
     r"""
-    agx_vector_divide_by_value(AgxVector vec, double val) -> void *
+    agx_vector_divide_by_value(AgxVector vec, double val) -> int
 
     Parameters
     ----------
@@ -786,7 +787,7 @@ def agx_vector_divide_by_value(vec, val):
 
 def agx_vector_change_elements_by_value(vec, val):
     r"""
-    agx_vector_change_elements_by_value(AgxVector vec, double val) -> void *
+    agx_vector_change_elements_by_value(AgxVector vec, double val) -> int
 
     Parameters
     ----------
@@ -821,7 +822,7 @@ def agx_vector_new_duplicate_size(vec):
 
 def agx_vector_copy_elements(src, target):
     r"""
-    agx_vector_copy_elements(AgxVector src, AgxVector target) -> void *
+    agx_vector_copy_elements(AgxVector src, AgxVector target) -> int
 
     Parameters
     ----------
@@ -914,20 +915,21 @@ def agx_vector_max(vec):
     """
     return _angka.agx_vector_max(vec)
 
-def agx_vector_new_values(*args):
+def agx_vector_new_values(array, size):
     r"""
-    agx_vector_new_values(int size) -> AgxVector
+    agx_vector_new_values(double * array, int size) -> AgxVector
 
     Parameters
     ----------
+    array: double *
     size: int
 
     """
-    return _angka.agx_vector_new_values(*args)
+    return _angka.agx_vector_new_values(array, size)
 
 def agx_vector_input_function(vec, function):
     r"""
-    agx_vector_input_function(AgxVector vec, void (*)(double *) function) -> void *
+    agx_vector_input_function(AgxVector vec, void (*)(double *) function)
 
     Parameters
     ----------
@@ -939,7 +941,7 @@ def agx_vector_input_function(vec, function):
 
 def agx_vector_sin(vec):
     r"""
-    agx_vector_sin(AgxVector vec) -> void *
+    agx_vector_sin(AgxVector vec)
 
     Parameters
     ----------
@@ -975,7 +977,7 @@ def agx_vector_isexist(vec, idx1, idx2, val):
 
 def agx_vector_sort(vec):
     r"""
-    agx_vector_sort(AgxVector vec) -> void *
+    agx_vector_sort(AgxVector vec) -> int
 
     Parameters
     ----------
@@ -1364,7 +1366,7 @@ def agx_matrix_delete(mat):
 
 def agx_matrix_change_elements_by_value(mat, val):
     r"""
-    agx_matrix_change_elements_by_value(AgxMatrix mat, double val) -> void *
+    agx_matrix_change_elements_by_value(AgxMatrix mat, double val) -> int
 
     Parameters
     ----------
@@ -1414,7 +1416,7 @@ def agx_matrix_new_from_array(ndarray_in):
 
 def agx_matrix_to_array(mat):
     r"""
-    agx_matrix_to_array(AgxMatrix mat) -> void *
+    agx_matrix_to_array(AgxMatrix mat)
 
     Parameters
     ----------
@@ -1438,7 +1440,7 @@ def agx_matrix_row_col_to_index(mat, row, col):
 
 def agx_matrix_set_item(mat, row, col, val):
     r"""
-    agx_matrix_set_item(AgxMatrix mat, int row, int col, double val) -> void *
+    agx_matrix_set_item(AgxMatrix mat, int row, int col, double val) -> int
 
     Parameters
     ----------
@@ -1450,18 +1452,19 @@ def agx_matrix_set_item(mat, row, col, val):
     """
     return _angka.agx_matrix_set_item(mat, row, col, val)
 
-def agx_matrix_get_item(mat, row, col):
+def agx_matrix_get_item(mat, row, col, output):
     r"""
-    agx_matrix_get_item(AgxMatrix mat, int row, int col) -> double
+    agx_matrix_get_item(AgxMatrix mat, int row, int col, double * output) -> int
 
     Parameters
     ----------
     mat: AgxMatrix *
     row: int
     col: int
+    output: double *
 
     """
-    return _angka.agx_matrix_get_item(mat, row, col)
+    return _angka.agx_matrix_get_item(mat, row, col, output)
 
 def agx_matrix_to_string(mat, islong):
     r"""
@@ -1477,7 +1480,7 @@ def agx_matrix_to_string(mat, islong):
 
 def agx_matrix_print(mat, islong):
     r"""
-    agx_matrix_print(AgxMatrix mat, int islong) -> void *
+    agx_matrix_print(AgxMatrix mat, int islong) -> int
 
     Parameters
     ----------
@@ -1489,7 +1492,7 @@ def agx_matrix_print(mat, islong):
 
 def agx_matrix_print_partial(mat):
     r"""
-    agx_matrix_print_partial(AgxMatrix mat) -> void *
+    agx_matrix_print_partial(AgxMatrix mat) -> int
 
     Parameters
     ----------
@@ -1500,7 +1503,7 @@ def agx_matrix_print_partial(mat):
 
 def agx_matrix_print_full(mat):
     r"""
-    agx_matrix_print_full(AgxMatrix mat) -> void *
+    agx_matrix_print_full(AgxMatrix mat) -> int
 
     Parameters
     ----------
@@ -1511,7 +1514,7 @@ def agx_matrix_print_full(mat):
 
 def agx_matrix_add_by_value(mat, val):
     r"""
-    agx_matrix_add_by_value(AgxMatrix mat, double val) -> void *
+    agx_matrix_add_by_value(AgxMatrix mat, double val) -> int
 
     Parameters
     ----------
@@ -1523,7 +1526,7 @@ def agx_matrix_add_by_value(mat, val):
 
 def agx_matrix_substract_by_value(mat, val):
     r"""
-    agx_matrix_substract_by_value(AgxMatrix mat, double val) -> void *
+    agx_matrix_substract_by_value(AgxMatrix mat, double val) -> int
 
     Parameters
     ----------
@@ -1535,7 +1538,7 @@ def agx_matrix_substract_by_value(mat, val):
 
 def agx_matrix_multiply_by_value(mat, val):
     r"""
-    agx_matrix_multiply_by_value(AgxMatrix mat, double val) -> void *
+    agx_matrix_multiply_by_value(AgxMatrix mat, double val) -> int
 
     Parameters
     ----------
@@ -1547,7 +1550,7 @@ def agx_matrix_multiply_by_value(mat, val):
 
 def agx_matrix_divide_by_value(mat, val):
     r"""
-    agx_matrix_divide_by_value(AgxMatrix mat, double val) -> void *
+    agx_matrix_divide_by_value(AgxMatrix mat, double val) -> int
 
     Parameters
     ----------
@@ -1570,7 +1573,7 @@ def agx_matrix_new_duplicate_size(mat):
 
 def agx_matrix_copy_elements(src, target):
     r"""
-    agx_matrix_copy_elements(AgxMatrix src, AgxMatrix target) -> void *
+    agx_matrix_copy_elements(AgxMatrix src, AgxMatrix target) -> int
 
     Parameters
     ----------
@@ -1582,7 +1585,7 @@ def agx_matrix_copy_elements(src, target):
 
 def agx_matrix_copy_shape(src, target):
     r"""
-    agx_matrix_copy_shape(AgxMatrix src, AgxMatrix target) -> void *
+    agx_matrix_copy_shape(AgxMatrix src, AgxMatrix target) -> int
 
     Parameters
     ----------
@@ -1594,7 +1597,7 @@ def agx_matrix_copy_shape(src, target):
 
 def agx_matrix_transpose(mat):
     r"""
-    agx_matrix_transpose(AgxMatrix mat) -> void *
+    agx_matrix_transpose(AgxMatrix mat) -> int
 
     Parameters
     ----------
@@ -1862,6 +1865,10 @@ class AgvFigure(object):
         _angka.AgvFigure_swiginit(self, _angka.new_AgvFigure(dim1, dim2))
     __swig_destroy__ = _angka.delete_AgvFigure
 
+    def delete(self):
+        r"""delete(AgvFigure self)"""
+        return _angka.AgvFigure_delete(self)
+
     def plot(self, canvas, vecx, vecy):
         r"""
         plot(AgvFigure self, int canvas, AgxVector vecx, AgxVector vecy)
@@ -1910,7 +1917,7 @@ _angka.AgvFigure_swigregister(AgvFigure)
 
 def agv_color_pallete_set(clr, index, r, g, b, a, val):
     r"""
-    agv_color_pallete_set(AgxColor clr, int index, int r, int g, int b, double a, double val) -> void *
+    agv_color_pallete_set(AgxColor clr, int index, int r, int g, int b, double a, double val)
 
     Parameters
     ----------
@@ -1939,11 +1946,11 @@ def agv_figure_new(row, col):
 
 def agv_figure_delete(fig):
     r"""
-    agv_figure_delete(AgvFigure fig)
+    agv_figure_delete(AgvFigure ** fig)
 
     Parameters
     ----------
-    fig: AgvFigure *
+    fig: AgvFigure **
 
     """
     return _angka.agv_figure_delete(fig)
@@ -1974,7 +1981,7 @@ def agv_set_canvas(fig, index):
 
 def agv_plot(can, vecx, vecy):
     r"""
-    agv_plot(AgvCanvas can, AgxVector vecx, AgxVector vecy) -> void *
+    agv_plot(AgvCanvas can, AgxVector vecx, AgxVector vecy)
 
     Parameters
     ----------
@@ -1987,7 +1994,7 @@ def agv_plot(can, vecx, vecy):
 
 def agv_scatter(can, vecx, vecy):
     r"""
-    agv_scatter(AgvCanvas can, AgxVector vecx, AgxVector vecy) -> void *
+    agv_scatter(AgvCanvas can, AgxVector vecx, AgxVector vecy)
 
     Parameters
     ----------
@@ -2000,7 +2007,7 @@ def agv_scatter(can, vecx, vecy):
 
 def agv_imshow(can, mat):
     r"""
-    agv_imshow(AgvCanvas can, AgxMatrix mat) -> void *
+    agv_imshow(AgvCanvas can, AgxMatrix mat)
 
     Parameters
     ----------
@@ -2025,7 +2032,7 @@ def agv_color_pallete_canvas_set_size(can, line, size):
 
 def agv_xlim(can, min, max):
     r"""
-    agv_xlim(AgvCanvas can, double min, double max) -> void *
+    agv_xlim(AgvCanvas can, double min, double max)
 
     Parameters
     ----------
@@ -2038,7 +2045,7 @@ def agv_xlim(can, min, max):
 
 def agv_ylim(can, min, max):
     r"""
-    agv_ylim(AgvCanvas can, double min, double max) -> void *
+    agv_ylim(AgvCanvas can, double min, double max)
 
     Parameters
     ----------
@@ -2051,7 +2058,7 @@ def agv_ylim(can, min, max):
 
 def agv_show(fig):
     r"""
-    agv_show(AgvFigure fig)
+    agv_show(AgvFigure fig) -> int
 
     Parameters
     ----------
@@ -2062,7 +2069,7 @@ def agv_show(fig):
 
 def agv_set_color_alpha(can, line, red, green, blue, alpha):
     r"""
-    agv_set_color_alpha(AgvCanvas can, int line, int red, int green, int blue, double alpha) -> void *
+    agv_set_color_alpha(AgvCanvas can, int line, int red, int green, int blue, double alpha)
 
     Parameters
     ----------
@@ -2078,7 +2085,7 @@ def agv_set_color_alpha(can, line, red, green, blue, alpha):
 
 def agv_set_color_alpha_line(can, line, red, green, blue, alpha):
     r"""
-    agv_set_color_alpha_line(AgvCanvas can, int line, int red, int green, int blue, double alpha) -> void *
+    agv_set_color_alpha_line(AgvCanvas can, int line, int red, int green, int blue, double alpha)
 
     Parameters
     ----------
@@ -2094,7 +2101,7 @@ def agv_set_color_alpha_line(can, line, red, green, blue, alpha):
 
 def agv_set_radius(can, line, radius):
     r"""
-    agv_set_radius(AgvCanvas can, int line, int radius) -> void *
+    agv_set_radius(AgvCanvas can, int line, int radius)
 
     Parameters
     ----------
@@ -2107,7 +2114,7 @@ def agv_set_radius(can, line, radius):
 
 def agv_set_linewidth(can, line, linewidth):
     r"""
-    agv_set_linewidth(AgvCanvas can, int line, int linewidth) -> void *
+    agv_set_linewidth(AgvCanvas can, int line, int linewidth)
 
     Parameters
     ----------
@@ -2120,7 +2127,7 @@ def agv_set_linewidth(can, line, linewidth):
 
 def agv_set_grid(can, boolean):
     r"""
-    agv_set_grid(AgvCanvas can, int boolean) -> void *
+    agv_set_grid(AgvCanvas can, int boolean)
 
     Parameters
     ----------

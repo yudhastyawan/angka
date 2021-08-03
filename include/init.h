@@ -47,7 +47,7 @@ typedef struct s_slice {
  * 5
  * @endcode
  **/
-void *agx_print_integer(int val);
+void agx_print_integer(int val);
 
 /**
  * @brief print a double value
@@ -61,7 +61,7 @@ void *agx_print_integer(int val);
  * 5.0000
  * @endcode
  **/
-void *agx_print_double(double val);
+void agx_print_double(double val);
 
 /**
  * @brief print a string (an array of character)
@@ -75,7 +75,7 @@ void *agx_print_double(double val);
  * hello world
  * @endcode
  **/
-void *agx_print_string(char *val);
+void agx_print_string(char *val);
 /**@}**/
 
 /**
@@ -90,6 +90,7 @@ void *agx_print_string(char *val);
  * int len;
  * len = agx_string_length_integer(5);
  * @endcode
+ * @note return negative value if error
  **/
 int agx_string_length_integer(int val);
 
@@ -101,6 +102,7 @@ int agx_string_length_integer(int val);
  * int len;
  * len = agx_string_length_string("hello world");
  * @endcode
+ * @note return negative value if error
  **/
 int agx_string_length_string(char *str);
 
@@ -112,6 +114,7 @@ int agx_string_length_string(char *str);
  * int len;
  * len = agx_string_length_double(8.5);
  * @endcode
+ * @note return negative value if error
  **/
 int agx_string_length_double(double val);
 /**@}**/
@@ -125,6 +128,7 @@ int agx_string_length_double(double val);
  * char *str;
  * str = agx_string_from_double_set("%.2f",7.897);
  * @endcode
+ * @note return NULL if error
  **/
 char *agx_string_from_double_set(char *fmt, double val);
 
@@ -136,6 +140,7 @@ char *agx_string_from_double_set(char *fmt, double val);
  * char *str;
  * str = agx_string_from_integer(3);
  * @endcode
+ * @note return NULL if error.
  **/
 char *agx_string_from_integer(int val);
 
@@ -144,8 +149,9 @@ char *agx_string_from_integer(int val);
  * @param[out] target the string target
  * @param[in] val the input value
  * @param[in] isInitial boolean value, TRUE if using copy, not concatenate
+ * @return negative value if error, 0 if success.
  **/
-void *agx_string_append_integer(char *target, int val, int isInitial);
+int agx_string_append_integer(char *target, int val, int isInitial);
 
 /**
  * @brief create a string from double
@@ -155,6 +161,7 @@ void *agx_string_append_integer(char *target, int val, int isInitial);
  * char *str;
  * str = agx_string_from_double(7.897);
  * @endcode
+ * @note return NULL if error.
  **/
 char *agx_string_from_double(double val);
 
@@ -163,8 +170,9 @@ char *agx_string_from_double(double val);
  * @param[out] target the string target
  * @param[in] val the input value
  * @param[in] isInitial boolean value, TRUE if using copy, not concatenate
+ * @return 0 if success, negative value if error
  **/
-void *agx_string_append_double(char *target, double val, int isInitial);
+int agx_string_append_double(char *target, double val, int isInitial);
 
 /**
  * @brief print some values in variant formats
@@ -172,18 +180,21 @@ void *agx_string_append_double(char *target, double val, int isInitial);
  * @param end define string after the end value, such as newline "\n"
  * @param fmt format style for all, for the example "fddcss" -> double "f", string "s", char "c", and integer "d"
  * @param args(...) all values as order, such as: 5, "hello", 2.7
+ * @return 0 if success.
  **/
-void *agx_print_values(char *inbetween, char *end, char *fmt, ...);
+int agx_print_values(char *inbetween, char *end, char *fmt, ...);
 
 /**
  * @brief the quick function of @ref agx_print_values using inbetween = " ", and end = "\n"
+ * @return 0 if success.
  **/
-void *agx_print_values_space(char *fmt, ...);
+int agx_print_values_space(char *fmt, ...);
 
 /**
  * @brief the quick function of @ref agx_print_values using inbetween = "\n", and end = " "
+ * @return 0 if success.
  **/
-void *agx_print_values_new_line(char *fmt, ...);
+int agx_print_values_new_line(char *fmt, ...);
 #ifdef __cplusplus
 }
 #endif

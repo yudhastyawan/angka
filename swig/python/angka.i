@@ -9,4 +9,4 @@
 %include "standard.h"
 %include vector.i
 %include matrix.i
-%include plot.i
+%include visual.i

@@ -67,12 +67,12 @@
     s_matrix(double *ndarray_in, int size) {
         AgxVector *vec = agx_vector_new_from_array(ndarray_in, size);
         AgxMatrix *mat = agx_matrix_new_from_vector(vec);
-        agx_vector_delete(vec);
+        agx_vector_delete(&vec);
         return mat;
     }
 
     ~s_matrix() {
-        agx_matrix_delete($self);
+        agx_matrix_delete(&$self);
     }
 
     void constant(double val) {
@@ -82,7 +82,7 @@
     void random(double min, double max) {
         AgxMatrix *mat_new = agx_matrix_new_random($self->r_shape[0], $self->r_shape[1], min, max);
         agx_matrix_copy_elements(mat_new, $self);
-        agx_matrix_delete(mat_new);
+        agx_matrix_delete(&mat_new);
     }
 
     struct s_iter __iter__() {
@@ -93,7 +93,9 @@
     }
 
     double __getitem__(int pyrow, int pycol) {
-        return agx_matrix_get_item($self, pyrow, pycol);
+        double output;
+        agx_matrix_get_item($self, pyrow, pycol, &output);
+        return output;
     }
 
     void __setitem__(int pyrow, int pycol, double value) {

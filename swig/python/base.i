@@ -5,7 +5,7 @@
 #include "standard.h"
 #include "vector.h"
 #include "matrix.h"
-#include "plot.h"
+#include "visual.h"
 #ifndef __ADDITIONAL_FEATURE_H
 #define __ADDITIONAL_FEATURE_H
 static int isErr = 0;

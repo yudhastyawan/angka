@@ -1,12 +1,20 @@
-all:
-	make compile --directory=../../
-	make test
+LIBLOC=../../lib
+INCLOC=../../include
 
-test:
-	gcc -c main_2.c -I../../include -o main.o
-	gcc main.o -L../../lib/ -lagx -lm -o ./main.out
+all:
+	make test_1
+	make test_2
+
+test_1:
+	gcc -c main_1.c -I$(INCLOC) -o main.o
+	gcc main.o -L$(LIBLOC) -lagx -o ./main.out
 	./main.out
 	rm -rf *.o *.out
 
-clean:
-	rm -f ../../lib/libagx.a
+test_2:
+	gcc -c main_2.c -I$(INCLOC) -o main.o
+	gcc main.o -L$(LIBLOC) -lagx -o ./main.out
+	./main.out
+	rm -rf *.o *.out
+
+.PHONY: all test_1 test_2

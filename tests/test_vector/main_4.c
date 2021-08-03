@@ -5,6 +5,6 @@ int main() {
     agx_vector_print_full(vec);
     agx_vector_sort(vec);
     agx_vector_print_full(vec);
-    agx_vector_delete(vec);
+    agx_vector_delete(&vec);
     return 0;
 }

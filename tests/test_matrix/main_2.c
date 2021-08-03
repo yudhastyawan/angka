@@ -17,11 +17,11 @@ int main() {
     AgxMatrix *mat4 = agx_matrix_new_extract_row_col(res, 1, 4, 2, 2);
     agx_matrix_print_partial(mat4);
 
-    agx_matrix_delete(mat1);
-    agx_matrix_delete(mat2);
-    agx_matrix_delete(res);
-    agx_matrix_delete(mat3);
-    agx_matrix_delete(mat4);
-    agx_vector_delete(vec);
+    agx_matrix_delete(&mat1);
+    agx_matrix_delete(&mat2);
+    agx_matrix_delete(&res);
+    agx_matrix_delete(&mat3);
+    agx_matrix_delete(&mat4);
+    agx_vector_delete(&vec);
     return 0;
 }

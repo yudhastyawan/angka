@@ -7,6 +7,6 @@ int main() {
     agx_matrix_transpose(mat);
     agx_matrix_print_partial(mat); 
 
-    agx_matrix_delete(mat);
+    agx_matrix_delete(&mat);
     return 0;
 }

@@ -43,7 +43,7 @@
     }
 
     ~s_vector() {
-        agx_vector_delete($self);
+        agx_vector_delete(&$self);
     }
 
     struct s_iter __iter__() {
@@ -54,7 +54,9 @@
     }
 
     double __getitem__(int index) {
-        return agx_vector_get_item($self, index);
+        double output;
+        agx_vector_get_item($self, index, &output);
+        return output;
     }
 
     void __setitem__(int index, double value) {
@@ -68,13 +70,13 @@
     void random(double min, double max) {
         AgxVector *vec_new = agx_vector_new_random($self->size, min, max);
         agx_vector_copy_elements(vec_new, $self);
-        agx_vector_delete(vec_new);
+        agx_vector_delete(&vec_new);
     }
 
     void linspace(double min, double max) {
         AgxVector *vec_new = agx_vector_new_linspace(min, max, $self->size);;
         agx_vector_copy_elements(vec_new, $self);
-        agx_vector_delete(vec_new);
+        agx_vector_delete(&vec_new);
     }
 
     p_vectorString_t __str__() {

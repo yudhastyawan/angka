@@ -24,7 +24,7 @@ int main() {
     agx_vector_print_partial(vec);
     //! [print a vector in a short mode]
     //! [delete a vector]
-    agx_vector_delete(vec);
+    agx_vector_delete(&vec);
     //! [delete a vector]
     return 0;
 }

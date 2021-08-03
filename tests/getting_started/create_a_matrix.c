@@ -17,6 +17,6 @@ int main() {
     AgxMatrix *vec = agx_matrix_new_random(6, 10, -8., 5.);
     agx_matrix_print_full(vec);
     agx_matrix_print_partial(vec);
-    agx_matrix_delete(vec);
+    agx_matrix_delete(&vec);
     return 0;
 }

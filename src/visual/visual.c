@@ -6,7 +6,7 @@
 #include <cairo.h>
 #include <gtk/gtk.h>
 #include <math.h>
-#include "plot.h"
+#include "visual.h"
 
 // start of static declarations
 static void do_drawing(cairo_t *, GtkWidget *, gpointer);
@@ -16,12 +16,16 @@ static void destroy(GtkWidget *widget, gpointer data);
 void agv_create_text_addxy(cairo_t *cr, AgxCoordDouble *point, AgxCoordInt **window, AgxCoordDouble **datlim, double fontSize, char *text, int x, int y);
 
 AgxColor *agv_color_pallete_new(int size) {
-    AgxColor *clr = (AgxColor *)malloc(size*sizeof(AgxColor));;
+    AgxColor *clr = malloc(size*sizeof(AgxColor));
+    if (clr == NULL) {
+        fprintf(stderr, "clr cannot be allocated\n");
+        return NULL;
+    }
     clr[0].size = size;
     return clr;
 }
 
-void *agv_color_pallete_set(AgxColor *clr, int index, int r, int g, int b, double a, double val) {
+void agv_color_pallete_set(AgxColor *clr, int index, int r, int g, int b, double a, double val) {
     clr[index].r = r;
     clr[index].g = g;
     clr[index].b = b;
@@ -29,45 +33,62 @@ void *agv_color_pallete_set(AgxColor *clr, int index, int r, int g, int b, doubl
     clr[index].val = val;
 }
 
-void *agv_color_pallete_delete(AgxColor *clr) {
-    free(clr);
+void agv_color_pallete_delete(AgxColor **clr) {
+    free(*clr);
+    *clr = NULL;
 }
 
 AgvFigure *agv_figure_new(int row, int col) {
     AgvFigure *fig;
-    fig = (AgvFigure *)malloc(sizeof(AgvFigure));
+    fig = malloc(sizeof(AgvFigure));
+    if (fig == NULL) {
+        fprintf(stderr, "fig cannot be allocated\n");
+        return NULL;
+    }
     fig->row = row;
     fig->col = col;
     fig->size = row*col;
-    fig->p_r_canvas = (AgvCanvas *)malloc((fig->size)*sizeof(AgvCanvas));
+    fig->p_r_canvas = malloc((fig->size)*sizeof(AgvCanvas));
+    if (fig->p_r_canvas == NULL) {
+        fprintf(stderr, "fig->p_r_canvas cannot be allocated\n");
+        return NULL;
+    }
     return fig;
 }
 
-void agv_figure_delete(AgvFigure *fig) {
-    for (int i = 0; i < fig->size; i++) {
-        if (fig->p_r_canvas[i].numOfVec != 0) {
-            for (int j = 0; j < fig->p_r_canvas[i].numOfVec; j++) {
-                if (fig->p_r_canvas[i].p_r_type[j] == AGV_IMAGE) {
-                    agv_color_pallete_delete(fig->p_r_canvas[i].p_r_color_pallete[j]);
+void agv_figure_delete(AgvFigure **figin) {
+    AgvFigure *fig = *figin;
+    if (fig != NULL) {
+        for (int i = 0; i < fig->size; i++) {
+            if (fig->p_r_canvas[i].numOfVec != 0) {
+                for (int j = 0; j < fig->p_r_canvas[i].numOfVec; j++) {
+                    if (fig->p_r_canvas[i].p_r_type[j] == AGV_IMAGE) {
+                        agv_color_pallete_delete(&(fig->p_r_canvas[i].p_r_color_pallete[j]));
+                    }
                 }
+                free(fig->p_r_canvas[i].p_r_type);
+                free(fig->p_r_canvas[i].p_r_vecx);
+                free(fig->p_r_canvas[i].p_r_vecy);
+                free(fig->p_r_canvas[i].p_r_color);
+                free(fig->p_r_canvas[i].p_r_linewidth);
+                free(fig->p_r_canvas[i].p_r_radius);
+                free(fig->p_r_canvas[i].p_r_color_outside);
+                free(fig->p_r_canvas[i].p_r_color_pallete);
+                free(fig->p_r_canvas[i].p_r_mat);
             }
-            free(fig->p_r_canvas[i].p_r_type);
-            free(fig->p_r_canvas[i].p_r_vecx);
-            free(fig->p_r_canvas[i].p_r_vecy);
-            free(fig->p_r_canvas[i].p_r_color);
-            free(fig->p_r_canvas[i].p_r_linewidth);
-            free(fig->p_r_canvas[i].p_r_radius);
-            free(fig->p_r_canvas[i].p_r_color_outside);
-            free(fig->p_r_canvas[i].p_r_color_pallete);
-            free(fig->p_r_canvas[i].p_r_mat);
         }
+        free(fig->p_r_canvas);
+        free(fig);
     }
-    free(fig->p_r_canvas);
-    free(fig);
+    *figin = NULL;
 }
 
 AgvFigure *agv_subplots(int row, int col) {
     AgvFigure *fig = agv_figure_new(row, col);
+    if (fig == NULL) {
+        fprintf(stderr, "fig cannot be allocated\n");
+        return NULL;
+    }
     for (int i = 0; i < fig->size; i++) {
         fig->p_r_canvas[i].numOfVec = 0;
     }
@@ -75,21 +96,25 @@ AgvFigure *agv_subplots(int row, int col) {
 }
 
 AgvCanvas *agv_set_canvas(AgvFigure *fig, int index) {
+    if (index >= fig->size) {
+        fprintf(stderr, "index exceeds the size of figure\n");
+        return NULL;
+    }
     return &(fig->p_r_canvas[index]);
 }
 
-void *agv_allocation(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy, AgxMatrix *mat, int AGV_TYPE){
+void agv_allocation(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy, AgxMatrix *mat, int AGV_TYPE){
     if (can->numOfVec == 0) {
         can->numOfVec++;
-        can->p_r_type = (int *)malloc(can->numOfVec*sizeof(int));
-        can->p_r_linewidth = (int *)malloc(can->numOfVec*sizeof(int));
-        can->p_r_radius = (int *)malloc(can->numOfVec*sizeof(int));
-        can->p_r_color = (AgxColor *)malloc(can->numOfVec*sizeof(AgxColor));
-        can->p_r_color_outside = (AgxColor *)malloc(can->numOfVec*sizeof(AgxColor));
-        can->p_r_vecx = (AgxVector **)malloc(can->numOfVec*sizeof(AgxVector *));
-        can->p_r_vecy = (AgxVector **)malloc(can->numOfVec*sizeof(AgxVector *));
-        can->p_r_mat = (AgxMatrix **)malloc(can->numOfVec*sizeof(AgxMatrix *));
-        can->p_r_color_pallete = (AgxColor **)malloc(can->numOfVec*sizeof(AgxColor *));
+        can->p_r_type = malloc(can->numOfVec*sizeof(int));
+        can->p_r_linewidth = malloc(can->numOfVec*sizeof(int));
+        can->p_r_radius = malloc(can->numOfVec*sizeof(int));
+        can->p_r_color = malloc(can->numOfVec*sizeof(AgxColor));
+        can->p_r_color_outside = malloc(can->numOfVec*sizeof(AgxColor));
+        can->p_r_vecx = malloc(can->numOfVec*sizeof(AgxVector *));
+        can->p_r_vecy = malloc(can->numOfVec*sizeof(AgxVector *));
+        can->p_r_mat = malloc(can->numOfVec*sizeof(AgxMatrix *));
+        can->p_r_color_pallete = malloc(can->numOfVec*sizeof(AgxColor *));
         if (AGV_TYPE != AGV_IMAGE) {
             can->min = (AgxCoordDouble) {.x = agx_vector_min(vecx), .y = agx_vector_min(vecy)};
             can->max = (AgxCoordDouble) {.x = agx_vector_max(vecx), .y = agx_vector_max(vecy)};
@@ -100,20 +125,20 @@ void *agv_allocation(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy, AgxMatrix
 
     } else {
         can->numOfVec++;
-        can->p_r_type = (int *)realloc(can->p_r_type, can->numOfVec*sizeof(int));
-        can->p_r_linewidth = (int *)realloc(can->p_r_linewidth, can->numOfVec*sizeof(int));
-        can->p_r_radius = (int *)realloc(can->p_r_radius, can->numOfVec*sizeof(int));
-        can->p_r_color = (AgxColor *)realloc(can->p_r_color, can->numOfVec*sizeof(AgxColor));
-        can->p_r_color_outside = (AgxColor *)realloc(can->p_r_color_outside, can->numOfVec*sizeof(AgxColor));
-        can->p_r_vecx = (AgxVector **)realloc(can->p_r_vecx, can->numOfVec*sizeof(AgxVector *));
-        can->p_r_vecy = (AgxVector **)realloc(can->p_r_vecy, can->numOfVec*sizeof(AgxVector *));
-        can->p_r_mat = (AgxMatrix **)realloc(can->p_r_mat, can->numOfVec*sizeof(AgxMatrix *));
-        can->p_r_color_pallete = (AgxColor **)realloc(can->p_r_color_pallete, can->numOfVec*sizeof(AgxColor *));
+        can->p_r_type = realloc(can->p_r_type, can->numOfVec*sizeof(int));
+        can->p_r_linewidth = realloc(can->p_r_linewidth, can->numOfVec*sizeof(int));
+        can->p_r_radius = realloc(can->p_r_radius, can->numOfVec*sizeof(int));
+        can->p_r_color = realloc(can->p_r_color, can->numOfVec*sizeof(AgxColor));
+        can->p_r_color_outside = realloc(can->p_r_color_outside, can->numOfVec*sizeof(AgxColor));
+        can->p_r_vecx = realloc(can->p_r_vecx, can->numOfVec*sizeof(AgxVector *));
+        can->p_r_vecy = realloc(can->p_r_vecy, can->numOfVec*sizeof(AgxVector *));
+        can->p_r_mat = realloc(can->p_r_mat, can->numOfVec*sizeof(AgxMatrix *));
+        can->p_r_color_pallete = realloc(can->p_r_color_pallete, can->numOfVec*sizeof(AgxColor *));
     }
 }
 
-void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
-    AgxMatrix *mat;
+void agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
+    AgxMatrix *mat = NULL;
     agv_allocation(can, vecx, vecy, mat, AGV_PLOT);
     can->p_r_type[can->numOfVec - 1] = AGV_PLOT;
     can->p_r_linewidth[can->numOfVec - 1] = 5;
@@ -123,8 +148,8 @@ void *agv_plot(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
     can->grid = 0;
 }
 
-void *agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
-    AgxMatrix *mat;
+void agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
+    AgxMatrix *mat = NULL;
     agv_allocation(can, vecx, vecy, mat, AGV_SCATTER);
     can->p_r_type[can->numOfVec - 1] = AGV_SCATTER;
     can->p_r_linewidth[can->numOfVec - 1] = 1;
@@ -136,8 +161,8 @@ void *agv_scatter(AgvCanvas *can, AgxVector *vecx, AgxVector *vecy){
     can->grid = 0;
 }
 
-void *agv_imshow(AgvCanvas *can, AgxMatrix *mat){
-    AgxVector *vecx, *vecy;
+void agv_imshow(AgvCanvas *can, AgxMatrix *mat){
+    AgxVector *vecx = NULL, *vecy = NULL;
     agv_allocation(can, vecx, vecy, mat, AGV_IMAGE);
     can->p_r_type[can->numOfVec - 1] = AGV_IMAGE;
     can->p_r_linewidth[can->numOfVec - 1] = 1;
@@ -152,48 +177,56 @@ void *agv_imshow(AgvCanvas *can, AgxMatrix *mat){
 
 AgxColor *agv_color_pallete_canvas_set_size(AgvCanvas *can, int line, int size) {
     AgxColor *clr = agv_color_pallete_new(size);
-    agv_color_pallete_delete(can->p_r_color_pallete[line]);
+    if (clr == NULL) {
+        fprintf(stderr, "clr cannot be allocated\n");
+        return NULL;
+    }
+    agv_color_pallete_delete(&(can->p_r_color_pallete[line]));
     can->p_r_color_pallete[line] = clr;
     return clr;
 }
 
-void *agv_xlim(AgvCanvas *can, double min, double max) {
+void agv_xlim(AgvCanvas *can, double min, double max) {
     can->min.x = min;
     can->max.x = max;
 }
 
-void *agv_ylim(AgvCanvas *can, double min, double max) {
+void agv_ylim(AgvCanvas *can, double min, double max) {
     can->min.y = min;
     can->max.y = max;
 }
 
-void *agv_set_grid(AgvCanvas *can, int boolean) {
+void agv_set_grid(AgvCanvas *can, int boolean) {
     can->grid = boolean;
 }
 
-void *agv_set_color_alpha(AgvCanvas *can, int line, int red, int green, int blue, double alpha) {
+void agv_set_color_alpha(AgvCanvas *can, int line, int red, int green, int blue, double alpha) {
     can->p_r_color[line].r = red;
     can->p_r_color[line].g = green;
     can->p_r_color[line].b = blue;
     can->p_r_color[line].a = alpha;
 }
 
-void *agv_set_color_alpha_line(AgvCanvas *can, int line, int red, int green, int blue, double alpha) {
+void agv_set_color_alpha_line(AgvCanvas *can, int line, int red, int green, int blue, double alpha) {
     can->p_r_color_outside[line].r = red;
     can->p_r_color_outside[line].g = green;
     can->p_r_color_outside[line].b = blue;
     can->p_r_color_outside[line].a = alpha;
 }
 
-void *agv_set_radius(AgvCanvas *can, int line, int radius) {
+void agv_set_radius(AgvCanvas *can, int line, int radius) {
     can->p_r_radius[line] = radius;
 }
 
-void *agv_set_linewidth(AgvCanvas *can, int line, int linewidth) {
+void agv_set_linewidth(AgvCanvas *can, int line, int linewidth) {
     can->p_r_linewidth[line] = linewidth;
 }
 
-void agv_show(AgvFigure *fig) {
+int agv_show(AgvFigure *fig) {
+    if (fig == NULL) {
+        fprintf(stderr, "fig is NULL\n");
+        return -1;
+    }
     GtkWidget *window;
 
     gtk_init(0, NULL);
@@ -223,6 +256,7 @@ void agv_show(AgvFigure *fig) {
 
     gtk_widget_show_all(window);
     gtk_main();
+    return 0;
 }
 
 void agv_data_to_canvas(AgxCoordInt *winMin, AgxCoordInt *winMax, AgxCoordDouble *input, AgxCoordInt *output, AgxCoordDouble *dataMin, AgxCoordDouble *dataMax) {
@@ -282,7 +316,6 @@ void agv_create_circle(cairo_t *cr, AgxCoordDouble *point, AgxCoordInt **window,
 }
 
 void agv_create_multicircle(cairo_t *cr, AgxVector *vecx, AgxVector *vecy, AgxCoordInt **window, AgxCoordDouble **datlim, double radius, int lineWidth, AgxColor *color_fill, AgxColor *color_outside){
-    AgxCoordInt output;
     AgxCoordDouble input;
     cairo_set_line_width(cr, lineWidth);
     for (int i = 0; i < vecx->size; i++) {
@@ -293,7 +326,7 @@ void agv_create_multicircle(cairo_t *cr, AgxVector *vecx, AgxVector *vecy, AgxCo
 }
 
 void agv_select_color_pallete(double *val, AgxColor *clr, AgxColor *output) {
-    int idx_1, idx_2;
+    int idx_1 = 0, idx_2 = 0;
     AgxVector *veclr = agx_vector_new(clr[0].size);
     for (int i = 0; i < clr[0].size; i++) {
         veclr->p_r_nums[i] = clr[i].val;
@@ -311,7 +344,7 @@ void agv_select_color_pallete(double *val, AgxColor *clr, AgxColor *output) {
             }
         }
     }
-    agx_vector_delete(veclr);
+    agx_vector_delete(&veclr);
     output->r = (((double)clr[idx_2].r - (double)clr[idx_1].r)/(clr[idx_2].val-clr[idx_1].val)) * (*val - clr[idx_1].val) + (double)clr[idx_1].r;
     output->g = (((double)clr[idx_2].g - (double)clr[idx_1].g)/(clr[idx_2].val-clr[idx_1].val)) * (*val - clr[idx_1].val) + (double)clr[idx_1].g;
     output->b = (((double)clr[idx_2].b - (double)clr[idx_1].b)/(clr[idx_2].val-clr[idx_1].val)) * (*val - clr[idx_1].val) + (double)clr[idx_1].b;
@@ -331,7 +364,6 @@ void agv_create_rectangle(cairo_t *cr, AgxCoordDouble *point, AgxCoordInt **wind
 }
 
 void agv_create_multirectangle(cairo_t *cr, AgxMatrix *mat, AgxCoordInt **window, AgxCoordDouble **datlim, int lineWidth, AgxColor *color_pallete, AgxColor *color_outside){
-    AgxCoordInt output;
     AgxCoordDouble input;
     AgxColor color_fill;
     cairo_set_line_width(cr, lineWidth);
@@ -406,7 +438,6 @@ static void do_drawing(cairo_t *cr, GtkWidget *widget, gpointer data) {
     int winx, winy;
     AgxCoordDouble input;
     AgxCoordDouble points[2];
-    AgxCoordInt output;
 
     GtkWidget *win = gtk_widget_get_toplevel(widget);
     gtk_window_get_size(GTK_WINDOW(win), &winx, &winy);
@@ -447,7 +478,7 @@ static void do_drawing(cairo_t *cr, GtkWidget *widget, gpointer data) {
             agv_create_line(cr, points, window, datLim, 1);
         }
     }
-    agx_vector_delete(xlbl);
+    agx_vector_delete(&xlbl);
 
     xlbl = agx_vector_new_arange_double(dataMin->y, (dataMax->y - dataMin->y)/10., dataMax->y);
     for (int i = 0; i < xlbl->size; i++) {
@@ -468,7 +499,7 @@ static void do_drawing(cairo_t *cr, GtkWidget *widget, gpointer data) {
             agv_create_line(cr, points, window, datLim, 1);
         }
     }
-    agx_vector_delete(xlbl);
+    agx_vector_delete(&xlbl);
 
     for (int i = 0; i < can->numOfVec; i++) {
         if (can->p_r_type[i] == AGV_PLOT) {

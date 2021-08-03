@@ -1,12 +1,35 @@
-all:
-	make angka --directory=../../
-	make test
+GTKLIBS=`pkg-config --libs gtk+-3.0`
+LIBLOC=../../lib
+INCLOC=../../include
 
-test:
-	gcc -c show_a_matrix.c -I../../include -I../../visual/include -o main.o
-	gcc main.o -L../../lib/ -lagv -lm `pkg-config --libs gtk+-3.0` -o ./main.out
+all:
+	make test_vec
+	make test_mat
+	make test_plot
+	make test_imshow
+
+test_vec:
+	gcc -c create_a_vector.c -I$(INCLOC) -o main.o
+	gcc main.o -L$(LIBLOC) -lagx -o ./main.out
 	./main.out
 	rm -rf *.o *.out
 
-clean:
-	make clean --directory=../../
+test_mat:
+	gcc -c create_a_matrix.c -I$(INCLOC) -o main.o
+	gcc main.o -L$(LIBLOC) -lagx -o ./main.out
+	./main.out
+	rm -rf *.o *.out
+
+test_plot:
+	gcc -c show_a_plot.c -I$(INCLOC) -o main.o
+	gcc main.o -L$(LIBLOC) -lagv -lagx $(GTKLIBS) -o ./main.out
+	./main.out
+	rm -rf *.o *.out
+
+test_imshow:
+	gcc -c show_a_matrix.c -I$(INCLOC) -o main.o
+	gcc main.o -L$(LIBLOC) -lagv -lagx $(GTKLIBS) -o ./main.out
+	./main.out
+	rm -rf *.o *.out
+
+.PHONY: all test_vec test_mat test_plot test_imshow

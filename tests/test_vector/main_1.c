@@ -22,8 +22,8 @@ int main() {
     agx_vector_set_item(vec_zero, 1, 4.);
     agx_vector_print_partial(vec_zero);
 
-    agx_vector_delete(vec);
-    agx_vector_delete(vec_another);
-    agx_vector_delete(vec_zero);
+    agx_vector_delete(&vec);
+    agx_vector_delete(&vec_another);
+    agx_vector_delete(&vec_zero);
     return 0;
 }

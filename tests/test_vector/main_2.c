@@ -7,7 +7,7 @@ int main() {
     agx_vector_print_full(vecx);
     agx_vector_print_full(vecy);
 
-    agx_vector_delete(vecx);
-    agx_vector_delete(vecy);
+    agx_vector_delete(&vecx);
+    agx_vector_delete(&vecy);
     return 0;
 }

@@ -1,5 +1,4 @@
 #include "angka.h"
-#include "angkavisual.h"
 
 int main() {
     int size = 100;
@@ -10,8 +9,8 @@ int main() {
     agv_plot(agv_set_canvas(fig, 0), vecx, vecy);
     agv_show(fig);
 
-    agv_figure_delete(fig);
-    agx_vector_delete(vecx);
-    agx_vector_delete(vecx);
+    agv_figure_delete(&fig);
+    agx_vector_delete(&vecx);
+    agx_vector_delete(&vecy);
     return 0;
 }

@@ -1,0 +1,6 @@
+include src/angka/*.py
+include src/angka/*.pyd
+include src/angka/*.dll
+include src/angka/*-config
+include src/angka/libs/*
+include src/angka/include/*

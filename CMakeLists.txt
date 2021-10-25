@@ -43,7 +43,6 @@ target_link_libraries(agv PUBLIC ${GTK_LIBRARIES})
 
 find_package(PythonLibs)
 
-
 find_package(SWIG)
 include(UseSWIG)
 
@@ -64,6 +63,23 @@ target_link_directories(angkapy
     PUBLIC
     ${PYTHON_LIBRARY_PATH}
 )
+
+if(WIN32)
+set(SWIG_WIN_INCLUDE_DIRECTORIES C:/msys64/usr/share/swig/4.0.2)
+set(Python_NumPy_INCLUDE_DIR C:/ProgramData/Miniconda3/Lib/site-packages/numpy/core/include)
+set(Python_NumPy_LINK_DIR C:/ProgramData/Miniconda3/Lib/site-packages/numpy/core/lib)
+target_include_directories(angkapy
+    PUBLIC
+    ${SWIG_WIN_INCLUDE_DIRECTORIES}
+    ${SWIG_WIN_INCLUDE_DIRECTORIES}/python
+    ${Python_NumPy_INCLUDE_DIR})
+target_link_directories(angkapy
+    PUBLIC
+    ${Python_NumPy_LINK_DIR})
+target_link_libraries(angkapy
+    PUBLIC
+    npymath)
+endif()
 
 target_link_libraries(angkapy
     PUBLIC 
